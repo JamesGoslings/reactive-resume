@@ -46,12 +46,29 @@ type SectionComponentProps = {
 };
 
 // Helper to render item component based on type
-function renderItemByType(type: CustomSectionType, item: CustomSectionItem, itemClassName?: string) {
+function renderItemByType(
+  type: CustomSectionType,
+  item: CustomSectionItem,
+  itemClassName?: string,
+  itemProps?: ItemProps,
+) {
   return match(type)
     .with("summary", () => <SummaryItem {...(item as SummaryItemType)} className={itemClassName} />)
     .with("profiles", () => <ProfilesItem {...(item as SectionItem<"profiles">)} className={itemClassName} />)
-    .with("experience", () => <ExperienceItem {...(item as SectionItem<"experience">)} className={itemClassName} />)
-    .with("education", () => <EducationItem {...(item as SectionItem<"education">)} className={itemClassName} />)
+    .with("experience", () => (
+      <ExperienceItem
+        {...(item as SectionItem<"experience">)}
+        className={itemClassName}
+        headerLayout={itemProps?.headerLayout}
+      />
+    ))
+    .with("education", () => (
+      <EducationItem
+        {...(item as SectionItem<"education">)}
+        className={itemClassName}
+        headerLayout={itemProps?.headerLayout}
+      />
+    ))
     .with("projects", () => <ProjectsItem {...(item as SectionItem<"projects">)} className={itemClassName} />)
     .with("skills", () => <SkillsItem {...(item as SectionItem<"skills">)} className={itemClassName} />)
     .with("languages", () => <LanguagesItem {...(item as SectionItem<"languages">)} className={itemClassName} />)
@@ -63,7 +80,13 @@ function renderItemByType(type: CustomSectionType, item: CustomSectionItem, item
     .with("publications", () => (
       <PublicationsItem {...(item as SectionItem<"publications">)} className={itemClassName} />
     ))
-    .with("volunteer", () => <VolunteerItem {...(item as SectionItem<"volunteer">)} className={itemClassName} />)
+    .with("volunteer", () => (
+      <VolunteerItem
+        {...(item as SectionItem<"volunteer">)}
+        className={itemClassName}
+        headerLayout={itemProps?.headerLayout}
+      />
+    ))
     .with("references", () => <ReferencesItem {...(item as SectionItem<"references">)} className={itemClassName} />)
     .with("cover-letter", () => <CoverLetterItem {...(item as CoverLetterItemType)} className={itemClassName} />)
     .exhaustive();
@@ -216,7 +239,7 @@ export function getSectionComponent(
                   key={item.id}
                   className={cn(`section-item section-item-${customSection.type} print:break-inside-avoid`)}
                 >
-                  {renderItemByType(customSection.type, item, itemClassName)}
+                  {renderItemByType(customSection.type, item, itemClassName, itemProps)}
                 </div>
               ))}
             </div>
