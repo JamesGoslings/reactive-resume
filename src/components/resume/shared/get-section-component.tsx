@@ -29,9 +29,20 @@ import { VolunteerItem } from "./items/volunteer-item";
 import { PageSection } from "./page-section";
 import { PageSummary } from "./page-summary";
 
+/**
+ * Extra props forwarded by a template to each rendered item. Used by templates
+ * (e.g., Meowth) to opt-in to alternative item renderings such as an inline
+ * three-column header. Only item components that declare the corresponding
+ * prop will react to it; others simply ignore the extra props via spread.
+ */
+type ItemProps = {
+  headerLayout?: "split" | "inline";
+};
+
 type SectionComponentProps = {
   sectionClassName?: string;
   itemClassName?: string;
+  itemProps?: ItemProps;
 };
 
 // Helper to render item component based on type
@@ -62,7 +73,7 @@ type SectionProps = { id: string };
 
 export function getSectionComponent(
   section: "summary" | SectionType | (string & {}),
-  { sectionClassName, itemClassName }: SectionComponentProps = {},
+  { sectionClassName, itemClassName, itemProps }: SectionComponentProps = {},
 ) {
   return match(section)
     .with("summary", () => {
@@ -82,7 +93,7 @@ export function getSectionComponent(
     .with("experience", () => {
       const ExperienceSection = (_: SectionProps) => (
         <PageSection type="experience" className={sectionClassName}>
-          {(item) => <ExperienceItem {...item} className={itemClassName} />}
+          {(item) => <ExperienceItem {...item} className={itemClassName} headerLayout={itemProps?.headerLayout} />}
         </PageSection>
       );
 
@@ -91,7 +102,7 @@ export function getSectionComponent(
     .with("education", () => {
       const EducationSection = (_: SectionProps) => (
         <PageSection type="education" className={sectionClassName}>
-          {(item) => <EducationItem {...item} className={itemClassName} />}
+          {(item) => <EducationItem {...item} className={itemClassName} headerLayout={itemProps?.headerLayout} />}
         </PageSection>
       );
 
@@ -163,7 +174,7 @@ export function getSectionComponent(
     .with("volunteer", () => {
       const VolunteerSection = (_: SectionProps) => (
         <PageSection type="volunteer" className={sectionClassName}>
-          {(item) => <VolunteerItem {...item} className={itemClassName} />}
+          {(item) => <VolunteerItem {...item} className={itemClassName} headerLayout={itemProps?.headerLayout} />}
         </PageSection>
       );
 
