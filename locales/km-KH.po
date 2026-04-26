@@ -3053,6 +3053,10 @@ msgid "Single-column with a sidebar and clean grid layout; versatile for any pro
 msgstr "ជួរឈរ​តែមួយ មាន​របារ​បាត និង​ប្លង់​ក្រឡាចត្រង្គ​ស្អាត អាច​ប្រើ​បាន​ល្អ​សម្រាប់​តួនាទី​វិជ្ជាជីវៈ ឬ​បច្ចេកទេស​ណា​ក៏​បាន។"
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
+msgstr ""
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column; polished and serious for senior or enterprise-level positions."
 msgstr "ជួរឈរ​តែមួយ រូបរាង​រលោង និង​ផ្លូវការ​សម្រាប់​តំណែង​ជាន់​ខ្ពស់ ឬ​កម្រិត​សហគ្រាស។"
 
@@ -3929,4 +3933,3 @@ msgstr "បង្រួម"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

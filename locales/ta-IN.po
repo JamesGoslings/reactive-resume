@@ -3053,6 +3053,10 @@ msgid "Single-column with a sidebar and clean grid layout; versatile for any pro
 msgstr "சைட்பாரும் சுத்தமான கிரிட் லேயவுடும் கொண்ட ஒற்றை நெடுவரிசை; எந்தத் தொழில்முறை அல்லது தொழில்நுட்ப பணிக்கும் பொருந்தும் பல்துறை வடிவம்."
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
+msgstr ""
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column; polished and serious for senior or enterprise-level positions."
 msgstr "ஒற்றை நெடுவரிசை; மெத்தனமாகவும் சீரியஸாகவும் இருக்கும் வடிவம்; மூத்த அல்லது எண்டர்பிரைஸ் நிலை பதவிகளுக்கு ஏற்றது."
 
@@ -3929,4 +3933,3 @@ msgstr "சிறிதாக்கு"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "ஜூலு"
-

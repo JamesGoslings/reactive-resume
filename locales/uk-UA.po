@@ -3053,6 +3053,10 @@ msgid "Single-column with a sidebar and clean grid layout; versatile for any pro
 msgstr "Одна колонка з бічною панеллю та чіткою сіткою; універсально для будь-якої професійної чи технічної ролі."
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
+msgstr ""
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column; polished and serious for senior or enterprise-level positions."
 msgstr "Одна колонка; акуратно й серйозно для старших або корпоративних посад."
 
@@ -3929,4 +3933,3 @@ msgstr "Зменшити"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Зулу"
-

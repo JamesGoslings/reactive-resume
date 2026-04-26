@@ -3053,6 +3053,10 @@ msgid "Single-column with a sidebar and clean grid layout; versatile for any pro
 msgstr "サイドバーと整ったグリッドレイアウトを備えた 1 カラムレイアウト。あらゆるプロフェッショナル職や技術職に対応できる汎用的なデザインです。"
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
+msgstr "シングルカラムで、各エントリのヘッダーを3列インライン（職位・組織・期間）で配置。コンパクトかつATSに最適で、中国・日本・韓国の履歴書慣習に適しています。"
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column; polished and serious for senior or enterprise-level positions."
 msgstr "1 カラムレイアウトで、落ち着いた印象の真面目なデザイン。シニア職やエンタープライズレベルのポジションに適しています。"
 
@@ -3929,4 +3933,3 @@ msgstr "ズームアウト"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "ズールー語"
-

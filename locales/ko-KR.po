@@ -3053,6 +3053,10 @@ msgid "Single-column with a sidebar and clean grid layout; versatile for any pro
 msgstr "사이드바와 깔끔한 그리드 레이아웃을 갖춘 단일 열 템플릿으로, 대부분의 직군이나 기술 직무에 두루 활용할 수 있습니다."
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
+msgstr "단일 열 레이아웃에 각 항목의 헤더를 인라인 3열(직위 · 조직 · 기간)로 배치. 간결하고 ATS 친화적이며, 한·중·일 이력서 형식에 적합합니다."
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column; polished and serious for senior or enterprise-level positions."
 msgstr "단일 열 구성에 세련되고 진중한 느낌을 더한 템플릿으로, 시니어 혹은 엔터프라이즈급 포지션에 적합합니다."
 
@@ -3929,4 +3933,3 @@ msgstr "축소"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "줄루어"
-

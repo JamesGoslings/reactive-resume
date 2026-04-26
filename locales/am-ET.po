@@ -3053,6 +3053,10 @@ msgid "Single-column with a sidebar and clean grid layout; versatile for any pro
 msgstr "አንድ-አምድ የሆነ ከጎን አሞሌ እና ንፁህ የተከፋፈለ እቅድ ጋር፤ ለማንኛውም ሙያዊ ወይም ቴክኒክ ሚና ተለዋዋጭ።"
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
+msgstr ""
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column; polished and serious for senior or enterprise-level positions."
 msgstr "አንድ-አምድ የሆነ፣ የታማኝ እና ኃላፊነት ያለው ለከፍተኛ ወይም ለድርጅታዊ ደረጃ ሚናዎች የሚስማማ።"
 
@@ -3929,4 +3933,3 @@ msgstr "አጉር"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "ዙሉ"
-

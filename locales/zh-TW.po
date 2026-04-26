@@ -3053,6 +3053,10 @@ msgid "Single-column with a sidebar and clean grid layout; versatile for any pro
 msgstr "單欄版面，包含側邊欄與俐落的網格配置；適用於任何專業或技術職位。"
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
+msgstr "單欄版面，每條經歷的標題列以三欄形式內嵌排列（職位 · 機構 · 時間）；精簡且 ATS 友善，非常適合中/日/韓常見的履歷風格。"
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column; polished and serious for senior or enterprise-level positions."
 msgstr "單欄版面，風格精緻嚴謹，適合資深或企業級職位。"
 
@@ -3929,4 +3933,3 @@ msgstr "縮小"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "祖魯語"
-

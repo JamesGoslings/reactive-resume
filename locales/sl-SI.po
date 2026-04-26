@@ -3053,6 +3053,10 @@ msgid "Single-column with a sidebar and clean grid layout; versatile for any pro
 msgstr "Enojen stolpec s stransko vrstico in čistim mrežnim prikazom; vsestransko za vsako strokovno ali tehnično vlogo."
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
+msgstr ""
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column; polished and serious for senior or enterprise-level positions."
 msgstr "Enojen stolpec; izpiljeno in resno za višje ali podjetniške položaje."
 
@@ -3929,4 +3933,3 @@ msgstr "Oddalji"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zuluščina"
-

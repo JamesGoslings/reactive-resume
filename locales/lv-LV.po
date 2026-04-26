@@ -3053,6 +3053,10 @@ msgid "Single-column with a sidebar and clean grid layout; versatile for any pro
 msgstr "Vienkolonnu izkārtojums ar sānu joslu un tīru režģa izkārtojumu; universāls jebkuram profesionālam vai tehniskam amatam."
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
+msgstr ""
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column; polished and serious for senior or enterprise-level positions."
 msgstr "Vienkolonnu izkārtojums; nopietns un noslīpēts vecākā līmeņa vai uzņēmuma līmeņa amatiem."
 
@@ -3929,4 +3933,3 @@ msgstr "Tālināt"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

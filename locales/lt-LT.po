@@ -3053,6 +3053,10 @@ msgid "Single-column with a sidebar and clean grid layout; versatile for any pro
 msgstr "Vienas stulpelis su šonine juosta ir švariu tinklelio išdėstymu; universalus bet kokioms profesinėms ar techninėms pareigoms."
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
+msgstr ""
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column; polished and serious for senior or enterprise-level positions."
 msgstr "Vienas stulpelis; solidus ir rimtas vyresnio ar aukšto lygio pareigoms."
 
@@ -3929,4 +3933,3 @@ msgstr "Tolinti"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulų"
-

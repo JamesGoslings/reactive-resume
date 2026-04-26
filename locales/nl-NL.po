@@ -3053,6 +3053,10 @@ msgid "Single-column with a sidebar and clean grid layout; versatile for any pro
 msgstr "Enkelkoloms met een zijbalk en strakke rasterindeling; veelzijdig voor elke professionele of technische rol."
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
+msgstr ""
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column; polished and serious for senior or enterprise-level positions."
 msgstr "Enkelkoloms; gepolijst en serieus voor senior- of functies op ondernemingsniveau."
 
@@ -3929,4 +3933,3 @@ msgstr "Uitzoomen"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

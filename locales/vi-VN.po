@@ -3053,6 +3053,10 @@ msgid "Single-column with a sidebar and clean grid layout; versatile for any pro
 msgstr "Một cột với thanh bên và lưới bố cục sạch sẽ; linh hoạt cho mọi vai trò chuyên nghiệp hoặc kỹ thuật."
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
+msgstr ""
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column; polished and serious for senior or enterprise-level positions."
 msgstr "Một cột; chỉnh chu và nghiêm túc cho vị trí cấp cao hoặc doanh nghiệp."
 
@@ -3929,4 +3933,3 @@ msgstr "Thu nhỏ"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-
