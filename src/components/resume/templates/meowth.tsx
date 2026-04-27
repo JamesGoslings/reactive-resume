@@ -14,7 +14,7 @@ import { useResumeStore } from "../store/resume";
 // Kept ATS-friendly (plain text, no sidebar decoration).
 const sectionClassName = cn(
   "[&>h6]:mb-1 [&>h6]:border-b [&>h6]:border-(--page-primary-color) [&>h6]:pb-0.5",
-  "[&>h6]:text-(--page-primary-color) [&>h6]:uppercase [&>h6]:tracking-wide",
+  "[&>h6]:tracking-wide [&>h6]:text-(--page-primary-color) [&>h6]:uppercase",
 );
 
 // Opt-in to the inline three-column header for experience / education / volunteer items.
