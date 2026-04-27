@@ -1,5 +1,5 @@
-import { t } from "@lingui/core/macro";
 import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
 import { zodValidator } from "@tanstack/zod-adapter";
 import { useEffect } from "react";
 import { z } from "zod";
@@ -7,13 +7,19 @@ import { z } from "zod";
 import { LoadingScreen } from "@/components/layout/loading-screen";
 import { ResumePreview } from "@/components/resume/preview";
 import { useResumeStore } from "@/components/resume/store/resume";
-import { getORPCClient } from "@/integrations/orpc/client";
+import { resumeService } from "@/integrations/orpc/services/resume";
 import { env } from "@/utils/env";
 import { verifyPrinterToken } from "@/utils/printer-token";
 
 const searchSchema = z.object({
   token: z.string().catch(""),
 });
+
+const getResumeForPrinterFn = createServerFn({ method: "GET" })
+  .inputValidator(z.object({ id: z.string(), token: z.string() }))
+  .handler(({ data }) => {
+    return resumeService.getByIdForPrinter({ id: data.id, printerToken: data.token });
+  });
 
 function assertValidPrinterToken(token: string, resumeId: string): void {
   const tokenResumeId = verifyPrinterToken(token);
@@ -35,25 +41,12 @@ export const Route = createFileRoute("/printer/$resumeId")({
   },
   loaderDeps: ({ search }) => ({ token: search.token }),
   loader: async ({ params, deps }) => {
-    const client = getORPCClient();
-    const resume = await client.resume.getByIdForPrinter({ id: params.resumeId, token: deps.token });
+    const resume = await getResumeForPrinterFn({ data: { id: params.resumeId, token: deps.token } });
 
     return { resume };
   },
   head: ({ loaderData }) => ({
-    meta: [
-      {
-        title: loaderData
-          ? `${loaderData.resume.data.basics.name} - ${t({
-              comment: "Browser tab suffix for printable resume pages",
-              message: "Resume",
-            })}`
-          : t({
-              comment: "Browser tab title before printable resume data finishes loading",
-              message: "Resume",
-            }),
-      },
-    ],
+    meta: [{ title: loaderData ? `${loaderData.resume.data.basics.name} - Resume` : "Resume" }],
   }),
 });
 

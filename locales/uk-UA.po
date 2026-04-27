@@ -8,7 +8,7 @@ msgstr ""
 "Language: uk\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-25 13:48\n"
+"PO-Revision-Date: 2026-04-26 08:59\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
@@ -634,9 +634,19 @@ msgstr "Китайська (спрощена)"
 msgid "Chinese (Traditional)"
 msgstr "Китайська (традиційна)"
 
+#. Preset or custom shade refer to the color picker
+#: src/components/input/rich-input.tsx
+msgid "Choose a preset or custom shade."
+msgstr "Виберіть попередньо встановлений або власний відтінок."
+
 #: src/components/level/combobox.tsx
 msgid "Circle"
 msgstr "Кругле"
+
+#. Clear the text color
+#: src/components/input/rich-input.tsx
+msgid "Clear"
+msgstr "Чисто"
 
 #: src/routes/dashboard/job-search/index.tsx
 msgid "Clear all"
@@ -925,6 +935,10 @@ msgstr "Створення вашого резюме..."
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
 msgstr "Поточний пароль"
+
+#: src/components/input/rich-input.tsx
+msgid "Custom"
+msgstr "Нестандартний"
 
 #: src/routes/_home/-sections/features.tsx
 #: src/utils/resume/section.tsx
@@ -2340,6 +2354,11 @@ msgstr "Опен-сорс"
 msgid "OpenAI"
 msgstr "OpenAI"
 
+#. AI provider option label in dashboard AI settings
+#: src/routes/dashboard/settings/ai.tsx
+msgid "OpenRouter"
+msgstr "OpenRouter"
+
 #: src/routes/_home/-sections/donate.tsx
 #: src/routes/_home/-sections/footer.tsx
 msgid "opens in new tab"
@@ -2527,6 +2546,10 @@ msgstr "Посада"
 msgid "Preferences"
 msgstr "Налаштування"
 
+#: src/components/input/rich-input.tsx
+msgid "Presets"
+msgstr "Пресети"
+
 #: src/components/input/chip-input.tsx
 msgid "Press <0>{RETURN_KEY}</0> or <1>{COMMA_KEY}</1> to add or save the current keyword."
 msgstr "Натисніть <0>{RETURN_KEY}</0> або <1>{COMMA_KEY}</1>, щоб додати або зберегти поточне ключове слово."
@@ -2597,12 +2620,6 @@ msgstr "Квота: {0} залишилося"
 #: src/routes/dashboard/settings/job-search.tsx
 msgid "RapidAPI Key"
 msgstr "Ключ RapidAPI"
-
-#. Brand name suffix in browser tab title for public resume pages
-#. Browser tab title before the public resume finishes loading
-#: src/routes/$username/$slug.tsx
-msgid "Reactive Resume"
-msgstr "Реактивне резюме"
 
 #: src/routes/_home/-sections/header.tsx
 msgid "Reactive Resume - Go to homepage"
@@ -2754,12 +2771,6 @@ msgstr "Скидання пароля..."
 #: src/routes/_home/-sections/footer.tsx
 msgid "Resources"
 msgstr "Ресурси"
-
-#. Browser tab suffix for printable resume pages
-#. Browser tab title before printable resume data finishes loading
-#: src/routes/printer/$resumeId.tsx
-msgid "Resume"
-msgstr "Резюме"
 
 #: src/utils/resume/section.tsx
 msgid "Resume Analysis"
@@ -3267,6 +3278,7 @@ msgstr "Перевірити з'єднання"
 msgid "Testimonials"
 msgstr "Відгуки"
 
+#: src/components/input/rich-input.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Text Color"
 msgstr "Колір тексту"
@@ -3702,6 +3714,10 @@ msgstr "Завантаження зображення..."
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "URL"
 msgstr "URL-адреса"
+
+#: src/components/input/rich-input.tsx
+msgid "Use color {color}"
+msgstr "Використовуйте колір {color}"
 
 #. Label for username input on registration form
 #: src/dialogs/resume/sections/profile.tsx

@@ -8,7 +8,7 @@ msgstr ""
 "Language: tr\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-25 13:47\n"
+"PO-Revision-Date: 2026-04-26 08:59\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -634,9 +634,19 @@ msgstr "Çince (Basitleştirilmiş)"
 msgid "Chinese (Traditional)"
 msgstr "Çince (Geleneksel)"
 
+#. Preset or custom shade refer to the color picker
+#: src/components/input/rich-input.tsx
+msgid "Choose a preset or custom shade."
+msgstr "Önceden ayarlanmış veya özel bir gölge seçin."
+
 #: src/components/level/combobox.tsx
 msgid "Circle"
 msgstr "Daire"
+
+#. Clear the text color
+#: src/components/input/rich-input.tsx
+msgid "Clear"
+msgstr "Temiz"
 
 #: src/routes/dashboard/job-search/index.tsx
 msgid "Clear all"
@@ -925,6 +935,10 @@ msgstr "Özgeçmişiniz oluşturuluyor..."
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
 msgstr "Geçerli Parola"
+
+#: src/components/input/rich-input.tsx
+msgid "Custom"
+msgstr "Özel"
 
 #: src/routes/_home/-sections/features.tsx
 #: src/utils/resume/section.tsx
@@ -2340,6 +2354,11 @@ msgstr "Açık Kaynak"
 msgid "OpenAI"
 msgstr "OpenAI"
 
+#. AI provider option label in dashboard AI settings
+#: src/routes/dashboard/settings/ai.tsx
+msgid "OpenRouter"
+msgstr "OpenRouter"
+
 #: src/routes/_home/-sections/donate.tsx
 #: src/routes/_home/-sections/footer.tsx
 msgid "opens in new tab"
@@ -2527,6 +2546,10 @@ msgstr "Pozisyon"
 msgid "Preferences"
 msgstr "Tercihler"
 
+#: src/components/input/rich-input.tsx
+msgid "Presets"
+msgstr "Ön Ayarlar"
+
 #: src/components/input/chip-input.tsx
 msgid "Press <0>{RETURN_KEY}</0> or <1>{COMMA_KEY}</1> to add or save the current keyword."
 msgstr "Mevcut anahtar kelimeyi eklemek veya kaydetmek için <0>{RETURN_KEY}</0> veya <1>{COMMA_KEY}</1> tuşuna basın."
@@ -2597,12 +2620,6 @@ msgstr "Kota: {0} kalan"
 #: src/routes/dashboard/settings/job-search.tsx
 msgid "RapidAPI Key"
 msgstr "RapidAPI Anahtarı"
-
-#. Brand name suffix in browser tab title for public resume pages
-#. Browser tab title before the public resume finishes loading
-#: src/routes/$username/$slug.tsx
-msgid "Reactive Resume"
-msgstr "Reaktif Özgeçmiş"
 
 #: src/routes/_home/-sections/header.tsx
 msgid "Reactive Resume - Go to homepage"
@@ -2754,12 +2771,6 @@ msgstr "Şifreniz sıfırlanıyor..."
 #: src/routes/_home/-sections/footer.tsx
 msgid "Resources"
 msgstr "Kaynaklar"
-
-#. Browser tab suffix for printable resume pages
-#. Browser tab title before printable resume data finishes loading
-#: src/routes/printer/$resumeId.tsx
-msgid "Resume"
-msgstr "Özgeçmiş"
 
 #: src/utils/resume/section.tsx
 msgid "Resume Analysis"
@@ -3267,6 +3278,7 @@ msgstr "Bağlantıyı Test Et"
 msgid "Testimonials"
 msgstr "Görüşler"
 
+#: src/components/input/rich-input.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Text Color"
 msgstr "Metin Rengi"
@@ -3702,6 +3714,10 @@ msgstr "Resim yükleniyor..."
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "URL"
 msgstr "URL"
+
+#: src/components/input/rich-input.tsx
+msgid "Use color {color}"
+msgstr "Renk kullanın {color}"
 
 #. Label for username input on registration form
 #: src/dialogs/resume/sections/profile.tsx

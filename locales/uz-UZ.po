@@ -8,7 +8,7 @@ msgstr ""
 "Language: uz\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-25 13:48\n"
+"PO-Revision-Date: 2026-04-26 08:59\n"
 "Last-Translator: \n"
 "Language-Team: Uzbek\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -634,9 +634,19 @@ msgstr "Xitoy (Soddalashtirilgan)"
 msgid "Chinese (Traditional)"
 msgstr "Xitoy (An’anaviy)"
 
+#. Preset or custom shade refer to the color picker
+#: src/components/input/rich-input.tsx
+msgid "Choose a preset or custom shade."
+msgstr "Oldindan belgilangan soya yoki moslashtirilgan soyani tanlang."
+
 #: src/components/level/combobox.tsx
 msgid "Circle"
 msgstr "Doira"
+
+#. Clear the text color
+#: src/components/input/rich-input.tsx
+msgid "Clear"
+msgstr "Tiniq"
 
 #: src/routes/dashboard/job-search/index.tsx
 msgid "Clear all"
@@ -925,6 +935,10 @@ msgstr "Rezyumingiz yaratilmoqda..."
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
 msgstr "Joriy parol"
+
+#: src/components/input/rich-input.tsx
+msgid "Custom"
+msgstr "Moslashtirilgan"
 
 #: src/routes/_home/-sections/features.tsx
 #: src/utils/resume/section.tsx
@@ -2340,6 +2354,11 @@ msgstr "Ochiq kodli"
 msgid "OpenAI"
 msgstr "Ochiq AI"
 
+#. AI provider option label in dashboard AI settings
+#: src/routes/dashboard/settings/ai.tsx
+msgid "OpenRouter"
+msgstr "Ochiq marshrutizator"
+
 #: src/routes/_home/-sections/donate.tsx
 #: src/routes/_home/-sections/footer.tsx
 msgid "opens in new tab"
@@ -2527,6 +2546,10 @@ msgstr "Lavozim"
 msgid "Preferences"
 msgstr "Afzalliklar"
 
+#: src/components/input/rich-input.tsx
+msgid "Presets"
+msgstr "Oldindan sozlamalar"
+
 #: src/components/input/chip-input.tsx
 msgid "Press <0>{RETURN_KEY}</0> or <1>{COMMA_KEY}</1> to add or save the current keyword."
 msgstr "Joriy kalit soʻzni qoʻshish yoki saqlash uchun <0>{RETURN_KEY}</0> yoki <1>{COMMA_KEY}</1> tugmasini bosing."
@@ -2597,12 +2620,6 @@ msgstr "Kota: {0} qoldi"
 #: src/routes/dashboard/settings/job-search.tsx
 msgid "RapidAPI Key"
 msgstr "RapidAPI kaliti"
-
-#. Brand name suffix in browser tab title for public resume pages
-#. Browser tab title before the public resume finishes loading
-#: src/routes/$username/$slug.tsx
-msgid "Reactive Resume"
-msgstr "Reaktiv rezyume"
 
 #: src/routes/_home/-sections/header.tsx
 msgid "Reactive Resume - Go to homepage"
@@ -2754,12 +2771,6 @@ msgstr "Parolingiz tiklanmoqda..."
 #: src/routes/_home/-sections/footer.tsx
 msgid "Resources"
 msgstr "Resurslar"
-
-#. Browser tab suffix for printable resume pages
-#. Browser tab title before printable resume data finishes loading
-#: src/routes/printer/$resumeId.tsx
-msgid "Resume"
-msgstr "Rezyume"
 
 #: src/utils/resume/section.tsx
 msgid "Resume Analysis"
@@ -3267,6 +3278,7 @@ msgstr "Ulanishni tekshirish"
 msgid "Testimonials"
 msgstr "Fikr-mulohazalar"
 
+#: src/components/input/rich-input.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Text Color"
 msgstr "Matn rangi"
@@ -3702,6 +3714,10 @@ msgstr "Rasm yuklanmoqda..."
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "URL"
 msgstr "URL"
+
+#: src/components/input/rich-input.tsx
+msgid "Use color {color}"
+msgstr "Rangdan foydalaning {color}"
 
 #. Label for username input on registration form
 #: src/dialogs/resume/sections/profile.tsx

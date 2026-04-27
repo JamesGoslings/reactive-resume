@@ -8,7 +8,7 @@ msgstr ""
 "Language: sq\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-25 13:47\n"
+"PO-Revision-Date: 2026-04-26 08:59\n"
 "Last-Translator: \n"
 "Language-Team: Albanian\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -634,9 +634,19 @@ msgstr "Kinezçe (E thjeshtuar)"
 msgid "Chinese (Traditional)"
 msgstr "Kinezçe (Tradicionale)"
 
+#. Preset or custom shade refer to the color picker
+#: src/components/input/rich-input.tsx
+msgid "Choose a preset or custom shade."
+msgstr "Zgjidhni një paracaktim ose një hije të personalizuar."
+
 #: src/components/level/combobox.tsx
 msgid "Circle"
 msgstr "Rreth"
+
+#. Clear the text color
+#: src/components/input/rich-input.tsx
+msgid "Clear"
+msgstr "E qartë"
 
 #: src/routes/dashboard/job-search/index.tsx
 msgid "Clear all"
@@ -925,6 +935,10 @@ msgstr "Po krijohet CV-ja juaj..."
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
 msgstr "Fjalëkalimi aktual"
+
+#: src/components/input/rich-input.tsx
+msgid "Custom"
+msgstr "Sipas porosisë"
 
 #: src/routes/_home/-sections/features.tsx
 #: src/utils/resume/section.tsx
@@ -2340,6 +2354,11 @@ msgstr "Open Source"
 msgid "OpenAI"
 msgstr "OpenAI"
 
+#. AI provider option label in dashboard AI settings
+#: src/routes/dashboard/settings/ai.tsx
+msgid "OpenRouter"
+msgstr "Ruter i hapur"
+
 #: src/routes/_home/-sections/donate.tsx
 #: src/routes/_home/-sections/footer.tsx
 msgid "opens in new tab"
@@ -2527,6 +2546,10 @@ msgstr "Pozicioni"
 msgid "Preferences"
 msgstr "Preferenca"
 
+#: src/components/input/rich-input.tsx
+msgid "Presets"
+msgstr "Paracaktimet"
+
 #: src/components/input/chip-input.tsx
 msgid "Press <0>{RETURN_KEY}</0> or <1>{COMMA_KEY}</1> to add or save the current keyword."
 msgstr "Shtyp <0>{RETURN_KEY}</0> ose <1>{COMMA_KEY}</1> për të shtuar ose ruajtur fjalën kyçe aktuale."
@@ -2597,12 +2620,6 @@ msgstr "Kuota: {0} të mbetura"
 #: src/routes/dashboard/settings/job-search.tsx
 msgid "RapidAPI Key"
 msgstr "Çelësi i RapidAPI-së"
-
-#. Brand name suffix in browser tab title for public resume pages
-#. Browser tab title before the public resume finishes loading
-#: src/routes/$username/$slug.tsx
-msgid "Reactive Resume"
-msgstr "Rezervë Reaktive"
 
 #: src/routes/_home/-sections/header.tsx
 msgid "Reactive Resume - Go to homepage"
@@ -2754,12 +2771,6 @@ msgstr "Po rivendoset fjalëkalimi juaj..."
 #: src/routes/_home/-sections/footer.tsx
 msgid "Resources"
 msgstr "Burime"
-
-#. Browser tab suffix for printable resume pages
-#. Browser tab title before printable resume data finishes loading
-#: src/routes/printer/$resumeId.tsx
-msgid "Resume"
-msgstr "Përmbledhje"
 
 #: src/utils/resume/section.tsx
 msgid "Resume Analysis"
@@ -3267,6 +3278,7 @@ msgstr "Testo lidhjen"
 msgid "Testimonials"
 msgstr "Dëshmitë"
 
+#: src/components/input/rich-input.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Text Color"
 msgstr "Ngjyra e tekstit"
@@ -3702,6 +3714,10 @@ msgstr "Po ngarkohet foto..."
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "URL"
 msgstr "Linku"
+
+#: src/components/input/rich-input.tsx
+msgid "Use color {color}"
+msgstr "Përdor ngjyrën {color}"
 
 #. Label for username input on registration form
 #: src/dialogs/resume/sections/profile.tsx

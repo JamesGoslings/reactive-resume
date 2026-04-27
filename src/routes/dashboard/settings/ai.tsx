@@ -8,6 +8,8 @@ import { useMemo } from "react";
 import { toast } from "sonner";
 import { useIsClient } from "usehooks-ts";
 
+import type { AIProvider } from "@/integrations/ai/types";
+
 import { Button } from "@/components/ui/button";
 import { Combobox, type ComboboxOption } from "@/components/ui/combobox";
 import { Input } from "@/components/ui/input";
@@ -15,7 +17,7 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Spinner } from "@/components/ui/spinner";
 import { Switch } from "@/components/ui/switch";
-import { type AIProvider, useAIStore } from "@/integrations/ai/store";
+import { useAIStore } from "@/integrations/ai/store";
 import { orpc } from "@/integrations/orpc/client";
 import { getOrpcErrorMessage } from "@/utils/error-message";
 import { cn } from "@/utils/style";
@@ -37,15 +39,6 @@ const providerOptions: (ComboboxOption<AIProvider> & { defaultBaseURL: string })
     defaultBaseURL: "https://api.openai.com/v1",
   },
   {
-    value: "ollama",
-    label: t({
-      comment: "AI provider option label in dashboard AI settings",
-      message: "Ollama",
-    }),
-    keywords: ["ollama", "ai", "local"],
-    defaultBaseURL: "http://localhost:11434",
-  },
-  {
     value: "anthropic",
     label: t({
       comment: "AI provider option label in dashboard AI settings",
@@ -53,6 +46,15 @@ const providerOptions: (ComboboxOption<AIProvider> & { defaultBaseURL: string })
     }),
     keywords: ["anthropic", "claude", "ai"],
     defaultBaseURL: "https://api.anthropic.com/v1",
+  },
+  {
+    value: "gemini",
+    label: t({
+      comment: "AI provider option label in dashboard AI settings",
+      message: "Google Gemini",
+    }),
+    keywords: ["gemini", "google", "bard"],
+    defaultBaseURL: "https://generativelanguage.googleapis.com/v1beta",
   },
   {
     value: "vercel-ai-gateway",
@@ -64,13 +66,22 @@ const providerOptions: (ComboboxOption<AIProvider> & { defaultBaseURL: string })
     defaultBaseURL: "https://ai-gateway.vercel.sh/v1/ai",
   },
   {
-    value: "gemini",
+    value: "openrouter",
     label: t({
       comment: "AI provider option label in dashboard AI settings",
-      message: "Google Gemini",
+      message: "OpenRouter",
     }),
-    keywords: ["gemini", "google", "bard"],
-    defaultBaseURL: "https://generativelanguage.googleapis.com/v1beta",
+    keywords: ["openrouter", "router", "multi", "proxy"],
+    defaultBaseURL: "https://openrouter.ai/api/v1",
+  },
+  {
+    value: "ollama",
+    label: t({
+      comment: "AI provider option label in dashboard AI settings",
+      message: "Ollama",
+    }),
+    keywords: ["ollama", "ai", "local"],
+    defaultBaseURL: "https://ollama.com/api",
   },
 ];
 

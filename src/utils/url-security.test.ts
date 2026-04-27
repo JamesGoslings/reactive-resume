@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vite-plus/test";
 
 import {
+  isAllowedOAuthRedirectUri,
   isAllowedExternalUrl,
   isPrivateOrLoopbackHost,
   parseAllowedHostList,
@@ -52,6 +53,32 @@ describe("isAllowedExternalUrl", () => {
     const originOnlyAllowedHosts = new Set(["https://example.org"]);
     expect(isAllowedExternalUrl("https://example.org/v1/hello", originOnlyAllowedHosts)).toBe(true);
     expect(isAllowedExternalUrl("https://sub.example.org/v1/hello", originOnlyAllowedHosts)).toBe(false);
+  });
+});
+
+describe("isAllowedOAuthRedirectUri", () => {
+  const trustedOrigins = ["https://rxresu.me"];
+  const allowedHosts = new Set(["https://client.example.com", "trusted.example.com"]);
+
+  it("allows local loopback HTTP callbacks for native OAuth clients", () => {
+    expect(isAllowedOAuthRedirectUri("http://localhost:6188/callback", trustedOrigins, allowedHosts)).toBe(true);
+    expect(isAllowedOAuthRedirectUri("http://127.0.0.1:6188/callback", trustedOrigins, allowedHosts)).toBe(true);
+    expect(isAllowedOAuthRedirectUri("http://[::1]:6188/callback", trustedOrigins, allowedHosts)).toBe(true);
+  });
+
+  it("keeps rejecting unsafe HTTP and malformed redirects", () => {
+    expect(isAllowedOAuthRedirectUri("http://192.168.1.20:6188/callback", trustedOrigins, allowedHosts)).toBe(false);
+    expect(isAllowedOAuthRedirectUri("http://example.com/callback", trustedOrigins, allowedHosts)).toBe(false);
+    expect(isAllowedOAuthRedirectUri("not-a-url", trustedOrigins, allowedHosts)).toBe(false);
+  });
+
+  it("allows only trusted HTTPS redirects without credentials or fragments", () => {
+    expect(isAllowedOAuthRedirectUri("https://rxresu.me/callback", trustedOrigins, allowedHosts)).toBe(true);
+    expect(isAllowedOAuthRedirectUri("https://client.example.com/callback", trustedOrigins, allowedHosts)).toBe(true);
+    expect(isAllowedOAuthRedirectUri("https://trusted.example.com/callback", trustedOrigins, allowedHosts)).toBe(true);
+    expect(isAllowedOAuthRedirectUri("https://evil.example.com/callback", trustedOrigins, allowedHosts)).toBe(false);
+    expect(isAllowedOAuthRedirectUri("https://user:pass@rxresu.me/callback", trustedOrigins, allowedHosts)).toBe(false);
+    expect(isAllowedOAuthRedirectUri("https://rxresu.me/callback#token", trustedOrigins, allowedHosts)).toBe(false);
   });
 });
 

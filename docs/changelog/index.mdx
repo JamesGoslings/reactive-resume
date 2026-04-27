@@ -5,19 +5,34 @@ rss: true
 ---
 
 <Update label="v5.0.19" description="25th April 2026">
-## Security
-- Hardened resume export and printer access controls to prevent unauthorized data access.
-- PDF export is now owner-only; the public share-page download action has been removed.
-- Strengthened protections for password verification, OAuth client registration, and redirect URI validation, including tighter rate limits.
-- Blocked network-loading custom CSS patterns and improved CSS sanitization/scoping safeguards.
-- Reduced SSRF risk by tightening URL validation for AI provider base URLs and user picture URLs.
-- Disabled public auth API reference/schema exposure in production-facing auth routes.
+## Highlights
+- Added **OpenRouter** as an AI provider, thanks to [@iagodemacedo](https://github.com/iagodemacedo). [#2906](https://github.com/amruthpillai/reactive-resume/pull/2906)
+- Added Chinese font options, thanks to [@Platinum1154](https://github.com/Platinum1154). [#2905](https://github.com/amruthpillai/reactive-resume/pull/2905)
+- Added text color support to the rich text editor, including DOCX export handling for colored text, thanks to [@Platinum1154](https://github.com/Platinum1154). [#2903](https://github.com/amruthpillai/reactive-resume/pull/2903)
+- Fixed MCP tool names for Claude Desktop compatibility. [#2885](https://github.com/amruthpillai/reactive-resume/pull/2885)
+- Improved Docker-based local development support and refreshed self-hosting setup guidance. [849aad64](https://github.com/amruthpillai/reactive-resume/commit/849aad64), [c0387298](https://github.com/amruthpillai/reactive-resume/commit/c0387298)
 
-## Maintenance
-- Updated dependencies and lockfile (including security-focused packages and typings).
-- Added targeted tests for auth, printer/export, URL validation, and CSS sanitization hardening.
-- Improved Docker Compose security defaults (safer Browserless token/image/network configuration).
-- Synced translation catalogs from Crowdin.
+## Fixes & Security
+- Thank you to [@shaxbozaka](https://github.com/shaxbozaka) for running a security audit on Reactive Resume and helping make the app more secure.
+- Hardened auth, OAuth, AI URL validation, printer/export endpoints, resume access controls, Browserless configuration, and public route exposure. [a42dbcd4](https://github.com/amruthpillai/reactive-resume/commit/a42dbcd4)
+- Removed the public RPC surface for the printer-only resume fetch endpoint by moving it behind a server function, further shrinking the attack surface for `getByIdForPrinter`, thanks to [@shaxbozaka](https://github.com/shaxbozaka).
+- Corrected Computer Modern Sans italic font file mappings, thanks to [@russellbrenner](https://github.com/russellbrenner). [#2881](https://github.com/amruthpillai/reactive-resume/pull/2881)
+- Improved email handling and user lookup in OAuth configuration, thanks to [@VedantBhawsar](https://github.com/VedantBhawsar). [#2874](https://github.com/amruthpillai/reactive-resume/pull/2874)
+- Aligned role period text in experience items, thanks to [@JamesGoslings](https://github.com/JamesGoslings). [#2908](https://github.com/amruthpillai/reactive-resume/pull/2908)
+- Reduced resume preview wheel zoom sensitivity, thanks to [@GoldenSection0618](https://github.com/GoldenSection0618). [#2911](https://github.com/amruthpillai/reactive-resume/pull/2911)
+- Prevented orphaned section headings at page breaks, thanks to [@5queezer](https://github.com/5queezer). [#2851](https://github.com/amruthpillai/reactive-resume/pull/2851)
+- Added top margin handling for subsequent PDF pages, based on feedback from [@trigger-xyz](https://github.com/trigger-xyz). [bbc38d2f](https://github.com/amruthpillai/reactive-resume/commit/bbc38d2f)
+
+## Maintenance & Localization
+- Updated dependencies and lockfile, including security-focused package pins and Vite+ version pins. [c6e8df0a](https://github.com/amruthpillai/reactive-resume/commit/c6e8df0a), [847d69b6](https://github.com/amruthpillai/reactive-resume/commit/847d69b6), [9b3916d4](https://github.com/amruthpillai/reactive-resume/commit/9b3916d4)
+- Added `SECURITY.md`. [9e1e593d](https://github.com/amruthpillai/reactive-resume/commit/9e1e593d)
+- Added focused tests for auth, printer/export, URL validation, form edge cases, rich text DOCX output, font handling, and CSS sanitization hardening. [d0af9f4b](https://github.com/amruthpillai/reactive-resume/commit/d0af9f4b)
+- Synced translation catalogs from Crowdin and moved syncing to GitHub Actions. [#2886](https://github.com/amruthpillai/reactive-resume/pull/2886), [#2918](https://github.com/amruthpillai/reactive-resume/pull/2918)
+
+## New Contributors
+- [@russellbrenner](https://github.com/russellbrenner), [@VedantBhawsar](https://github.com/VedantBhawsar), [@JamesGoslings](https://github.com/JamesGoslings), [@GoldenSection0618](https://github.com/GoldenSection0618), [@iagodemacedo](https://github.com/iagodemacedo), and [@Platinum1154](https://github.com/Platinum1154)
+
+**Full Changelog**: [v5.0.17...v5.0.19](https://github.com/amruthpillai/reactive-resume/compare/v5.0.17...v5.0.19)
 </Update>
 
 <Update label="v5.0.18" description="14th April 2026">

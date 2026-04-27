@@ -12,6 +12,7 @@ import { printMarginTemplates } from "@/schema/templates";
 import { env } from "@/utils/env";
 import { generatePrinterToken } from "@/utils/printer-token";
 
+import { getSubsequentPageTopMarginStyle } from "./printer-styles";
 import { getStorageService, uploadFile } from "./storage";
 
 const SCREENSHOT_TTL = 1000 * 60 * 60 * 6; // 6 hours
@@ -195,10 +196,17 @@ async function doPrintResumeAsPDF(
         ),
       );
 
+    const subsequentPageTopMarginStyle = getSubsequentPageTopMarginStyle(pagePaddingY, data.metadata.page.marginY);
+
     // Step 5a: Prepare the DOM for PDF rendering (background colors, reset margins, print padding)
     await page
       .evaluate(
-        (pagePaddingX: number, pagePaddingY: number, backgroundColor: string) => {
+        (
+          pagePaddingX: number,
+          pagePaddingY: number,
+          subsequentPageTopMarginStyle: string | null,
+          backgroundColor: string,
+        ) => {
           const root = document.documentElement;
           const body = document.body;
           const pageElements = document.querySelectorAll("[data-page-index]");
@@ -222,14 +230,13 @@ async function doPrintResumeAsPDF(
             if (pageSurface) pageSurface.style.backgroundColor = backgroundColor;
           }
 
-          // Apply print-only margins as padding inside each page's content surface.
+          // Apply print-only horizontal margins as padding inside each page's content surface.
+          // This is only needed for printMarginTemplates which use print:p-0 to remove CSS padding.
           if (pagePaddingX > 0 || pagePaddingY > 0) {
             for (const el of pageContentElements) {
               const pageContent = el as HTMLElement;
 
               pageContent.style.boxSizing = "border-box";
-              // Ensure padding is repeated on every printed fragment when content
-              // flows across physical PDF pages (not just the first fragment).
               pageContent.style.boxDecorationBreak = "clone";
               pageContent.style.setProperty("-webkit-box-decoration-break", "clone");
               if (pagePaddingX > 0) {
@@ -242,9 +249,18 @@ async function doPrintResumeAsPDF(
               }
             }
           }
+
+          // Add top margin to PDF pages 2+ so content doesn't start flush at the top.
+          // The html/body background colors above ensure the margin area is colored.
+          if (subsequentPageTopMarginStyle) {
+            const style = document.createElement("style");
+            style.textContent = subsequentPageTopMarginStyle;
+            document.head.appendChild(style);
+          }
         },
         pagePaddingX,
         pagePaddingY,
+        subsequentPageTopMarginStyle,
         data.metadata.design.colors.background,
       )
       .catch((error) =>

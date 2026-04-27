@@ -17,7 +17,7 @@ import { eq, or } from "drizzle-orm";
 import { env } from "@/utils/env";
 import { hashPassword, verifyPassword } from "@/utils/password";
 import { generateId, toUsername } from "@/utils/string";
-import { isPrivateOrLoopbackHost, parseAllowedHostList, parseUrl } from "@/utils/url-security";
+import { isAllowedOAuthRedirectUri, parseAllowedHostList } from "@/utils/url-security";
 
 import { schema } from "../drizzle";
 import { db } from "../drizzle/client";
@@ -73,25 +73,6 @@ function getTrustedOrigins(): string[] {
 
 const TRUSTED_ORIGINS = getTrustedOrigins();
 const OAUTH_DYNAMIC_CLIENT_REDIRECT_HOSTS = parseAllowedHostList(env.OAUTH_DYNAMIC_CLIENT_REDIRECT_HOSTS);
-
-function isAllowedDynamicClientRedirectHost(origin: string, hostname: string): boolean {
-  if (TRUSTED_ORIGINS.includes(origin)) return true;
-  if (OAUTH_DYNAMIC_CLIENT_REDIRECT_HOSTS.has(origin)) return true;
-  return OAUTH_DYNAMIC_CLIENT_REDIRECT_HOSTS.has(hostname);
-}
-
-function isAllowedDynamicClientRedirectUri(value: string) {
-  const parsed = parseUrl(value);
-  if (!parsed) return false;
-  if (parsed.username || parsed.password) return false;
-  if (parsed.hash) return false;
-  if (parsed.protocol !== "https:") return false;
-  if (isPrivateOrLoopbackHost(parsed.hostname)) return false;
-
-  const origin = parsed.origin.toLowerCase();
-  const hostname = parsed.hostname.toLowerCase();
-  return isAllowedDynamicClientRedirectHost(origin, hostname);
-}
 
 async function findExistingUserByEmail(email: string) {
   const normalizedEmail = email.trim().toLowerCase();
@@ -284,7 +265,7 @@ const getAuthConfig = () => {
           if (typeof uri !== "string") {
             throw new APIError("BAD_REQUEST", { message: "redirect_uris entries must be strings" });
           }
-          if (!isAllowedDynamicClientRedirectUri(uri)) {
+          if (!isAllowedOAuthRedirectUri(uri, TRUSTED_ORIGINS, OAUTH_DYNAMIC_CLIENT_REDIRECT_HOSTS)) {
             throw new APIError("BAD_REQUEST", {
               message: "redirect_uri is not allowed for dynamic client registration",
             });
@@ -409,6 +390,8 @@ const getAuthConfig = () => {
         consentPage: "/auth/oauth",
         validAudiences: OAUTH_AUDIENCES,
         allowDynamicClientRegistration: true,
+        // Required for MCP client onboarding (RFC 7591). Phishing vector is closed by the
+        // redirect_uri allowlist in the hooks.before middleware above and in src/routes/api/auth.$.ts.
         allowUnauthenticatedClientRegistration: true,
         rateLimit: {
           register: { window: 60, max: 5 },

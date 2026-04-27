@@ -2,9 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { auth } from "@/integrations/auth/config";
 import { env } from "@/utils/env";
-import { isPrivateOrLoopbackHost, parseAllowedHostList, parseUrl } from "@/utils/url-security";
+import { isAllowedOAuthRedirectUri, parseAllowedHostList } from "@/utils/url-security";
 
 const oauthDynamicClientRedirectHosts = parseAllowedHostList(env.OAUTH_DYNAMIC_CLIENT_REDIRECT_HOSTS);
+const oauthTrustedOrigins = [new URL(env.APP_URL).origin.toLowerCase()];
 const oauthAuthorizeSanitizedParams = [
   "prompt",
   "redirect_uri",
@@ -16,25 +17,6 @@ const oauthAuthorizeSanitizedParams = [
   "state",
   "resource",
 ] as const;
-
-function isAllowedDynamicClientRedirectUri(value: string) {
-  const parsed = parseUrl(value);
-  if (!parsed) return false;
-  if (parsed.protocol !== "https:") return false;
-  if (parsed.username || parsed.password) return false;
-  if (parsed.hash) return false;
-  if (isPrivateOrLoopbackHost(parsed.hostname)) return false;
-
-  const appOrigin = new URL(env.APP_URL).origin.toLowerCase();
-  const origin = parsed.origin.toLowerCase();
-  const hostname = parsed.hostname.toLowerCase();
-
-  if (origin === appOrigin) return true;
-  if (oauthDynamicClientRedirectHosts.has(origin)) return true;
-  if (oauthDynamicClientRedirectHosts.has(hostname)) return true;
-
-  return false;
-}
 
 function sanitizeOAuthAuthorizeRequest(request: Request): Request {
   if (request.method !== "GET") return request;
@@ -117,8 +99,14 @@ async function validateDynamicClientRegistrationRequest(request: Request): Promi
 
   const redirectUris = Array.isArray(body.redirect_uris) ? body.redirect_uris : [];
   for (const redirectUri of redirectUris) {
-    if (typeof redirectUri !== "string" || !isAllowedDynamicClientRedirectUri(redirectUri)) {
-      return Response.json({ message: "redirect_uri is not allowed" }, { status: 400 });
+    if (
+      typeof redirectUri !== "string" ||
+      !isAllowedOAuthRedirectUri(redirectUri, oauthTrustedOrigins, oauthDynamicClientRedirectHosts)
+    ) {
+      return Response.json(
+        { error: "invalid_redirect_uri", error_description: "redirect_uri is not allowed" },
+        { status: 400 },
+      );
     }
   }
 }

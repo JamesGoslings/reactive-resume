@@ -629,8 +629,18 @@ msgstr ""
 msgid "Chinese (Traditional)"
 msgstr ""
 
+#. Preset or custom shade refer to the color picker
+#: src/components/input/rich-input.tsx
+msgid "Choose a preset or custom shade."
+msgstr ""
+
 #: src/components/level/combobox.tsx
 msgid "Circle"
+msgstr ""
+
+#. Clear the text color
+#: src/components/input/rich-input.tsx
+msgid "Clear"
 msgstr ""
 
 #: src/routes/dashboard/job-search/index.tsx
@@ -919,6 +929,10 @@ msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
+msgstr ""
+
+#: src/components/input/rich-input.tsx
+msgid "Custom"
 msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
@@ -2335,6 +2349,11 @@ msgstr ""
 msgid "OpenAI"
 msgstr ""
 
+#. AI provider option label in dashboard AI settings
+#: src/routes/dashboard/settings/ai.tsx
+msgid "OpenRouter"
+msgstr ""
+
 #: src/routes/_home/-sections/donate.tsx
 #: src/routes/_home/-sections/footer.tsx
 msgid "opens in new tab"
@@ -2522,6 +2541,10 @@ msgstr ""
 msgid "Preferences"
 msgstr ""
 
+#: src/components/input/rich-input.tsx
+msgid "Presets"
+msgstr ""
+
 #: src/components/input/chip-input.tsx
 msgid "Press <0>{RETURN_KEY}</0> or <1>{COMMA_KEY}</1> to add or save the current keyword."
 msgstr ""
@@ -2591,12 +2614,6 @@ msgstr ""
 
 #: src/routes/dashboard/settings/job-search.tsx
 msgid "RapidAPI Key"
-msgstr ""
-
-#. Brand name suffix in browser tab title for public resume pages
-#. Browser tab title before the public resume finishes loading
-#: src/routes/$username/$slug.tsx
-msgid "Reactive Resume"
 msgstr ""
 
 #: src/routes/_home/-sections/header.tsx
@@ -2748,12 +2765,6 @@ msgstr ""
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "Resources"
-msgstr ""
-
-#. Browser tab suffix for printable resume pages
-#. Browser tab title before printable resume data finishes loading
-#: src/routes/printer/$resumeId.tsx
-msgid "Resume"
 msgstr ""
 
 #: src/utils/resume/section.tsx
@@ -3262,6 +3273,7 @@ msgstr ""
 msgid "Testimonials"
 msgstr ""
 
+#: src/components/input/rich-input.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Text Color"
 msgstr ""
@@ -3696,6 +3708,10 @@ msgstr ""
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "URL"
+msgstr ""
+
+#: src/components/input/rich-input.tsx
+msgid "Use color {color}"
 msgstr ""
 
 #. Label for username input on registration form

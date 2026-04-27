@@ -47,6 +47,11 @@ export function isPrivateOrLoopbackHost(hostname: string) {
   return false;
 }
 
+function isOAuthLoopbackRedirectHost(hostname: string) {
+  const normalized = stripIpv6Brackets(normalizeHostname(hostname));
+  return normalized === "localhost" || normalized === "127.0.0.1" || normalized === "::1";
+}
+
 export function parseUrl(input: string) {
   try {
     return new URL(input);
@@ -78,6 +83,24 @@ export function isAllowedExternalUrl(input: string, allowedHosts: Set<string>) {
 
   const origin = parsed.origin.toLowerCase();
   return allowedHosts.has(origin);
+}
+
+export function isAllowedOAuthRedirectUri(input: string, trustedOrigins: string[], allowedHosts: Set<string>) {
+  const parsed = parseUrl(input);
+  if (!parsed) return false;
+  if (parsed.username || parsed.password) return false;
+  if (parsed.hash) return false;
+
+  const origin = parsed.origin.toLowerCase();
+  const hostname = normalizeHostname(parsed.hostname);
+
+  if (parsed.protocol === "http:") return isOAuthLoopbackRedirectHost(hostname);
+  if (parsed.protocol !== "https:") return false;
+  if (isPrivateOrLoopbackHost(hostname)) return false;
+
+  if (trustedOrigins.includes(origin)) return true;
+  if (allowedHosts.has(origin)) return true;
+  return allowedHosts.has(hostname);
 }
 
 export function sanitizeResumePictureUrl(url: string, appUrl: string) {

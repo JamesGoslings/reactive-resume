@@ -8,7 +8,7 @@ msgstr ""
 "Language: fr\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-25 13:47\n"
+"PO-Revision-Date: 2026-04-26 08:59\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -634,9 +634,19 @@ msgstr "Chinois (simplifié)"
 msgid "Chinese (Traditional)"
 msgstr "Chinois (traditionnel)"
 
+#. Preset or custom shade refer to the color picker
+#: src/components/input/rich-input.tsx
+msgid "Choose a preset or custom shade."
+msgstr "Choisissez une teinte prédéfinie ou personnalisée."
+
 #: src/components/level/combobox.tsx
 msgid "Circle"
 msgstr "Cercle"
+
+#. Clear the text color
+#: src/components/input/rich-input.tsx
+msgid "Clear"
+msgstr "Clair"
 
 #: src/routes/dashboard/job-search/index.tsx
 msgid "Clear all"
@@ -925,6 +935,10 @@ msgstr "Création de votre CV..."
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
 msgstr "Mot de passe actuel"
+
+#: src/components/input/rich-input.tsx
+msgid "Custom"
+msgstr "Sur mesure"
 
 #: src/routes/_home/-sections/features.tsx
 #: src/utils/resume/section.tsx
@@ -2340,6 +2354,11 @@ msgstr "Open Source"
 msgid "OpenAI"
 msgstr "OpenAI"
 
+#. AI provider option label in dashboard AI settings
+#: src/routes/dashboard/settings/ai.tsx
+msgid "OpenRouter"
+msgstr "OpenRouter"
+
 #: src/routes/_home/-sections/donate.tsx
 #: src/routes/_home/-sections/footer.tsx
 msgid "opens in new tab"
@@ -2527,6 +2546,10 @@ msgstr "Poste"
 msgid "Preferences"
 msgstr "Préférences"
 
+#: src/components/input/rich-input.tsx
+msgid "Presets"
+msgstr "Préréglages"
+
 #: src/components/input/chip-input.tsx
 msgid "Press <0>{RETURN_KEY}</0> or <1>{COMMA_KEY}</1> to add or save the current keyword."
 msgstr "Appuyez sur <0>{RETURN_KEY}</0> ou sur <1>{COMMA_KEY}</1> pour ajouter ou enregistrer le mot-clé actuel."
@@ -2597,12 +2620,6 @@ msgstr "Quota : {0} restant"
 #: src/routes/dashboard/settings/job-search.tsx
 msgid "RapidAPI Key"
 msgstr "Clé RapidAPI"
-
-#. Brand name suffix in browser tab title for public resume pages
-#. Browser tab title before the public resume finishes loading
-#: src/routes/$username/$slug.tsx
-msgid "Reactive Resume"
-msgstr "CV réactif"
 
 #: src/routes/_home/-sections/header.tsx
 msgid "Reactive Resume - Go to homepage"
@@ -2754,12 +2771,6 @@ msgstr "Réinitialisation de votre mot de passe..."
 #: src/routes/_home/-sections/footer.tsx
 msgid "Resources"
 msgstr "Ressources"
-
-#. Browser tab suffix for printable resume pages
-#. Browser tab title before printable resume data finishes loading
-#: src/routes/printer/$resumeId.tsx
-msgid "Resume"
-msgstr "Curriculum vitae"
 
 #: src/utils/resume/section.tsx
 msgid "Resume Analysis"
@@ -3267,6 +3278,7 @@ msgstr "Tester la connexion"
 msgid "Testimonials"
 msgstr "Témoignages"
 
+#: src/components/input/rich-input.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Text Color"
 msgstr "Couleur du texte"
@@ -3702,6 +3714,10 @@ msgstr "Téléchargement de la photo..."
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "URL"
 msgstr "URL"
+
+#: src/components/input/rich-input.tsx
+msgid "Use color {color}"
+msgstr "Utilisez la couleur {color}"
 
 #. Label for username input on registration form
 #: src/dialogs/resume/sections/profile.tsx

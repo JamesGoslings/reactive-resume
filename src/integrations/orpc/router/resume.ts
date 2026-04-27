@@ -116,21 +116,6 @@ export const resumeRouter = {
       return resumeService.getById({ id: input.id, userId: context.user.id });
     }),
 
-  getByIdForPrinter: publicProcedure
-    .route({ tags: ["Internal"], operationId: "getResumeForPrinter", summary: "Get resume by ID for printer" })
-    .input(
-      resumeDto.getById.input.extend({
-        token: z.string().optional(),
-      }),
-    )
-    .handler(async ({ input, context }) => {
-      return resumeService.getByIdForPrinter({
-        id: input.id,
-        currentUserId: context.user?.id,
-        printerToken: input.token,
-      });
-    }),
-
   getBySlug: publicProcedure
     .route({
       method: "GET",

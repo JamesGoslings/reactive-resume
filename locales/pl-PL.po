@@ -8,7 +8,7 @@ msgstr ""
 "Language: pl\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-25 13:47\n"
+"PO-Revision-Date: 2026-04-26 08:59\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
@@ -81,7 +81,7 @@ msgstr "<0>W końcu</0><1>Darmowy kreator CV typu open-source</1>"
 #: src/routes/_home/-sections/faq.tsx
 msgctxt "Home page FAQ section heading with each word visually separated into individual spans"
 msgid "<0>Frequently</0><1>Asked</1><2>Questions</2>"
-msgstr "<0>Często</0><1>Często zadawane pytania</1><2>Pytania</2>"
+msgstr "<0>Często</0><1>Zadawane</1><2>Pytania</2>"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "<0>Thank you for using Reactive Resume! This app is a labor of love, created mostly in my spare time, with wonderful support from open-source contributors around the world.</0><1>If Reactive Resume has been helpful to you, and you'd like to help keep it free and open for everyone, please consider making a donation. Every little bit is appreciated!</1>"
@@ -313,7 +313,7 @@ msgstr "I wiele więcej..."
 #. AI provider option label in dashboard AI settings
 #: src/routes/dashboard/settings/ai.tsx
 msgid "Anthropic Claude"
-msgstr "Antropiczny Claude"
+msgstr "Anthropic Claude"
 
 #: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "Any level"
@@ -634,9 +634,19 @@ msgstr "Chiński (uproszczony)"
 msgid "Chinese (Traditional)"
 msgstr "Chiński (tradycyjny)"
 
+#. Preset or custom shade refer to the color picker
+#: src/components/input/rich-input.tsx
+msgid "Choose a preset or custom shade."
+msgstr "Proszę wybrać wstępnie ustawiony lub niestandardowy odcień."
+
 #: src/components/level/combobox.tsx
 msgid "Circle"
 msgstr "Koło"
+
+#. Clear the text color
+#: src/components/input/rich-input.tsx
+msgid "Clear"
+msgstr "Wyczyść"
 
 #: src/routes/dashboard/job-search/index.tsx
 msgid "Clear all"
@@ -925,6 +935,10 @@ msgstr "Tworzenie CV..."
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
 msgstr "Obecne hasło"
+
+#: src/components/input/rich-input.tsx
+msgid "Custom"
+msgstr "Niestandardowe"
 
 #: src/routes/_home/-sections/features.tsx
 #: src/utils/resume/section.tsx
@@ -1993,7 +2007,7 @@ msgstr "Ostatnie 3 dni"
 #. placeholder {0}: new Date(analysis.updatedAt).toLocaleString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Last analyzed on {0}"
-msgstr "Ostatnia analiza na {0}"
+msgstr "Ostatnio analizowano {0}"
 
 #. placeholder {0}: statistics.lastDownloadedAt.toDateString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
@@ -2340,6 +2354,11 @@ msgstr "Open Source"
 msgid "OpenAI"
 msgstr "OpenAI"
 
+#. AI provider option label in dashboard AI settings
+#: src/routes/dashboard/settings/ai.tsx
+msgid "OpenRouter"
+msgstr "OpenRouter"
+
 #: src/routes/_home/-sections/donate.tsx
 #: src/routes/_home/-sections/footer.tsx
 msgid "opens in new tab"
@@ -2527,6 +2546,10 @@ msgstr "Stanowisko"
 msgid "Preferences"
 msgstr "Preferencje"
 
+#: src/components/input/rich-input.tsx
+msgid "Presets"
+msgstr "Ustawienia wstępne"
+
 #: src/components/input/chip-input.tsx
 msgid "Press <0>{RETURN_KEY}</0> or <1>{COMMA_KEY}</1> to add or save the current keyword."
 msgstr "Naciśnij <0>{RETURN_KEY}</0> lub <1>{COMMA_KEY}</1>, aby dodać lub zapisać bieżące słowo kluczowe."
@@ -2597,12 +2620,6 @@ msgstr "Kwota: {0} pozostała"
 #: src/routes/dashboard/settings/job-search.tsx
 msgid "RapidAPI Key"
 msgstr "Klucz RapidAPI"
-
-#. Brand name suffix in browser tab title for public resume pages
-#. Browser tab title before the public resume finishes loading
-#: src/routes/$username/$slug.tsx
-msgid "Reactive Resume"
-msgstr "Reaktywne CV"
 
 #: src/routes/_home/-sections/header.tsx
 msgid "Reactive Resume - Go to homepage"
@@ -2755,12 +2772,6 @@ msgstr "Resetowanie hasła..."
 msgid "Resources"
 msgstr "Zasoby"
 
-#. Browser tab suffix for printable resume pages
-#. Browser tab title before printable resume data finishes loading
-#: src/routes/printer/$resumeId.tsx
-msgid "Resume"
-msgstr "Proszę wznowić"
-
 #: src/utils/resume/section.tsx
 msgid "Resume Analysis"
 msgstr "Analiza CV"
@@ -2812,7 +2823,7 @@ msgstr "Rosyjski"
 #. Passkey rename prompt confirm action in authentication settings
 #: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
 msgid "Save"
-msgstr "Oszczędzać"
+msgstr "Zapisz"
 
 #. Button label to save the selected number of detected skills to the original resume
 #. placeholder {0}: selectedSkills.size
@@ -3083,7 +3094,7 @@ msgstr "Słowacki"
 
 #: src/utils/locale.ts
 msgid "Slovenian"
-msgstr ""
+msgstr "Słoweński"
 
 #: src/dialogs/resume/index.tsx
 msgid "Slug"
@@ -3267,6 +3278,7 @@ msgstr "Przetestuj połączenie"
 msgid "Testimonials"
 msgstr "Referencje"
 
+#: src/components/input/rich-input.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Text Color"
 msgstr "Kolor tekstu"
@@ -3702,6 +3714,10 @@ msgstr "Wysyłanie zdjęcia..."
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "URL"
 msgstr "URL"
+
+#: src/components/input/rich-input.tsx
+msgid "Use color {color}"
+msgstr "Proszę użyć koloru {color}"
 
 #. Label for username input on registration form
 #: src/dialogs/resume/sections/profile.tsx

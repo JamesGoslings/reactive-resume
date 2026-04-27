@@ -8,7 +8,7 @@ msgstr ""
 "Language: ko\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-25 13:47\n"
+"PO-Revision-Date: 2026-04-26 08:59\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -634,9 +634,19 @@ msgstr "중국어(간체)"
 msgid "Chinese (Traditional)"
 msgstr "중국어(번체)"
 
+#. Preset or custom shade refer to the color picker
+#: src/components/input/rich-input.tsx
+msgid "Choose a preset or custom shade."
+msgstr "사전 설정 또는 사용자 지정 색조를 선택합니다."
+
 #: src/components/level/combobox.tsx
 msgid "Circle"
 msgstr "원"
+
+#. Clear the text color
+#: src/components/input/rich-input.tsx
+msgid "Clear"
+msgstr "지우기"
 
 #: src/routes/dashboard/job-search/index.tsx
 msgid "Clear all"
@@ -925,6 +935,10 @@ msgstr "이력서를 생성하는 중입니다..."
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
 msgstr "현재 비밀번호"
+
+#: src/components/input/rich-input.tsx
+msgid "Custom"
+msgstr "사용자 지정"
 
 #: src/routes/_home/-sections/features.tsx
 #: src/utils/resume/section.tsx
@@ -2340,6 +2354,11 @@ msgstr "오픈 소스"
 msgid "OpenAI"
 msgstr "OpenAI"
 
+#. AI provider option label in dashboard AI settings
+#: src/routes/dashboard/settings/ai.tsx
+msgid "OpenRouter"
+msgstr "OpenRouter"
+
 #: src/routes/_home/-sections/donate.tsx
 #: src/routes/_home/-sections/footer.tsx
 msgid "opens in new tab"
@@ -2527,6 +2546,10 @@ msgstr "직책"
 msgid "Preferences"
 msgstr "환경 설정"
 
+#: src/components/input/rich-input.tsx
+msgid "Presets"
+msgstr "사전 설정"
+
 #: src/components/input/chip-input.tsx
 msgid "Press <0>{RETURN_KEY}</0> or <1>{COMMA_KEY}</1> to add or save the current keyword."
 msgstr "현재 키워드를 추가하거나 저장하려면 <0>{RETURN_KEY}</0> 또는 <1>{COMMA_KEY}</1>를 누르세요."
@@ -2597,12 +2620,6 @@ msgstr "할당량: {0} 남은"
 #: src/routes/dashboard/settings/job-search.tsx
 msgid "RapidAPI Key"
 msgstr "RapidAPI 키"
-
-#. Brand name suffix in browser tab title for public resume pages
-#. Browser tab title before the public resume finishes loading
-#: src/routes/$username/$slug.tsx
-msgid "Reactive Resume"
-msgstr "반응형 이력서"
 
 #: src/routes/_home/-sections/header.tsx
 msgid "Reactive Resume - Go to homepage"
@@ -2754,12 +2771,6 @@ msgstr "비밀번호를 재설정하는 중입니다..."
 #: src/routes/_home/-sections/footer.tsx
 msgid "Resources"
 msgstr "리소스"
-
-#. Browser tab suffix for printable resume pages
-#. Browser tab title before printable resume data finishes loading
-#: src/routes/printer/$resumeId.tsx
-msgid "Resume"
-msgstr "이력서"
 
 #: src/utils/resume/section.tsx
 msgid "Resume Analysis"
@@ -3267,6 +3278,7 @@ msgstr "연결 테스트"
 msgid "Testimonials"
 msgstr "후기"
 
+#: src/components/input/rich-input.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Text Color"
 msgstr "텍스트 색상"
@@ -3702,6 +3714,10 @@ msgstr "사진을 업로드하는 중입니다..."
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "URL"
 msgstr "URL"
+
+#: src/components/input/rich-input.tsx
+msgid "Use color {color}"
+msgstr "색상 사용 {color}"
 
 #. Label for username input on registration form
 #: src/dialogs/resume/sections/profile.tsx
