@@ -2981,7 +2981,7 @@ msgstr "Ini adalah nama yang ramah URL untuk resume Anda."
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "Ini mungkin memakan waktu beberapa menit, tergantung respons penyedia AI. Harap jangan menutup jendela atau memuat ulang halaman."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "Resume ini dikunci dan tidak dapat diperbarui."
 
@@ -3438,7 +3438,7 @@ msgstr "Data Anda disimpan secara lokal"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "Data Anda disimpan dengan aman dan tidak pernah dibagikan dengan pihak ketiga. Anda juga dapat self-host Reactive Resume di server Anda sendiri untuk kontrol penuh atas data Anda."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "Perubahan terbaru Anda tidak dapat disimpan."
 
@@ -3495,4 +3495,3 @@ msgstr "Perkecil"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

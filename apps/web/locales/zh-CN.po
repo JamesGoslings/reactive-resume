@@ -2981,7 +2981,7 @@ msgstr "这是一个适合放在 URL 中的简历名称。"
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "这可能需要几分钟时间，具体取决于 AI 服务提供商的响应速度。请不要关闭窗口或刷新页面。"
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "这份简历已被锁定，无法更新。"
 
@@ -3438,7 +3438,7 @@ msgstr "你的数据将存储在本地"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "你的数据会被安全存储，且绝不会与第三方共享。你也可以在自己的服务器上自托管 Reactive Resume，以完全掌控你的数据。"
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "您所做的最新更改未能保存。"
 
@@ -3495,4 +3495,3 @@ msgstr "缩小"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "祖鲁语"
-

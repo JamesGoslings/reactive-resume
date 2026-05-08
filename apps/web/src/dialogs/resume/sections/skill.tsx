@@ -21,7 +21,7 @@ import { cn } from "@reactive-resume/utils/style";
 import { ChipInput } from "@/components/input/chip-input";
 import { ColorPicker } from "@/components/input/color-picker";
 import { IconPicker } from "@/components/input/icon-picker";
-import { useUpdateResumeData } from "@/components/resume/use-resume";
+import { useUpdateResumeData } from "@/components/resume/builder-resume-draft";
 import { useDialogStore } from "@/dialogs/store";
 import { useFormBlocker } from "@/hooks/use-form-blocker";
 import { makeSectionItem } from "@/libs/resume/make-section-item";

@@ -2981,7 +2981,7 @@ msgstr "हा तुमच्या रेझ्युमेसाठी URL-�
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "AI प्रोव्हायडरच्या प्रतिसादावर अवलंबून, यासाठी काही मिनिटे लागू शकतात. कृपया विंडो बंद करू नका किंवा पान रीफ्रेश करू नका."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "हा रेझ्युमे लॉक केलेला आहे आणि अपडेट करता किंवा हटवता येणार नाही."
 
@@ -3438,7 +3438,7 @@ msgstr "तुमचा डेटा लोकली साठवला जा�
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "तुमचा डेटा सुरक्षितपणे साठवला जातो आणि तृतीय पक्षांसोबत कधीही शेअर केला जात नाही. तुम्ही पूर्ण डेटा कंट्रोलसाठी Reactive Resume स्वतःच्या सर्व्हरवरही होस्ट करू शकता."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "तुमचे नवीनतम बदल जतन केले जाऊ शकले नाहीत."
 
@@ -3495,4 +3495,3 @@ msgstr "बाहेर झूम करा"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "झुलू"
-

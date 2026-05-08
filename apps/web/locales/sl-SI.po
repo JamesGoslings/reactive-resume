@@ -2981,7 +2981,7 @@ msgstr "To je ime vašega življenjepisa, ki je prijazno do URL-jev."
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "To lahko traja nekaj minut, odvisno od odziva AI ponudnika. Prosimo, ne zaprite okna ali osvežite strani."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "Ta življenjepis je zaklenjen in ga ni mogoče posodobiti."
 
@@ -3438,7 +3438,7 @@ msgstr "Vaši podatki so shranjeni lokalno"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "Vaši podatki so varno shranjeni in se nikoli ne delijo s tretjimi osebami. Reactive Življenjepis lahko tudi gostite sami na svojih strežnikih za popoln nadzor nad svojimi podatki."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "Vaših zadnjih sprememb ni bilo mogoče shraniti."
 
@@ -3495,4 +3495,3 @@ msgstr "Oddalji"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zuluščina"
-

@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { Button } from "@reactive-resume/ui/components/button";
 import { downloadWithAnchor, generateFilename } from "@reactive-resume/utils/file";
 import { buildDocx } from "@reactive-resume/utils/resume/docx";
-import { useResume } from "@/components/resume/use-resume";
+import { useResume } from "@/components/resume/builder-resume-draft";
 import { createResumePdfBlob } from "@/libs/resume/pdf-document";
 import { SectionBase } from "../shared/section-base";
 

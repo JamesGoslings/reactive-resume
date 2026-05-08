@@ -1,5 +1,5 @@
 import { RichInput } from "@/components/input/rich-input";
-import { useCurrentResume, useUpdateResumeData } from "@/components/resume/use-resume";
+import { useCurrentResume, useUpdateResumeData } from "@/components/resume/builder-resume-draft";
 import { SectionBase } from "../shared/section-base";
 
 export function SummarySectionBuilder() {

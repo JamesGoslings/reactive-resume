@@ -4,7 +4,7 @@ import { basicsSchema } from "@reactive-resume/schema/resume/data";
 import { FormControl, FormItem, FormLabel, FormMessage } from "@reactive-resume/ui/components/form";
 import { Input } from "@reactive-resume/ui/components/input";
 import { URLInput } from "@/components/input/url-input";
-import { useCurrentBuilderResumeSelector, useUpdateResumeData } from "@/components/resume/use-resume";
+import { useCurrentBuilderResumeSelector, useUpdateResumeData } from "@/components/resume/builder-resume-draft";
 import { useAppForm } from "@/libs/tanstack-form";
 import { SectionBase } from "../shared/section-base";
 import { CustomFieldsSection } from "./custom-fields";

@@ -2981,7 +2981,7 @@ msgstr "Toto je URL‑prívetivý názov tvojho životopisu."
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "Môže to trvať niekoľko minút v závislosti od odozvy poskytovateľa AI. Prosím, nezatváraj okno ani neobnovuj stránku."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "Tento životopis je uzamknutý a nemožno ho aktualizovať."
 
@@ -3438,7 +3438,7 @@ msgstr "Tvoje dáta sú uložené lokálne"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "Tvoje dáta sú bezpečne uložené a nikdy sa nezdieľajú s tretími stranami. Reactive Resume si môžeš tiež hostovať na vlastných serveroch a mať nad dátami úplnú kontrolu."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "Vaše posledné zmeny sa nepodarilo uložiť."
 
@@ -3495,4 +3495,3 @@ msgstr "Oddialiť"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

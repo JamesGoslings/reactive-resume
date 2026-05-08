@@ -2981,7 +2981,7 @@ msgstr "Este é um nome amigável para URL do seu currículo."
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "Isso pode levar alguns minutos, dependendo da resposta do provedor de IA. Não feche a janela nem atualize a página."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "Este currículo está bloqueado e não pode ser atualizado."
 
@@ -3438,7 +3438,7 @@ msgstr "Seus dados são armazenados localmente"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "Seus dados são armazenados com segurança e nunca são compartilhados com terceiros. Você também pode auto-hospedar o Reactive Resume em seus próprios servidores para ter controle total sobre seus dados."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "Não foi possível salvar suas últimas alterações."
 
@@ -3495,4 +3495,3 @@ msgstr "Diminuir zoom"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

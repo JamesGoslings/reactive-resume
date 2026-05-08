@@ -4,9 +4,9 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@reactive-resume/utils/style";
 import { useLocalizedResumeDocument } from "@/libs/resume/pdf-document";
+import { useResumeData } from "./builder-resume-draft";
 import { PdfCanvasDocument, PdfCanvasPage } from "./pdf-canvas";
 import { ResumePreviewLoader } from "./preview.shared";
-import { useResumeData } from "./use-resume";
 
 type PreviewPdf = {
 	file: Blob;

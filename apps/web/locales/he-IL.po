@@ -2981,7 +2981,7 @@ msgstr "זהו שם ידידותי לכתובת URL עבור קורות החיי
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "זה עלול לקחת כמה דקות, בהתאם לזמן התגובה של ספק הבינה המלאכותית. נא לא לסגור את החלון או לרענן את העמוד."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "קורות חיים אלה נעולים ולא ניתן לעדכן אותם."
 
@@ -3438,7 +3438,7 @@ msgstr "הנתונים שלך מאוחסנים באופן מקומי"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "הנתונים שלך מאוחסנים בצורה מאובטחת ולעולם אינם משותפים עם צדדים שלישיים. אפשר גם לארח את Reactive Resume בשרתים שלך כדי לשלוט לחלוטין בנתונים שלך."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "לא ניתן היה לשמור את השינויים האחרונים שלך."
 
@@ -3495,4 +3495,3 @@ msgstr "התרחקות"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "זולו"
-

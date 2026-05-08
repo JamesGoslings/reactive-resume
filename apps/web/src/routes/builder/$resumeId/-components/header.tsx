@@ -21,7 +21,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@reactive-resume/ui/components/dropdown-menu";
-import { useCurrentResume, usePatchResume } from "@/components/resume/use-resume";
+import { useCurrentResume, usePatchResume } from "@/components/resume/builder-resume-draft";
 import { useDialogStore } from "@/dialogs/store";
 import { useConfirm } from "@/hooks/use-confirm";
 import { getResumeErrorMessage } from "@/libs/error-message";

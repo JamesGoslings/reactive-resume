@@ -20,7 +20,7 @@ import { Switch } from "@reactive-resume/ui/components/switch";
 import { generateId } from "@reactive-resume/utils/string";
 import { RichInput } from "@/components/input/rich-input";
 import { URLInput } from "@/components/input/url-input";
-import { useUpdateResumeData } from "@/components/resume/use-resume";
+import { useUpdateResumeData } from "@/components/resume/builder-resume-draft";
 import { useDialogStore } from "@/dialogs/store";
 import { useFormBlocker } from "@/hooks/use-form-blocker";
 import { makeSectionItem } from "@/libs/resume/make-section-item";

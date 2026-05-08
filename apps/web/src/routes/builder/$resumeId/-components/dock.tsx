@@ -23,7 +23,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@reactive-resume/ui/com
 import { downloadWithAnchor, generateFilename } from "@reactive-resume/utils/file";
 import { buildDocx } from "@reactive-resume/utils/resume/docx";
 import { cn } from "@reactive-resume/utils/style";
-import { useCurrentResume } from "@/components/resume/use-resume";
+import { useCurrentResume } from "@/components/resume/builder-resume-draft";
 import { authClient } from "@/libs/auth/client";
 import { createResumePdfBlob } from "@/libs/resume/pdf-document";
 

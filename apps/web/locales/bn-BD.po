@@ -2981,7 +2981,7 @@ msgstr "এটি আপনার জীবনবৃত্তান্তের 
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "AI প্রদানকারীর রেসপন্সের ওপর নির্ভর করে এতে কয়েক মিনিট সময় লাগতে পারে। অনুগ্রহ করে উইন্ডো বন্ধ বা পৃষ্ঠা রিফ্রেশ করবেন না।"
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "এই জীবনবৃত্তান্তটি লক করা আছে এবং হালনাগাদ করা যাবে না।"
 
@@ -3438,7 +3438,7 @@ msgstr "আপনার ডেটা স্থানীয়ভাবে সং
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "আপনার ডেটা নিরাপদভাবে সংরক্ষিত হয় এবং কখনোই তৃতীয় পক্ষের সঙ্গে শেয়ার করা হয় না। চাইলে আপনি নিজের সার্ভারে Reactive Resume নিজে হোস্ট করেও ডেটার পূর্ণ নিয়ন্ত্রণ রাখতে পারেন।"
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "আপনার সর্বশেষ পরিবর্তনগুলো সংরক্ষণ করা যায়নি।"
 
@@ -3495,4 +3495,3 @@ msgstr "জুম আউট"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "জুলু"
-

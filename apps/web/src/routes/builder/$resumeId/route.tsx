@@ -13,7 +13,7 @@ import {
 	useMergeResumeMetadata,
 	useResumeCleanup,
 	useResumeStore,
-} from "@/components/resume/use-resume";
+} from "@/components/resume/builder-resume-draft";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { orpc } from "@/libs/orpc/client";
 import { BuilderHeader } from "./-components/header";

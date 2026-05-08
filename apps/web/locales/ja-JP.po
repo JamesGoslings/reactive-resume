@@ -2981,7 +2981,7 @@ msgstr "これは履歴書用の、URL 向けの名前です。"
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "AI プロバイダーからの応答によっては、数分かかる場合があります。ウィンドウを閉じたりページを再読み込みしたりしないでください。"
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "この履歴書はロックされているため、更新できません。"
 
@@ -3438,7 +3438,7 @@ msgstr "あなたのデータはローカルに保存されます。"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "あなたのデータは安全に保存され、第三者と共有されることはありません。また、完全にデータを管理したい場合は、Reactive Resume を自分のサーバーにセルフホストすることもできます。"
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "最新の変更内容を保存できませんでした。"
 
@@ -3495,4 +3495,3 @@ msgstr "ズームアウト"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "ズールー語"
-

@@ -2981,7 +2981,7 @@ msgstr "Đây là tên thân thiện với URL cho hồ sơ của bạn."
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "Sẽ mất vài phút, tùy thuộc vào tốc độ phản hồi của nhà cung cấp AI. Vui lòng không đóng cửa sổ hoặc làm mới trang."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "Hồ sơ này đã bị khóa và không thể cập nhật."
 
@@ -3438,7 +3438,7 @@ msgstr "Dữ liệu của bạn được lưu trữ cục bộ"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "Dữ liệu của bạn được lưu trữ an toàn và không bao giờ chia sẻ với bên thứ ba. Bạn cũng có thể tự host Reactive Resume trên máy chủ của riêng mình để kiểm soát hoàn toàn dữ liệu của mình."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "Những thay đổi gần đây của bạn không thể được lưu lại."
 
@@ -3495,4 +3495,3 @@ msgstr "Thu nhỏ"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

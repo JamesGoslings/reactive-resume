@@ -34,7 +34,7 @@ import {
 } from "@reactive-resume/ui/components/input-group";
 import { generateId, generateRandomName, slugify } from "@reactive-resume/utils/string";
 import { ChipInput } from "@/components/input/chip-input";
-import { usePatchResume } from "@/components/resume/use-resume";
+import { usePatchResume } from "@/components/resume/builder-resume-draft";
 import { useFormBlocker } from "@/hooks/use-form-blocker";
 import { authClient } from "@/libs/auth/client";
 import { getResumeErrorMessage } from "@/libs/error-message";

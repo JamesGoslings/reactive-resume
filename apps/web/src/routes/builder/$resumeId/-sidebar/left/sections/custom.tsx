@@ -32,7 +32,7 @@ import {
 } from "@reactive-resume/ui/components/dropdown-menu";
 import { stripHtml } from "@reactive-resume/utils/string";
 import { cn } from "@reactive-resume/utils/style";
-import { useCurrentResume, useUpdateResumeData } from "@/components/resume/use-resume";
+import { useCurrentResume, useUpdateResumeData } from "@/components/resume/builder-resume-draft";
 import { useDialogStore } from "@/dialogs/store";
 import { useConfirm } from "@/hooks/use-confirm";
 import { getSectionTitle } from "@/libs/resume/section";

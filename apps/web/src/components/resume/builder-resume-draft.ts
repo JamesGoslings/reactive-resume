@@ -2,13 +2,11 @@ import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import type { QueryClient, QueryKey } from "@tanstack/react-query";
 import type { WritableDraft } from "immer";
 import { t } from "@lingui/core/macro";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { useParams } from "@tanstack/react-router";
 import { debounce } from "es-toolkit";
-import isDeepEqual from "fast-deep-equal";
 import { useCallback, useEffect } from "react";
 import { toast } from "sonner";
-import { temporal } from "zundo";
 import { immer } from "zustand/middleware/immer";
 import { create } from "zustand/react";
 import { orpc } from "@/libs/orpc/client";
@@ -40,8 +38,6 @@ type ResumeStoreActions = {
 
 type ResumeStore = ResumeStoreState & ResumeStoreActions;
 
-type PartializedState = { data: ResumeData | null };
-
 type Runtime = {
 	abortController: AbortController;
 	queryClient?: QueryClient;
@@ -50,8 +46,6 @@ type Runtime = {
 	beforeUnloadHandler?: () => void;
 };
 
-const HISTORY_LIMIT = 100;
-const GROUPED_HISTORY_MS = 250;
 const SAVE_DEBOUNCE_MS = 500;
 const runtimes = new Map<string, Runtime>();
 
@@ -141,81 +135,66 @@ function syncCurrentResume(id: string) {
 }
 
 export const useResumeStore = create<ResumeStore>()(
-	temporal(
-		immer((set, get) => ({
-			resume: null,
-			resumeId: undefined,
-			isReady: false,
+	immer((set, get) => ({
+		resume: null,
+		resumeId: undefined,
+		isReady: false,
 
-			initialize: (resume) => {
-				set((state) => {
-					state.resume = resume;
-					state.resumeId = resume?.id;
-					state.isReady = resume !== null;
-				});
-
-				useResumeStore.temporal.getState().clear();
-			},
-
-			reset: () => {
-				set((state) => {
-					state.resume = null;
-					state.resumeId = undefined;
-					state.isReady = false;
-				});
-
-				useResumeStore.temporal.getState().clear();
-			},
-
-			patchResume: (fn) => {
-				set((state) => {
-					if (!state.resume) return;
-					fn(state.resume as WritableDraft<Resume>);
-				});
-			},
-
-			mergeResumeMetadata: (resume) => {
-				set((state) => {
-					if (!state.resume || state.resume.id !== resume.id) return;
-
-					state.resume.name = resume.name;
-					state.resume.slug = resume.slug;
-					state.resume.tags = resume.tags;
-					state.resume.isLocked = resume.isLocked;
-					state.resume.hasPassword = resume.hasPassword;
-					state.resume.isPublic = resume.isPublic;
-				});
-			},
-
-			updateResumeData: (fn) => {
-				const currentResume = get().resume;
-				if (!currentResume) return;
-
-				if (currentResume.isLocked) {
-					lockedToastId = toast.error(t`This resume is locked and cannot be updated.`, {
-						id: lockedToastId,
-					});
-					return;
-				}
-
-				set((state) => {
-					if (!state.resume) return;
-					fn(state.resume.data as WritableDraft<ResumeData>);
-				});
-
-				syncCurrentResume(currentResume.id);
-			},
-		})),
-		{
-			partialize: (state): PartializedState => ({ data: state.resume?.data ?? null }),
-			equality: (pastState, currentState) => isDeepEqual(pastState, currentState),
-			limit: HISTORY_LIMIT,
-			handleSet: (handleSet) =>
-				debounce((state: Parameters<typeof handleSet>[0], replace?: Parameters<typeof handleSet>[1]) => {
-					handleSet(state as never, replace as never);
-				}, GROUPED_HISTORY_MS) as typeof handleSet,
+		initialize: (resume) => {
+			set((state) => {
+				state.resume = resume;
+				state.resumeId = resume?.id;
+				state.isReady = resume !== null;
+			});
 		},
-	),
+
+		reset: () => {
+			set((state) => {
+				state.resume = null;
+				state.resumeId = undefined;
+				state.isReady = false;
+			});
+		},
+
+		patchResume: (fn) => {
+			set((state) => {
+				if (!state.resume) return;
+				fn(state.resume as WritableDraft<Resume>);
+			});
+		},
+
+		mergeResumeMetadata: (resume) => {
+			set((state) => {
+				if (!state.resume || state.resume.id !== resume.id) return;
+
+				state.resume.name = resume.name;
+				state.resume.slug = resume.slug;
+				state.resume.tags = resume.tags;
+				state.resume.isLocked = resume.isLocked;
+				state.resume.hasPassword = resume.hasPassword;
+				state.resume.isPublic = resume.isPublic;
+			});
+		},
+
+		updateResumeData: (fn) => {
+			const currentResume = get().resume;
+			if (!currentResume) return;
+
+			if (currentResume.isLocked) {
+				lockedToastId = toast.error(t`This resume is locked and cannot be updated.`, {
+					id: lockedToastId,
+				});
+				return;
+			}
+
+			set((state) => {
+				if (!state.resume) return;
+				fn(state.resume.data as WritableDraft<ResumeData>);
+			});
+
+			syncCurrentResume(currentResume.id);
+		},
+	})),
 );
 
 export function useInitializeResumeStore() {
@@ -250,36 +229,8 @@ export function useCurrentBuilderResumeSelector<T>(selector: (resume: Resume) =>
 	return selected;
 }
 
-/**
- * Reads the resume from the builder store when editing, and from query cache
- * for non-builder/public routes.
- */
 export function useResume(): Resume | undefined {
-	const params = useParams({ strict: false }) as {
-		resumeId?: string;
-		username?: string;
-		slug?: string;
-	};
-
-	const builderResume = useResumeStore((state) => {
-		if (!params.resumeId || !state.resume || state.resume.id !== params.resumeId) return undefined;
-		return state.resume;
-	});
-
-	const byIdQuery = useQuery({
-		...orpc.resume.getById.queryOptions({ input: { id: params.resumeId ?? "" } }),
-		enabled: !!params.resumeId,
-	});
-
-	const bySlugQuery = useQuery({
-		...orpc.resume.getBySlug.queryOptions({
-			input: { username: params.username ?? "", slug: params.slug ?? "" },
-		}),
-		enabled: !!(!params.resumeId && params.username && params.slug),
-	});
-
-	if (params.resumeId) return builderResume ?? (byIdQuery.data as Resume | undefined);
-	return bySlugQuery.data as Resume | undefined;
+	return useBuilderResumeSelector((resume) => resume);
 }
 
 export function useCurrentResume(): Resume {
@@ -289,23 +240,7 @@ export function useCurrentResume(): Resume {
 }
 
 export function useResumeData(): ResumeData | undefined {
-	const params = useParams({ strict: false }) as { resumeId?: string; username?: string; slug?: string };
-	const builderData = useBuilderResumeSelector((resume) => resume.data);
-
-	const byIdQuery = useQuery({
-		...orpc.resume.getById.queryOptions({ input: { id: params.resumeId ?? "" } }),
-		enabled: !!params.resumeId,
-	});
-
-	const bySlugQuery = useQuery({
-		...orpc.resume.getBySlug.queryOptions({
-			input: { username: params.username ?? "", slug: params.slug ?? "" },
-		}),
-		enabled: !!(!params.resumeId && params.username && params.slug),
-	});
-
-	if (params.resumeId) return builderData ?? (byIdQuery.data as Resume | undefined)?.data;
-	return (bySlugQuery.data as Resume | undefined)?.data;
+	return useBuilderResumeSelector((resume) => resume.data);
 }
 
 export function useUpdateResumeData() {

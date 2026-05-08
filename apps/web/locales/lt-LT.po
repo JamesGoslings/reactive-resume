@@ -2981,7 +2981,7 @@ msgstr "Tai URL draugiškas jūsų gyvenimo aprašymo pavadinimas."
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "Tai gali užtrukti kelias minutes, priklausomai nuo DI tiekėjo atsako. Neuždarykite lango ir neatnaujinkite puslapio."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "Šis gyvenimo aprašymas užrakintas ir negali būti atnaujintas."
 
@@ -3438,7 +3438,7 @@ msgstr "Jūsų duomenys saugomi vietoje"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "Jūsų duomenys saugiai laikomi ir niekada nebendrinami su trečiosiomis šalimis. Taip pat galite savarankiškai talpinti „Reactive Resume“ savo serveriuose ir visiškai kontroliuoti savo duomenis."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "Nepavyko išsaugoti naujausių pakeitimų."
 
@@ -3495,4 +3495,3 @@ msgstr "Tolinti"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulų"
-

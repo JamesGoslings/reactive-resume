@@ -2981,7 +2981,7 @@ msgstr "Ini ialah nama mesra URL untuk resume anda."
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "Ini mungkin mengambil masa beberapa minit, bergantung pada respons penyedia AI. Sila jangan tutup tetingkap atau segarkan semula halaman."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "Resume ini dikunci dan tidak boleh dikemas kini."
 
@@ -3438,7 +3438,7 @@ msgstr "Data anda disimpan secara setempat"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "Data anda disimpan dengan selamat dan tidak pernah dikongsi dengan pihak ketiga. Anda juga boleh menghoskan sendiri Reactive Resume pada pelayan anda untuk kawalan penuh ke atas data anda."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "Perubahan terkini anda tidak dapat disimpan."
 
@@ -3495,4 +3495,3 @@ msgstr "Zum keluar"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

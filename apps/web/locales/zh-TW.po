@@ -2981,7 +2981,7 @@ msgstr "這是用於履歷的 URL 友善名稱。"
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "這可能需要幾分鐘，取決於 AI 服務提供者的回應時間。請勿關閉視窗或重新整理頁面。"
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "這份履歷已被鎖定，無法更新。"
 
@@ -3438,7 +3438,7 @@ msgstr "您的資料將儲存在本機裝置中"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "您的資料會被安全保存，且絕不會分享給第三方。您也可以在自有伺服器上自行託管 Reactive Resume，完全掌控自己的資料。"
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "您所做的最新變更未能儲存。"
 
@@ -3495,4 +3495,3 @@ msgstr "縮小"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "祖魯語"
-

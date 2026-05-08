@@ -2981,7 +2981,7 @@ msgstr "นี่คือชื่อเรซูเม่ที่เหมา
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "อาจใช้เวลาสักครู่ขึ้นอยู่กับการตอบสนองของผู้ให้บริการ AI กรุณาอย่าปิดหน้าต่างหรือรีเฟรชหน้าเว็บ"
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "เรซูเม่นี้ถูกล็อกและไม่สามารถอัปเดตได้"
 
@@ -3438,7 +3438,7 @@ msgstr "ข้อมูลของคุณถูกจัดเก็บไว
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "ข้อมูลของคุณถูกจัดเก็บไว้อย่างปลอดภัยและจะไม่ถูกแชร์กับบุคคลที่สาม คุณยังสามารถโฮสต์ Reactive Resume ด้วยตัวเองบนเซิร์ฟเวอร์ของคุณเพื่อควบคุมข้อมูลได้อย่างสมบูรณ์."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "ไม่สามารถบันทึกการเปลี่ยนแปลงล่าสุดของคุณได้"
 
@@ -3495,4 +3495,3 @@ msgstr "ซูมออก"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "ซูลู"
-

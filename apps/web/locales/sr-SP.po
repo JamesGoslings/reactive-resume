@@ -2981,7 +2981,7 @@ msgstr "Ово је URL-пријатељско име за ваш резиме."
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "Ово може потрајати неколико минута, у зависности од одзива AI провајдера. Немојте затварати прозор нити освежавати страницу."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "Овај резиме је закључан и не може се ажурирати."
 
@@ -3438,7 +3438,7 @@ msgstr "Ваши подаци се чувају локално"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "Ваши подаци се чувају безбедно и никада се не деле са трећим странама. Такође можете самостално хостовати Реактивни Резиме на сопственим серверима за потпуну контролу над подацима."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "Ваше последње измене нису могле бити сачуване."
 
@@ -3495,4 +3495,3 @@ msgstr "Умањи"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Зулу"
-
