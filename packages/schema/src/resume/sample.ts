@@ -3,7 +3,7 @@ import type { ResumeData } from "./data";
 export const sampleResumeData: ResumeData = {
 	picture: {
 		hidden: false,
-		url: "",
+		url: "/photos/sample-picture.jpg",
 		size: 100,
 		rotation: 0,
 		aspectRatio: 1,
