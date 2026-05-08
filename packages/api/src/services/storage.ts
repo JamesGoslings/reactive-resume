@@ -9,7 +9,7 @@ import {
 } from "@aws-sdk/client-s3";
 import sharp from "sharp";
 import { env } from "@reactive-resume/env/server";
-import { getLocalDataDirectory } from "../helpers/local-data-directory";
+import { getLocalDataDirectory } from "@reactive-resume/utils/monorepo.node";
 
 interface StorageWriteInput {
 	key: string;

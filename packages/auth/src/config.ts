@@ -24,7 +24,7 @@ import { sendEmail } from "@reactive-resume/email/transport";
 import { env } from "@reactive-resume/env/server";
 import { rateLimitConfig, TRUSTED_IP_HEADERS } from "@reactive-resume/utils/rate-limit";
 import { generateId, toUsername } from "@reactive-resume/utils/string";
-import { isAllowedOAuthRedirectUri, parseAllowedHostList } from "@reactive-resume/utils/url-security";
+import { isAllowedOAuthRedirectUri, parseAllowedHostList } from "@reactive-resume/utils/url-security.node";
 
 const authBaseUrl = env.APP_URL;
 const isRateLimitEnabled = process.env.NODE_ENV === "production";

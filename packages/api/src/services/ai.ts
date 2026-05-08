@@ -28,7 +28,7 @@ import {
 } from "@reactive-resume/ai/tools/patch-resume";
 import { AI_PROVIDER_DEFAULT_BASE_URLS, aiProviderSchema } from "@reactive-resume/ai/types";
 import { resumeAnalysisOutputSchema, resumeAnalysisSchema } from "@reactive-resume/schema/resume/analysis";
-import { isPrivateOrLoopbackHost, parseUrl } from "@reactive-resume/utils/url-security";
+import { isPrivateOrLoopbackHost, parseUrl } from "@reactive-resume/utils/url-security.node";
 
 const aiExtractionTemplate = buildAiExtractionTemplate();
 

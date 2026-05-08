@@ -11,6 +11,7 @@
 		"./html": "./src/html.ts",
 		"./level": "./src/level.ts",
 		"./locale": "./src/locale.ts",
+		"./monorepo.node": "./src/monorepo.node.ts",
 		"./network-icons": "./src/network-icons.ts",
 		"./rate-limit": "./src/rate-limit.ts",
 		"./resume/docx": "./src/resume/docx/index.ts",
@@ -19,7 +20,7 @@
 		"./string": "./src/string.ts",
 		"./style": "./src/style.ts",
 		"./url": "./src/url.ts",
-		"./url-security": "./src/url-security.ts"
+		"./url-security.node": "./src/url-security.node.ts"
 	},
 	"scripts": {
 		"typecheck": "tsgo --noEmit",
@@ -36,6 +37,7 @@
 		"docx": "^9.6.1",
 		"dompurify": "^3.4.2",
 		"fast-json-patch": "^3.1.1",
+		"find-up": "^8.0.0",
 		"tailwind-merge": "^3.5.0",
 		"unique-names-generator": "^4.7.1",
 		"uuid": "^14.0.0",

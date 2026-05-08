@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { auth } from "@reactive-resume/auth/config";
 import { env } from "@reactive-resume/env/server";
-import { isAllowedOAuthRedirectUri, parseAllowedHostList } from "@reactive-resume/utils/url-security";
+import { isAllowedOAuthRedirectUri, parseAllowedHostList } from "@reactive-resume/utils/url-security.node";
 
 const oauthAuthorizeSanitizedParams = [
 	"prompt",

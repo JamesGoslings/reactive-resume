@@ -1,5 +1,14 @@
+import { join } from "node:path";
 import { createEnv } from "@t3-oss/env-core";
+import { config } from "dotenv";
 import { z } from "zod";
+import { findWorkspaceRoot } from "@reactive-resume/utils/monorepo.node";
+
+const workspaceRoot = findWorkspaceRoot();
+
+if (workspaceRoot) {
+	config({ path: join(workspaceRoot, ".env"), quiet: true });
+}
 
 export const env = createEnv({
 	server: {
