@@ -4,6 +4,43 @@ description: "List of all notable changes and updates to Reactive Resume"
 rss: true
 ---
 
+<Update label="v5.1.1" description="8th May 2026">
+## Highlights
+
+- **Free-form resume pages.** Added a new **Free-form** page format for resumes that should keep A4 width while allowing content to flow beyond a fixed page height. This is useful for long-form web-style resumes while preserving predictable export sizing. [#2991](https://github.com/amruthpillai/reactive-resume/issues/2991)
+- **PDF downloads through the API.** Added an authenticated `GET /resumes/{id}/pdf` endpoint so API clients can generate and download a resume PDF directly. The OpenAPI spec has been updated with the new route. [5042ad9d](https://github.com/amruthpillai/reactive-resume/commit/5042ad9d)
+
+## Resume Builder & Exports
+
+- Fixed nested lists in PDF rendering so rich text with sub-lists exports correctly. [#2993](https://github.com/amruthpillai/reactive-resume/issues/2993)
+- Fixed inline item links in exported PDFs and made resume links consistently underlined. [#2978](https://github.com/amruthpillai/reactive-resume/issues/2978)
+- Added italic font registration for PDF generation and falls back to **IBM Plex Serif** when a selected font is unavailable. [6d54ffa8](https://github.com/amruthpillai/reactive-resume/commit/6d54ffa8), [4c771307](https://github.com/amruthpillai/reactive-resume/commit/4c771307)
+- Improved header name line height across templates for cleaner PDF output. [#2976](https://github.com/amruthpillai/reactive-resume/issues/2976)
+- Added prose styles to the rich text editor so formatted content is easier to read while editing. [#2984](https://github.com/amruthpillai/reactive-resume/issues/2984)
+- Added a preview control to toggle page stacking and adjusted the default preview zoom for a better builder canvas experience.
+
+## Fixes
+
+- Fixed a runtime error when enabling two-factor authentication. [#2981](https://github.com/amruthpillai/reactive-resume/issues/2981)
+- Fixed excessive re-renders in the Experience section when editing role progression. [#2983](https://github.com/amruthpillai/reactive-resume/issues/2983)
+- Removed route preloading to avoid unwanted route work while navigating the app. [#2949](https://github.com/amruthpillai/reactive-resume/issues/2949)
+- Relaxed resume data parsing to accept compatible objects with additional fields. [#2793](https://github.com/amruthpillai/reactive-resume/issues/2793)
+- Updated dialog layout behavior so tall dialogs scroll correctly on smaller screens.
+- Updated the sample resume picture URL to point to a valid bundled image.
+
+## Self-Hosting
+
+- Automatically loads `.env` from the workspace root for server-side code, improving local and self-hosted configuration behavior. [#2987](https://github.com/amruthpillai/reactive-resume/issues/2987)
+- Restored the local storage path to `/app/data` in the official container image and clarified the Docker storage documentation. [#2990](https://github.com/amruthpillai/reactive-resume/issues/2990)
+
+## Maintenance & Localization
+
+- Synced translation catalogs from Crowdin. [#2995](https://github.com/amruthpillai/reactive-resume/pull/2995), [#2997](https://github.com/amruthpillai/reactive-resume/pull/2997)
+- Removed unused dependencies, stale generated cache artifacts, and obsolete tests from the repository.
+
+**Full Changelog**: [v5.1.0...v5.1.1](https://github.com/amruthpillai/reactive-resume/compare/v5.1.0...v5.1.1)
+</Update>
+
 <Update label="v5.1.0" description="7th May 2026">
 <Note>
   **Self-hosters, please read before upgrading.**
