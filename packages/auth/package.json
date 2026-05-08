@@ -37,7 +37,7 @@
 		"@reactive-resume/config": "workspace:*",
 		"@types/bcrypt": "^6.0.0",
 		"@types/react": "^19.2.14",
-		"@typescript/native-preview": "7.0.0-dev.20260507.1",
+		"@typescript/native-preview": "7.0.0-dev.20260508.1",
 		"typescript": "^6.0.3"
 	}
 }

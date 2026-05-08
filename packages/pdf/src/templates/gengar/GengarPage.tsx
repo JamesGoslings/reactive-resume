@@ -9,7 +9,7 @@ import { useRender } from "../../context";
 import { TemplateProvider } from "../shared/context";
 import { filterSections } from "../shared/filtering";
 import { getTemplateMetrics } from "../shared/metrics";
-import { getTemplatePageSize } from "../shared/page-size";
+import { getTemplatePageMinHeightStyle, getTemplatePageSize } from "../shared/page-size";
 import { hasTemplatePicture } from "../shared/picture";
 import { Heading, Icon, Link, Text } from "../shared/primitives";
 import { Section } from "../shared/sections";
@@ -43,6 +43,7 @@ export const GengarPage = ({ page, pageIndex }: TemplatePageProps) => {
 	const { colors, styles } = useGengarTemplate();
 	const metrics = getTemplateMetrics(metadata.page);
 	const pageSize = getTemplatePageSize(metadata.page.format);
+	const pageMinHeightStyle = getTemplatePageMinHeightStyle(metadata.page.format);
 	const showHeader = pageIndex === 0;
 	const showSidebar = !page.fullWidth || showHeader;
 	const sidebarSections = filterSections(page.sidebar, data);
@@ -51,7 +52,7 @@ export const GengarPage = ({ page, pageIndex }: TemplatePageProps) => {
 	const regularMainSections = showHeader ? mainSections.slice(1) : mainSections;
 
 	return (
-		<Page size={pageSize} style={styles.page}>
+		<Page size={pageSize} style={composeStyles(styles.page, pageMinHeightStyle)}>
 			<TemplateProvider styles={styles} colors={colors}>
 				{showSidebar && (
 					<View

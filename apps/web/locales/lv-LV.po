@@ -1389,13 +1389,17 @@ msgid "Forgot your password?"
 msgstr "Aizmirsāt paroli?"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgctxt "Page Format (A4, Letter)"
+msgctxt "Page Format (A4, Letter, Free-form)"
 msgid "Format"
-msgstr "Formāts"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Free"
 msgstr "Bezmaksas"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Free-form"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "French"
@@ -3497,4 +3501,3 @@ msgstr "Tālināt"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

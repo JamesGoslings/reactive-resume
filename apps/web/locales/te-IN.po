@@ -1389,13 +1389,17 @@ msgid "Forgot your password?"
 msgstr "మీ పాస్‌వర్డ్ మర్చిపోయారా?"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgctxt "Page Format (A4, Letter)"
+msgctxt "Page Format (A4, Letter, Free-form)"
 msgid "Format"
-msgstr "ఫార్మాట్"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Free"
 msgstr "ఉచితం"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Free-form"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "French"
@@ -3497,4 +3501,3 @@ msgstr "జూమ్ అవుట్ చేయండి"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "జులు"
-

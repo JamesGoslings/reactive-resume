@@ -46,6 +46,8 @@ temp
 .codex
 .claude
 .cursor
+docs/superpowers
 
-# Data
-apps/web/data
+# Local Storage Data
+/data
+/apps/web/data

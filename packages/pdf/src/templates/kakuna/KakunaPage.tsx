@@ -9,7 +9,7 @@ import { useRender } from "../../context";
 import { TemplateProvider } from "../shared/context";
 import { filterSections } from "../shared/filtering";
 import { getTemplateMetrics } from "../shared/metrics";
-import { getTemplatePageSize } from "../shared/page-size";
+import { getTemplatePageMinHeightStyle, getTemplatePageSize } from "../shared/page-size";
 import { hasTemplatePicture } from "../shared/picture";
 import { Heading, Icon, Link, Text } from "../shared/primitives";
 import { Section } from "../shared/sections";
@@ -39,12 +39,13 @@ export const KakunaPage = ({ page, pageIndex }: TemplatePageProps) => {
 	const { colors, styles } = useKakunaTemplate();
 	const metrics = getTemplateMetrics(metadata.page);
 	const pageSize = getTemplatePageSize(metadata.page.format);
+	const pageMinHeightStyle = getTemplatePageMinHeightStyle(metadata.page.format);
 	const showHeader = pageIndex === 0;
 	const mainSections = filterSections(page.main, data);
 	const sidebarSections = filterSections(page.sidebar, data);
 
 	return (
-		<Page size={pageSize} style={styles.page}>
+		<Page size={pageSize} style={composeStyles(styles.page, pageMinHeightStyle)}>
 			<TemplateProvider styles={styles} colors={colors}>
 				{showHeader && <Header styles={styles} />}
 

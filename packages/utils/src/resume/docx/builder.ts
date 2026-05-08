@@ -50,9 +50,17 @@ interface PageSize {
 
 const DEFAULT_PAGE_SIZE: PageSize = { width: 210, height: 297 };
 
-const PAGE_SIZES: Record<string, PageSize> = {
+const PAGE_SIZES = {
 	a4: DEFAULT_PAGE_SIZE,
 	letter: { width: 215.9, height: 279.4 },
+} satisfies Record<string, PageSize>;
+
+type DocxPageFormat = keyof typeof PAGE_SIZES;
+
+const resolveDocxPageFormat = (format: ResumeData["metadata"]["page"]["format"]): DocxPageFormat => {
+	if (format === "letter") return "letter";
+
+	return "a4";
 };
 
 // --- Invisible border preset for table cells ---
@@ -344,7 +352,7 @@ function buildTwoColumnTable(
  * - Header with name, headline, and contact info (centered, full-width)
  * - Two-column table layout (main + sidebar) matching `metadata.layout`
  * - Typography (font family, size, line height) from `metadata.typography`
- * - Page margins and format (A4/Letter) from `metadata.page`
+ * - Page margins and fixed DOCX page format from `metadata.page`; free-form exports as A4
  * - Primary, text, and background colors from `metadata.design.colors`
  */
 export function buildDocument(data: ResumeData): Document {
@@ -357,7 +365,7 @@ export function buildDocument(data: ResumeData): Document {
 	const lineSpacing = Math.round(data.metadata.typography.body.lineHeight * 240);
 
 	const { page } = data.metadata;
-	const pageSize = PAGE_SIZES[page.format] ?? DEFAULT_PAGE_SIZE;
+	const pageSize = PAGE_SIZES[resolveDocxPageFormat(page.format)];
 	// Margins and gaps are defined in points (pt), not mm
 	const marginXTwips = ptToTwips(page.marginX);
 	const marginYTwips = ptToTwips(page.marginY);

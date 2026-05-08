@@ -1384,12 +1384,16 @@ msgid "Forgot your password?"
 msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgctxt "Page Format (A4, Letter)"
+msgctxt "Page Format (A4, Letter, Free-form)"
 msgid "Format"
 msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Free"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Free-form"
 msgstr ""
 
 #: src/libs/locale.ts

@@ -161,8 +161,8 @@ export function ResumePreviewClient({
 							{(document) => (
 								<div
 									className={cn(
-										"flex items-center justify-start gap-(--resume-preview-page-gap)",
-										pageLayout === "horizontal" ? "flex-row" : "flex-col",
+										"flex justify-start gap-(--resume-preview-page-gap)",
+										pageLayout === "horizontal" ? "flex-row items-start" : "flex-col items-center",
 									)}
 								>
 									{Array.from({ length: visiblePdf.numPages }, (_, index) => {

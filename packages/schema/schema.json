@@ -1689,8 +1689,8 @@
 						"format": {
 							"default": "a4",
 							"type": "string",
-							"enum": ["a4", "letter"],
-							"description": "The format of the page. Can be 'a4' or 'letter'."
+							"enum": ["a4", "letter", "free-form"],
+							"description": "The format of the page. Can be 'a4', 'letter', or 'free-form'."
 						},
 						"locale": {
 							"default": "en-US",
