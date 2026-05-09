@@ -1,7 +1,12 @@
 import type { FontWeight } from "@reactive-resume/fonts";
 import type { Typography } from "@reactive-resume/schema/resume/data";
 import { Font } from "@react-pdf/renderer";
-import { getFont, getWebFontSource, isStandardPdfFontFamily } from "@reactive-resume/fonts";
+import {
+	getFont,
+	getPdfCjkFallbackFontFamily,
+	getWebFontSource,
+	isStandardPdfFontFamily,
+} from "@reactive-resume/fonts";
 
 type FontWeightRange = {
 	lowest: number;
@@ -10,6 +15,13 @@ type FontWeightRange = {
 
 const registeredFontVariants = new Set<string>();
 const fallbackFontFamily = "IBM Plex Serif";
+
+// `fontFamily` is widened to `string | string[]` so react-pdf can do
+// glyph-level font fallback for CJK characters (#2986).
+export type PdfTypography = Omit<Typography, "body" | "heading"> & {
+	body: Omit<Typography["body"], "fontFamily"> & { fontFamily: string | string[] };
+	heading: Omit<Typography["heading"], "fontFamily"> & { fontFamily: string | string[] };
+};
 
 const getFontWeightRange = (fontWeights: string[]): FontWeightRange => {
 	const numericWeights = fontWeights.map(Number).filter((weight) => Number.isFinite(weight));
@@ -53,7 +65,7 @@ const resolvePdfTypography = (typography: Typography): Typography => {
 	};
 };
 
-export const registerFonts = (typography: Typography): Typography => {
+export const registerFonts = (typography: Typography): PdfTypography => {
 	Font.registerHyphenationCallback((word) => [word]);
 
 	const pdfTypography = resolvePdfTypography(typography);
@@ -84,5 +96,32 @@ export const registerFonts = (typography: Typography): Typography => {
 		registerFont(headingFontFamily, headingRange.highest, italic);
 	}
 
-	return pdfTypography;
+	// Register a CJK fallback so textkit can substitute per-codepoint for
+	// characters the primary font lacks (#2986). One weight is enough —
+	// substitution is per-codepoint, not per-weight.
+	const bodyCjkFallback = getPdfCjkFallbackFontFamily(bodyFontFamily);
+	const headingCjkFallback = getPdfCjkFallbackFontFamily(headingFontFamily);
+
+	if (bodyCjkFallback) {
+		registerFont(bodyCjkFallback, 400, false);
+	}
+	if (headingCjkFallback && headingCjkFallback !== bodyCjkFallback) {
+		registerFont(headingCjkFallback, 400, false);
+	}
+
+	// Latin-only path: no fallback registered, return as-is.
+	if (!bodyCjkFallback && !headingCjkFallback) {
+		return pdfTypography as PdfTypography;
+	}
+
+	const bodyStack: string | string[] = bodyCjkFallback ? [bodyFontFamily, bodyCjkFallback] : bodyFontFamily;
+	const headingStack: string | string[] = headingCjkFallback
+		? [headingFontFamily, headingCjkFallback]
+		: headingFontFamily;
+
+	return {
+		...pdfTypography,
+		body: { ...pdfTypography.body, fontFamily: bodyStack },
+		heading: { ...pdfTypography.heading, fontFamily: headingStack },
+	};
 };
