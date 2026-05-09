@@ -23,12 +23,18 @@ const dialogTypeSchema = z.discriminatedUnion("type", [
 	z.object({ type: z.literal("auth.two-factor.enable"), data: z.undefined() }),
 	z.object({ type: z.literal("auth.two-factor.disable"), data: z.undefined() }),
 	z.object({ type: z.literal("api-key.create"), data: z.undefined() }),
-	z.object({ type: z.literal("resume.create"), data: z.undefined() }),
+	z.object({
+		type: z.literal("resume.create"),
+		data: z.object({ groupId: z.string().optional() }).optional(),
+	}),
 	z.object({
 		type: z.literal("resume.update"),
 		data: z.object({ id: z.string(), name: z.string(), slug: z.string(), tags: z.array(z.string()) }),
 	}),
-	z.object({ type: z.literal("resume.import"), data: z.undefined() }),
+	z.object({
+		type: z.literal("resume.import"),
+		data: z.object({ groupId: z.string().optional() }).optional(),
+	}),
 	z.object({
 		type: z.literal("resume.duplicate"),
 		data: z.object({
@@ -40,6 +46,19 @@ const dialogTypeSchema = z.discriminatedUnion("type", [
 		}),
 	}),
 	z.object({ type: z.literal("resume.template.gallery"), data: z.undefined() }),
+	z.object({ type: z.literal("resume.groups.manage"), data: z.undefined() }),
+	z.object({ type: z.literal("resume.groups.create"), data: z.undefined() }),
+	z.object({
+		type: z.literal("resume.groups.update"),
+		data: z.object({ id: z.string(), name: z.string() }),
+	}),
+	z.object({
+		type: z.literal("resume.groups.move"),
+		data: z.object({
+			resumeId: z.string(),
+			currentGroupId: z.string().nullable(),
+		}),
+	}),
 	z.object({
 		type: z.literal("resume.sections.profiles.create"),
 		data: z.object({ item: profileItemSchema.optional(), customSectionId: z.string().optional() }).optional(),

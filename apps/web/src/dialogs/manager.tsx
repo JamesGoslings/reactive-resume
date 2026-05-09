@@ -5,6 +5,10 @@ import { ChangePasswordDialog } from "./auth/change-password";
 import { DisableTwoFactorDialog } from "./auth/disable-two-factor";
 import { EnableTwoFactorDialog } from "./auth/enable-two-factor";
 import { CreateResumeDialog, DuplicateResumeDialog, UpdateResumeDialog } from "./resume";
+import { CreateGroupDialog } from "./resume/groups/create";
+import { ManageGroupsDialog } from "./resume/groups/manage";
+import { MoveResumeToGroupDialog } from "./resume/groups/move";
+import { UpdateGroupDialog } from "./resume/groups/update";
 import { ImportResumeDialog } from "./resume/import";
 import { CreateAwardDialog, UpdateAwardDialog } from "./resume/sections/award";
 import { CreateCertificationDialog, UpdateCertificationDialog } from "./resume/sections/certification";
@@ -32,11 +36,15 @@ export function DialogManager() {
 		.with({ type: "auth.two-factor.enable" }, () => <EnableTwoFactorDialog />)
 		.with({ type: "auth.two-factor.disable" }, () => <DisableTwoFactorDialog />)
 		.with({ type: "api-key.create" }, () => <CreateApiKeyDialog />)
-		.with({ type: "resume.create" }, () => <CreateResumeDialog />)
+		.with({ type: "resume.create" }, ({ data }) => <CreateResumeDialog data={data} />)
 		.with({ type: "resume.update" }, ({ data }) => <UpdateResumeDialog data={data} />)
 		.with({ type: "resume.duplicate" }, ({ data }) => <DuplicateResumeDialog data={data} />)
-		.with({ type: "resume.import" }, () => <ImportResumeDialog />)
+		.with({ type: "resume.import" }, ({ data }) => <ImportResumeDialog data={data} />)
 		.with({ type: "resume.template.gallery" }, () => <TemplateGalleryDialog />)
+		.with({ type: "resume.groups.manage" }, () => <ManageGroupsDialog />)
+		.with({ type: "resume.groups.create" }, () => <CreateGroupDialog />)
+		.with({ type: "resume.groups.update" }, ({ data }) => <UpdateGroupDialog data={data} />)
+		.with({ type: "resume.groups.move" }, ({ data }) => <MoveResumeToGroupDialog data={data} />)
 		.with({ type: "resume.sections.profiles.create" }, ({ data }) => <CreateProfileDialog data={data} />)
 		.with({ type: "resume.sections.profiles.update" }, ({ data }) => <UpdateProfileDialog data={data} />)
 		.with({ type: "resume.sections.experience.create" }, ({ data }) => <CreateExperienceDialog data={data} />)

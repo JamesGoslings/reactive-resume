@@ -58,7 +58,8 @@ const defaultValues: FormValues = {
 	tags: [],
 };
 
-export function CreateResumeDialog(_: DialogProps<"resume.create">) {
+export function CreateResumeDialog(props: DialogProps<"resume.create">) {
+	const groupId = "data" in props ? props.data?.groupId : undefined;
 	const closeDialog = useDialogStore((state) => state.closeDialog);
 
 	const { mutate: createResume, isPending } = useMutation(orpc.resume.create.mutationOptions());
@@ -74,15 +75,18 @@ export function CreateResumeDialog(_: DialogProps<"resume.create">) {
 		onSubmit: ({ value }) => {
 			const toastId = toast.loading(t`Creating your resume...`);
 
-			createResume(value, {
-				onSuccess: () => {
-					toast.success(t`Your resume has been created successfully.`, { id: toastId });
-					closeDialog();
+			createResume(
+				{ ...value, ...(groupId ? { groupId } : {}) },
+				{
+					onSuccess: () => {
+						toast.success(t`Your resume has been created successfully.`, { id: toastId });
+						closeDialog();
+					},
+					onError: (error) => {
+						toast.error(getResumeErrorMessage(error), { id: toastId });
+					},
 				},
-				onError: (error) => {
-					toast.error(getResumeErrorMessage(error), { id: toastId });
-				},
-			});
+			);
 		},
 	});
 
@@ -103,6 +107,7 @@ export function CreateResumeDialog(_: DialogProps<"resume.create">) {
 			slug: values.slug || slugify(randomName),
 			tags: values.tags,
 			withSampleData: true,
+			...(groupId ? { groupId } : {}),
 		} satisfies RouterInput["resume"]["create"];
 
 		const toastId = toast.loading(t`Creating your resume...`);

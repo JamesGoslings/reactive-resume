@@ -89,7 +89,8 @@ function fileToBase64(file: File): Promise<string> {
 	});
 }
 
-export function ImportResumeDialog(_: DialogProps<"resume.import">) {
+export function ImportResumeDialog(props: DialogProps<"resume.import">) {
+	const groupId = "data" in props ? props.data?.groupId : undefined;
 	const navigate = useNavigate();
 	const { enabled: isAIEnabled, provider, model, apiKey, baseURL } = useAIStore();
 	const closeDialog = useDialogStore((state) => state.closeDialog);
@@ -181,7 +182,7 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 					);
 				}
 
-				const id = await importResume({ data });
+				const id = await importResume({ data, ...(groupId ? { groupId } : {}) });
 				toast.success(t`Your resume has been imported successfully.`, { id: toastId, description: null });
 				closeDialog();
 				void navigate({ to: "/builder/$resumeId", params: { resumeId: id } });

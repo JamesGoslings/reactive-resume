@@ -4,6 +4,7 @@ import { Trans } from "@lingui/react/macro";
 import {
 	CopySimpleIcon,
 	FolderOpenIcon,
+	FoldersIcon,
 	LockSimpleIcon,
 	LockSimpleOpenIcon,
 	PencilSimpleLineIcon,
@@ -42,6 +43,10 @@ export function ResumeDropdownMenu({ resume, children, ...props }: Props) {
 
 	const handleDuplicate = () => {
 		openDialog("resume.duplicate", resume);
+	};
+
+	const handleMoveToGroup = () => {
+		openDialog("resume.groups.move", { resumeId: resume.id, currentGroupId: resume.groupId });
 	};
 
 	const handleToggleLock = async () => {
@@ -107,6 +112,11 @@ export function ResumeDropdownMenu({ resume, children, ...props }: Props) {
 				<DropdownMenuItem onClick={handleDuplicate}>
 					<CopySimpleIcon />
 					<Trans comment="Resume card dropdown action to create a copy">Duplicate</Trans>
+				</DropdownMenuItem>
+
+				<DropdownMenuItem onClick={handleMoveToGroup}>
+					<FoldersIcon />
+					<Trans comment="Resume card dropdown action to move the resume to a different group">Move to group...</Trans>
 				</DropdownMenuItem>
 
 				<DropdownMenuItem onClick={handleToggleLock}>

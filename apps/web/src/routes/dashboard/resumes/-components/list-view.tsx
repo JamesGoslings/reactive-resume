@@ -13,17 +13,20 @@ type Resume = RouterOutput["resume"]["list"][number];
 
 type Props = {
 	resumes: Resume[];
+	groupContext?: "ungrouped" | string;
 };
 
-export function ListView({ resumes }: Props) {
+export function ListView({ resumes, groupContext }: Props) {
 	const { openDialog } = useDialogStore();
 
+	const inheritedGroupId = groupContext && groupContext !== "ungrouped" ? groupContext : undefined;
+
 	const handleCreateResume = () => {
-		openDialog("resume.create", undefined);
+		openDialog("resume.create", inheritedGroupId ? { groupId: inheritedGroupId } : undefined);
 	};
 
 	const handleImportResume = () => {
-		openDialog("resume.import", undefined);
+		openDialog("resume.import", inheritedGroupId ? { groupId: inheritedGroupId } : undefined);
 	};
 
 	return (
