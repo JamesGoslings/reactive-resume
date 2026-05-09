@@ -4,6 +4,7 @@ import * as pg from "drizzle-orm/pg-core";
 import { defaultResumeData } from "@reactive-resume/schema/resume/default";
 import { generateId } from "@reactive-resume/utils/string";
 import { user } from "./auth";
+import { resumeGroup } from "./resume-group";
 
 export const resume = pg.pgTable(
 	"resume",
@@ -28,6 +29,7 @@ export const resume = pg.pgTable(
 			.text("user_id")
 			.notNull()
 			.references(() => user.id, { onDelete: "cascade" }),
+		groupId: pg.text("group_id").references(() => resumeGroup.id, { onDelete: "set null" }),
 		createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 		updatedAt: pg
 			.timestamp("updated_at", { withTimezone: true })
@@ -41,6 +43,7 @@ export const resume = pg.pgTable(
 		pg.index().on(t.createdAt.asc()),
 		pg.index().on(t.userId, t.updatedAt.desc()),
 		pg.index().on(t.isPublic, t.slug, t.userId),
+		pg.index().on(t.userId, t.groupId),
 	],
 );
 

@@ -8,6 +8,7 @@ export const relations = defineRelations(schema, (r) => ({
 		twoFactors: r.many.twoFactor(),
 		passkeys: r.many.passkey(),
 		resumes: r.many.resume(),
+		resumeGroups: r.many.resumeGroup(),
 		apiKeys: r.many.apikey(),
 		oauthClients: r.many.oauthClient(),
 		oauthRefreshTokens: r.many.oauthRefreshToken(),
@@ -58,6 +59,20 @@ export const relations = defineRelations(schema, (r) => ({
 		analysis: r.one.resumeAnalysis({
 			from: r.resume.id,
 			to: r.resumeAnalysis.resumeId,
+		}),
+		group: r.one.resumeGroup({
+			from: r.resume.groupId,
+			to: r.resumeGroup.id,
+		}),
+	},
+	resumeGroup: {
+		user: r.one.user({
+			from: r.resumeGroup.userId,
+			to: r.user.id,
+		}),
+		resumes: r.many.resume({
+			from: r.resumeGroup.id,
+			to: r.resume.groupId,
 		}),
 	},
 	resumeStatistics: {
