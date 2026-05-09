@@ -94,6 +94,7 @@ export const resumeRouter = {
 				userId: context.user.id,
 				tags: input.tags,
 				sort: input.sort,
+				...(input.group !== undefined ? { group: input.group } : {}),
 			});
 		}),
 
@@ -153,6 +154,10 @@ export const resumeRouter = {
 				message: "A resume with this slug already exists.",
 				status: 400,
 			},
+			RESUME_GROUP_NOT_FOUND: {
+				message: "The specified resume group could not be found.",
+				status: 404,
+			},
 		})
 		.handler(async ({ context, input }) => {
 			return resumeService.create({
@@ -161,6 +166,7 @@ export const resumeRouter = {
 				tags: input.tags,
 				locale: context.locale,
 				userId: context.user.id,
+				...(input.groupId ? { groupId: input.groupId } : {}),
 				...(input.withSampleData ? { data: sampleResumeData } : {}),
 			});
 		}),
@@ -184,6 +190,10 @@ export const resumeRouter = {
 				message: "A resume with this slug already exists.",
 				status: 400,
 			},
+			RESUME_GROUP_NOT_FOUND: {
+				message: "The specified resume group could not be found.",
+				status: 404,
+			},
 		})
 		.handler(async ({ context, input }) => {
 			const name = generateRandomName();
@@ -196,6 +206,7 @@ export const resumeRouter = {
 				data: input.data,
 				locale: context.locale,
 				userId: context.user.id,
+				...(input.groupId ? { groupId: input.groupId } : {}),
 			});
 		}),
 
@@ -218,6 +229,10 @@ export const resumeRouter = {
 				message: "A resume with this slug already exists.",
 				status: 400,
 			},
+			RESUME_GROUP_NOT_FOUND: {
+				message: "The specified resume group could not be found.",
+				status: 404,
+			},
 		})
 		.handler(async ({ context, input }) => {
 			return resumeService.update({
@@ -228,6 +243,7 @@ export const resumeRouter = {
 				...(input.tags !== undefined ? { tags: input.tags } : {}),
 				...(input.data !== undefined ? { data: input.data } : {}),
 				...(input.isPublic !== undefined ? { isPublic: input.isPublic } : {}),
+				...(input.groupId !== undefined ? { groupId: input.groupId } : {}),
 			});
 		}),
 
@@ -366,8 +382,19 @@ export const resumeRouter = {
 		.input(resumeDto.duplicate.input)
 		.use(resumeMutationRateLimit)
 		.output(resumeDto.duplicate.output)
+		.errors({
+			RESUME_GROUP_NOT_FOUND: {
+				message: "The specified resume group could not be found.",
+				status: 404,
+			},
+		})
 		.handler(async ({ context, input }) => {
 			const original = await resumeService.getById({ id: input.id, userId: context.user.id });
+
+			// Default: inherit the original's group. Caller can override with
+			// any of: another groupId (move to a different group), or null
+			// (place the duplicate as ungrouped).
+			const groupId = input.groupId === undefined ? original.groupId : input.groupId;
 
 			return resumeService.create({
 				userId: context.user.id,
@@ -376,6 +403,7 @@ export const resumeRouter = {
 				tags: input.tags ?? original.tags,
 				locale: context.locale,
 				data: original.data,
+				groupId,
 			});
 		}),
 

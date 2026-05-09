@@ -4,7 +4,7 @@ import type { Locale } from "@reactive-resume/utils/locale";
 import type { Operation } from "fast-json-patch";
 import { ORPCError } from "@orpc/client";
 import { compare, hash } from "bcrypt";
-import { and, arrayContains, asc, desc, eq, isNotNull, sql } from "drizzle-orm";
+import { and, arrayContains, asc, desc, eq, isNotNull, isNull, sql } from "drizzle-orm";
 import { get } from "es-toolkit/compat";
 import { match } from "ts-pattern";
 import { db } from "@reactive-resume/db/client";
@@ -19,6 +19,7 @@ import {
 	redactResumeForViewer,
 	shouldCountForStatistics,
 } from "../helpers/resume-access-policy";
+import { resumeGroupService } from "./resume-group";
 import { getStorageService } from "./storage";
 
 const tags = {
@@ -154,7 +155,17 @@ export const resumeService = {
 	statistics,
 	analysis,
 
-	list: async (input: { userId: string; tags: string[]; sort: "lastUpdatedAt" | "createdAt" | "name" }) => {
+	list: async (input: {
+		userId: string;
+		tags: string[];
+		sort: "lastUpdatedAt" | "createdAt" | "name";
+		group?: "ungrouped" | string;
+	}) => {
+		const groupCondition = match(input.group)
+			.with(undefined, () => undefined)
+			.with("ungrouped", () => isNull(schema.resume.groupId))
+			.otherwise((groupId) => eq(schema.resume.groupId, groupId));
+
 		return await db
 			.select({
 				id: schema.resume.id,
@@ -163,6 +174,7 @@ export const resumeService = {
 				tags: schema.resume.tags,
 				isPublic: schema.resume.isPublic,
 				isLocked: schema.resume.isLocked,
+				groupId: schema.resume.groupId,
 				createdAt: schema.resume.createdAt,
 				updatedAt: schema.resume.updatedAt,
 			})
@@ -173,6 +185,7 @@ export const resumeService = {
 					match(input.tags.length)
 						.with(0, () => undefined)
 						.otherwise(() => arrayContains(schema.resume.tags, input.tags)),
+					groupCondition,
 				),
 			)
 			.orderBy(
@@ -194,6 +207,7 @@ export const resumeService = {
 				data: schema.resume.data,
 				isPublic: schema.resume.isPublic,
 				isLocked: schema.resume.isLocked,
+				groupId: schema.resume.groupId,
 				hasPassword: sql<boolean>`${schema.resume.password} IS NOT NULL`,
 			})
 			.from(schema.resume)
@@ -248,10 +262,17 @@ export const resumeService = {
 		tags: string[];
 		locale: Locale;
 		data?: ResumeData;
+		groupId?: string | null;
 	}) => {
 		const id = generateId();
 		const data = input.data ?? defaultResumeData;
 		data.metadata.page.locale = input.locale;
+
+		// Validate group ownership before insert (avoid foreign-key error path
+		// being the user-visible failure mode).
+		if (input.groupId) {
+			await resumeGroupService.assertOwned({ id: input.groupId, userId: input.userId });
+		}
 
 		try {
 			await db.insert(schema.resume).values({
@@ -260,6 +281,7 @@ export const resumeService = {
 				slug: input.slug,
 				tags: input.tags,
 				userId: input.userId,
+				groupId: input.groupId ?? null,
 				data,
 			});
 
@@ -284,6 +306,7 @@ export const resumeService = {
 		tags?: string[];
 		data?: ResumeData;
 		isPublic?: boolean;
+		groupId?: string | null;
 	}) => {
 		const [resume] = await db
 			.select({ isLocked: schema.resume.isLocked })
@@ -292,12 +315,19 @@ export const resumeService = {
 
 		if (resume?.isLocked) throw new ORPCError("RESUME_LOCKED");
 
+		// Validate group ownership before any mutation. `null` means
+		// "ungroup", which doesn't need validation.
+		if (input.groupId !== undefined && input.groupId !== null) {
+			await resumeGroupService.assertOwned({ id: input.groupId, userId: input.userId });
+		}
+
 		const updateData: Partial<typeof schema.resume.$inferSelect> = {
 			...(input.name !== undefined ? { name: input.name } : {}),
 			...(input.slug !== undefined ? { slug: input.slug } : {}),
 			...(input.tags !== undefined ? { tags: input.tags } : {}),
 			...(input.data !== undefined ? { data: input.data } : {}),
 			...(input.isPublic !== undefined ? { isPublic: input.isPublic } : {}),
+			...(input.groupId !== undefined ? { groupId: input.groupId } : {}),
 		};
 
 		try {
@@ -319,6 +349,7 @@ export const resumeService = {
 					data: schema.resume.data,
 					isPublic: schema.resume.isPublic,
 					isLocked: schema.resume.isLocked,
+					groupId: schema.resume.groupId,
 					hasPassword: sql<boolean>`${schema.resume.password} IS NOT NULL`,
 				});
 
@@ -377,6 +408,7 @@ export const resumeService = {
 				data: schema.resume.data,
 				isPublic: schema.resume.isPublic,
 				isLocked: schema.resume.isLocked,
+				groupId: schema.resume.groupId,
 				hasPassword: sql<boolean>`${schema.resume.password} IS NOT NULL`,
 			});
 

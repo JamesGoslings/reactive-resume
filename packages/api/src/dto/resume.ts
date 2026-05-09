@@ -14,9 +14,23 @@ const resumeSchema = createSelectSchema(schema.resume, {
 	password: z.string().min(6).nullable().describe("The password of the resume, if any."),
 	data: resumeDataSchema,
 	userId: z.string().describe("The ID of the user who owns the resume."),
+	groupId: z.string().nullable().describe("The ID of the group this resume belongs to, or null if ungrouped."),
 	createdAt: z.date().describe("The date and time the resume was created."),
 	updatedAt: z.date().describe("The date and time the resume was last updated."),
 });
+
+/**
+ * Group filter for the list endpoint.
+ *   - omitted / undefined → return all resumes (current behaviour)
+ *   - "ungrouped"         → only resumes whose groupId is NULL
+ *   - <groupId string>    → only resumes belonging to that specific group
+ */
+const groupFilterSchema = z
+	.union([z.literal("ungrouped"), z.string().min(1)])
+	.optional()
+	.describe(
+		"Filter resumes by group. Pass a group ID to only return resumes in that group, or 'ungrouped' to only return resumes not in any group. Omit to return all resumes.",
+	);
 
 export const resumeDto = {
 	list: {
@@ -24,6 +38,7 @@ export const resumeDto = {
 			.object({
 				tags: z.array(z.string()).optional().default([]),
 				sort: z.enum(["lastUpdatedAt", "createdAt", "name"]).optional().default("lastUpdatedAt"),
+				group: groupFilterSchema,
 			})
 			.optional()
 			.default({ tags: [], sort: "lastUpdatedAt" }),
@@ -39,24 +54,39 @@ export const resumeDto = {
 
 	getBySlug: {
 		input: z.object({ username: z.string(), slug: z.string() }),
-		output: resumeSchema.omit({ password: true, userId: true, createdAt: true, updatedAt: true }),
+		output: resumeSchema.omit({
+			password: true,
+			userId: true,
+			groupId: true,
+			createdAt: true,
+			updatedAt: true,
+		}),
 	},
 
 	create: {
-		input: resumeSchema
-			.pick({ name: true, slug: true, tags: true })
-			.extend({ withSampleData: z.boolean().default(false) }),
+		input: resumeSchema.pick({ name: true, slug: true, tags: true }).extend({
+			withSampleData: z.boolean().default(false),
+			groupId: z
+				.string()
+				.optional()
+				.describe("Optional group to place the new resume in. The group must belong to the authenticated user."),
+		}),
 		output: z.string().describe("The ID of the created resume."),
 	},
 
 	import: {
-		input: resumeSchema.pick({ data: true }),
+		input: resumeSchema.pick({ data: true }).extend({
+			groupId: z
+				.string()
+				.optional()
+				.describe("Optional group to place the imported resume in. The group must belong to the authenticated user."),
+		}),
 		output: z.string().describe("The ID of the imported resume."),
 	},
 
 	update: {
 		input: resumeSchema
-			.pick({ name: true, slug: true, tags: true, data: true, isPublic: true })
+			.pick({ name: true, slug: true, tags: true, data: true, isPublic: true, groupId: true })
 			.partial()
 			.extend({ id: z.string() }),
 		output: resumeSchema
@@ -93,7 +123,15 @@ export const resumeDto = {
 	},
 
 	duplicate: {
-		input: resumeSchema.pick({ id: true, name: true, slug: true, tags: true }),
+		input: resumeSchema.pick({ id: true, name: true, slug: true, tags: true }).extend({
+			groupId: z
+				.string()
+				.nullable()
+				.optional()
+				.describe(
+					"Optional group to place the duplicated resume in. Defaults to the original resume's group. Pass `null` to create the duplicate as ungrouped.",
+				),
+		}),
 		output: z.string().describe("The ID of the duplicated resume."),
 	},
 
