@@ -20,6 +20,16 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/routes/dashboard/resumes/index.tsx
+msgid "All Resumes"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Ungrouped"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/routes/dashboard/resumes/index.tsx
 msgid "Last Updated"
 msgstr "Terakhir Dikemas Kini"
 
@@ -47,6 +57,11 @@ msgstr "{0, plural, other {# item}}"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/experience.tsx
 msgid "{0, plural, one {# role} other {# roles}}"
 msgstr "{0, plural, one {# peranan} other {# peranan}}"
+
+#. placeholder {0}: group.resumeCount
+#: src/dialogs/resume/groups/manage.tsx
+msgid "{0} resume(s)"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
@@ -237,6 +252,10 @@ msgstr "AI"
 msgid "Albanian"
 msgstr "Albanian"
 
+#: src/routes/dashboard/resumes/index.tsx
+msgid "All Resumes"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Allow Public Access"
 msgstr "Benarkan Akses Awam"
@@ -329,6 +348,10 @@ msgstr "Adakah anda pasti ingin memadamkan kunci API ini?"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 msgid "Are you sure you want to delete this custom section?"
 msgstr "Adakah anda pasti anda mahu memadam bahagian tersuai ini?"
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Are you sure you want to delete this group?"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx
 msgid "Are you sure you want to delete this item?"
@@ -474,6 +497,7 @@ msgstr "Bolehkah saya mengeksport resume saya ke PDF?"
 #. Profile settings form action to discard unsaved edits
 #. Secondary action button to close two-factor setup dialog
 #: src/dialogs/auth/enable-two-factor.tsx
+#: src/dialogs/resume/groups/move.tsx
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/cover-letter.tsx
@@ -554,6 +578,10 @@ msgstr "Cina (Ringkas)"
 msgid "Chinese (Traditional)"
 msgstr "Cina (Tradisional)"
 
+#: src/dialogs/resume/groups/move.tsx
+msgid "Choose a group to move this resume to, or remove it from any group."
+msgstr ""
+
 #. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
@@ -571,6 +599,10 @@ msgstr "Jelas"
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Klik di sini untuk memilih fail untuk diimport"
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Close"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Code Block"
@@ -685,6 +717,7 @@ msgstr "Surat Iringan"
 
 #. Create API key dialog submit action
 #: src/dialogs/api-key/create.tsx
+#: src/dialogs/resume/groups/create.tsx
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
@@ -736,6 +769,12 @@ msgstr "Cipta pendidikan baharu"
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Create a new experience"
 msgstr "Cipta pengalaman baharu"
+
+#: src/dialogs/resume/groups/create.tsx
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/move.tsx
+msgid "Create a new group"
+msgstr ""
 
 #: src/dialogs/resume/sections/interest.tsx
 msgid "Create a new interest"
@@ -798,6 +837,14 @@ msgstr "Buat satu sekarang"
 msgid "Create resume with options"
 msgstr "Buat resume dengan pilihan"
 
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Create, rename, or delete groups. Deleting a group does not delete its resumes."
+msgstr ""
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "Creating group..."
+msgstr ""
+
 #: src/dialogs/api-key/create.tsx
 msgid "Creating your API key..."
 msgstr "Mencipta kunci API anda..."
@@ -805,6 +852,10 @@ msgstr "Mencipta kunci API anda..."
 #: src/dialogs/resume/index.tsx
 msgid "Creating your resume..."
 msgstr "Mencipta resume anda..."
+
+#: src/dialogs/resume/groups/move.tsx
+msgid "Current"
+msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
@@ -885,6 +936,10 @@ msgstr "Padam Akaun"
 msgid "Delete Column"
 msgstr "Padam Lajur"
 
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Delete group"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Delete Page"
 msgstr "Padam Halaman"
@@ -900,6 +955,10 @@ msgstr "Padam Baris"
 #: src/components/input/rich-input.tsx
 msgid "Delete Table"
 msgstr "Padam Jadual"
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Deleting group..."
+msgstr ""
 
 #: src/routes/dashboard/settings/danger-zone.tsx
 msgid "Deleting your account..."
@@ -1034,6 +1093,10 @@ msgstr "Menduplikasi resume anda..."
 #: src/libs/locale.ts
 msgid "Dutch"
 msgstr "Belanda"
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "e.g. Software Engineer 2026"
+msgstr ""
 
 #. Example model-name placeholder in AI settings
 #: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
@@ -1443,6 +1506,10 @@ msgstr "Mula"
 msgid "GitHub"
 msgstr "GitHub"
 
+#: src/dialogs/resume/groups/update.tsx
+msgid "Give this group a more descriptive name."
+msgstr ""
+
 #. Secondary navigation button on backup-code verification screen
 #: src/components/layout/not-found-screen.tsx
 #: src/routes/auth/verify-2fa-backup.tsx
@@ -1485,6 +1552,26 @@ msgstr "Greek"
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Grid"
 msgstr "Grid"
+
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Group"
+msgstr ""
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "Group has been created successfully."
+msgstr ""
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Group has been deleted successfully."
+msgstr ""
+
+#: src/dialogs/resume/groups/update.tsx
+msgid "Group has been updated successfully."
+msgstr ""
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "Groups help you organise resume versions for different jobs, audiences, or campaigns."
+msgstr ""
 
 #: src/routes/_home/-sections/donate.tsx
 msgid "Grow the Team"
@@ -1872,6 +1959,8 @@ msgid "Loading resumes..."
 msgstr "Memuatkan resume..."
 
 #: src/components/layout/loading-screen.tsx
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/move.tsx
 msgid "Loading..."
 msgstr "Memuatkan..."
 
@@ -1926,6 +2015,11 @@ msgstr "Melayu"
 msgid "Malayalam"
 msgstr "Malayalam"
 
+#: src/dialogs/resume/groups/manage.tsx
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Manage groups"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Marathi"
 msgstr "Marathi"
@@ -1956,6 +2050,21 @@ msgstr "Model"
 msgid "Move to"
 msgstr "Pindah ke"
 
+#: src/dialogs/resume/groups/move.tsx
+msgid "Move to group"
+msgstr ""
+
+#. Resume card context menu action to move the resume to a different group
+#. Resume card dropdown action to move the resume to a different group
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+msgid "Move to group..."
+msgstr ""
+
+#: src/dialogs/resume/groups/move.tsx
+msgid "Moving resume..."
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Multilingual"
 msgstr "Berbilang bahasa"
@@ -1967,6 +2076,8 @@ msgstr "Mesti bermula dengan https://"
 
 #. Label for full name input on registration form
 #: src/dialogs/api-key/create.tsx
+#: src/dialogs/resume/groups/create.tsx
+#: src/dialogs/resume/groups/update.tsx
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/interest.tsx
 #: src/dialogs/resume/sections/project.tsx
@@ -2401,6 +2512,11 @@ msgstr "Membuang perlindungan kata laluan..."
 msgid "Rename"
 msgstr "Namakan Semula"
 
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/update.tsx
+msgid "Rename group"
+msgstr ""
+
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Reorder"
 msgstr "Susun semula"
@@ -2451,6 +2567,10 @@ msgstr "Analisis Resume"
 msgid "Resume analysis complete."
 msgstr "Analisis resume selesai."
 
+#: src/dialogs/resume/groups/move.tsx
+msgid "Resume has been moved successfully."
+msgstr ""
+
 #: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/resumes.tsx
 #: src/routes/_home/-sections/statistics.tsx
@@ -2488,6 +2608,7 @@ msgstr "Rusia"
 msgid "Save"
 msgstr "Simpan"
 
+#: src/dialogs/resume/groups/update.tsx
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
@@ -2898,6 +3019,12 @@ msgstr "Warna Teks"
 msgid "Thai"
 msgstr "Thai"
 
+#. placeholder {0}: group.resumeCount
+#. placeholder {1}: group.name
+#: src/dialogs/resume/groups/manage.tsx
+msgid "The {0} resume(s) in \"{1}\" will become ungrouped, but they will not be deleted."
+msgstr ""
+
 #. Error description when AI returns invalid resume analysis format
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "The AI returned an invalid analysis format. Please try again."
@@ -2968,6 +3095,10 @@ msgstr "Tindakan ini tidak boleh dibatalkan. Semua data anda akan dipadamkan sec
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires AI Integration to be enabled. Please enable it in the settings."
 msgstr "Ciri ini memerlukan Integrasi AI diaktifkan. Sila aktifkannya dalam tetapan."
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "This group is empty."
+msgstr ""
 
 #: src/dialogs/resume/index.tsx
 msgid "This is a URL-friendly name for your resume."
@@ -3136,6 +3267,11 @@ msgstr "Ukraine"
 msgid "Underline"
 msgstr "Garis Bawah"
 
+#: src/dialogs/resume/groups/move.tsx
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Ungrouped"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
 msgstr "Resume Tanpa Had"
@@ -3245,6 +3381,10 @@ msgstr "Kemas Kini Resume"
 #: src/dialogs/auth/change-password.tsx
 msgid "Update your password"
 msgstr "Kemas kini kata laluan anda"
+
+#: src/dialogs/resume/groups/update.tsx
+msgid "Updating group..."
+msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Updating your password..."
@@ -3397,6 +3537,11 @@ msgstr "Anda juga boleh menggunakan nama pengguna anda untuk log masuk."
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "Anda boleh berkongsi resume anda melalui URL awam unik, melindunginya dengan kata laluan, atau memuat turunnya sebagai PDF untuk dikongsi secara terus. Pilihan di tangan anda!"
 
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/move.tsx
+msgid "You don't have any groups yet."
+msgstr ""
+
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."
 msgstr "Anda mempunyai perubahan yang belum disimpan yang akan hilang."
@@ -3487,4 +3632,3 @@ msgstr "Zum keluar"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

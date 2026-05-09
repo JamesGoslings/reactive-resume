@@ -20,6 +20,16 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/routes/dashboard/resumes/index.tsx
+msgid "All Resumes"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Ungrouped"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/routes/dashboard/resumes/index.tsx
 msgid "Last Updated"
 msgstr "கடைசியாக புதுப்பிக்கப்பட்டது"
 
@@ -47,6 +57,11 @@ msgstr "{0, plural, one {# உருப்படி} other {# உருப்ப
 #: src/routes/builder/$resumeId/-sidebar/left/sections/experience.tsx
 msgid "{0, plural, one {# role} other {# roles}}"
 msgstr "{0, plural, one {# பங்கு} other {# பங்குகள்}}"
+
+#. placeholder {0}: group.resumeCount
+#: src/dialogs/resume/groups/manage.tsx
+msgid "{0} resume(s)"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
@@ -237,6 +252,10 @@ msgstr "AI"
 msgid "Albanian"
 msgstr "அல்பேனியன்"
 
+#: src/routes/dashboard/resumes/index.tsx
+msgid "All Resumes"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Allow Public Access"
 msgstr "பொது அணுகலை அனுமதிக்கவும்"
@@ -329,6 +348,10 @@ msgstr "இந்த API விசையை நிச்சயமாக நீ�
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 msgid "Are you sure you want to delete this custom section?"
 msgstr "இந்தத் தனிப்பயன் பிரிவை நீக்க விரும்புகிறீர்களா?"
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Are you sure you want to delete this group?"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx
 msgid "Are you sure you want to delete this item?"
@@ -474,6 +497,7 @@ msgstr "என் ரெஸ்யூமியை PDF ஆக ஏற்றும�
 #. Profile settings form action to discard unsaved edits
 #. Secondary action button to close two-factor setup dialog
 #: src/dialogs/auth/enable-two-factor.tsx
+#: src/dialogs/resume/groups/move.tsx
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/cover-letter.tsx
@@ -554,6 +578,10 @@ msgstr "சீனம் (எளிய)"
 msgid "Chinese (Traditional)"
 msgstr "சீனம் (சம்பிரதாய)"
 
+#: src/dialogs/resume/groups/move.tsx
+msgid "Choose a group to move this resume to, or remove it from any group."
+msgstr ""
+
 #. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
@@ -571,6 +599,10 @@ msgstr "தெளிவான"
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "இறக்குமதி செய்ய ஒரு கோப்பை தேர்ந்தெடுக்க இங்கே கிளிக் செய்யவும்"
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Close"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Code Block"
@@ -685,6 +717,7 @@ msgstr "கவர் லெட்டர்"
 
 #. Create API key dialog submit action
 #: src/dialogs/api-key/create.tsx
+#: src/dialogs/resume/groups/create.tsx
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
@@ -736,6 +769,12 @@ msgstr "ஒரு புதிய கல்வி பதிவை உருவ�
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Create a new experience"
 msgstr "ஒரு新的 அனுபவத்தை உருவாக்கவும்"
+
+#: src/dialogs/resume/groups/create.tsx
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/move.tsx
+msgid "Create a new group"
+msgstr ""
 
 #: src/dialogs/resume/sections/interest.tsx
 msgid "Create a new interest"
@@ -798,6 +837,14 @@ msgstr "இப்போதே உருவாக்குங்கள்"
 msgid "Create resume with options"
 msgstr "விருப்பத்தேர்வுகளுடன் ரெஸ்யூமே உருவாக்கவும்"
 
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Create, rename, or delete groups. Deleting a group does not delete its resumes."
+msgstr ""
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "Creating group..."
+msgstr ""
+
 #: src/dialogs/api-key/create.tsx
 msgid "Creating your API key..."
 msgstr "உங்கள் API விசையை உருவாக்குகிறது..."
@@ -805,6 +852,10 @@ msgstr "உங்கள் API விசையை உருவாக்குக
 #: src/dialogs/resume/index.tsx
 msgid "Creating your resume..."
 msgstr "உங்கள் ரெஸ்யூமியை உருவாக்குகிறது..."
+
+#: src/dialogs/resume/groups/move.tsx
+msgid "Current"
+msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
@@ -885,6 +936,10 @@ msgstr "கணக்கை நீக்கு"
 msgid "Delete Column"
 msgstr "நெடுவரிசையை நீக்கு"
 
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Delete group"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Delete Page"
 msgstr "பக்கத்தை நீக்கு"
@@ -900,6 +955,10 @@ msgstr "வரியை நீக்கு"
 #: src/components/input/rich-input.tsx
 msgid "Delete Table"
 msgstr "அட்டவணையை நீக்கு"
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Deleting group..."
+msgstr ""
 
 #: src/routes/dashboard/settings/danger-zone.tsx
 msgid "Deleting your account..."
@@ -1034,6 +1093,10 @@ msgstr "உங்கள் ரெஸ்யூமியின் நகலை உ
 #: src/libs/locale.ts
 msgid "Dutch"
 msgstr "டச்சு"
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "e.g. Software Engineer 2026"
+msgstr ""
 
 #. Example model-name placeholder in AI settings
 #: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
@@ -1443,6 +1506,10 @@ msgstr "தொடங்குங்கள்"
 msgid "GitHub"
 msgstr "கிட்ஹப்"
 
+#: src/dialogs/resume/groups/update.tsx
+msgid "Give this group a more descriptive name."
+msgstr ""
+
 #. Secondary navigation button on backup-code verification screen
 #: src/components/layout/not-found-screen.tsx
 #: src/routes/auth/verify-2fa-backup.tsx
@@ -1485,6 +1552,26 @@ msgstr "கிரேக்கம்"
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Grid"
 msgstr "கட்டம்"
+
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Group"
+msgstr ""
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "Group has been created successfully."
+msgstr ""
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Group has been deleted successfully."
+msgstr ""
+
+#: src/dialogs/resume/groups/update.tsx
+msgid "Group has been updated successfully."
+msgstr ""
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "Groups help you organise resume versions for different jobs, audiences, or campaigns."
+msgstr ""
 
 #: src/routes/_home/-sections/donate.tsx
 msgid "Grow the Team"
@@ -1872,6 +1959,8 @@ msgid "Loading resumes..."
 msgstr "ரெஸ்யூமிகளை ஏற்றிக் கொண்டிருக்கிறது..."
 
 #: src/components/layout/loading-screen.tsx
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/move.tsx
 msgid "Loading..."
 msgstr "ஏற்றுகிறது..."
 
@@ -1926,6 +2015,11 @@ msgstr "மலாய்"
 msgid "Malayalam"
 msgstr "மலையாளம்"
 
+#: src/dialogs/resume/groups/manage.tsx
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Manage groups"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Marathi"
 msgstr "மராத்தி"
@@ -1956,6 +2050,21 @@ msgstr "மாதிரி"
 msgid "Move to"
 msgstr "இதற்கு நகர்த்தவும்"
 
+#: src/dialogs/resume/groups/move.tsx
+msgid "Move to group"
+msgstr ""
+
+#. Resume card context menu action to move the resume to a different group
+#. Resume card dropdown action to move the resume to a different group
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+msgid "Move to group..."
+msgstr ""
+
+#: src/dialogs/resume/groups/move.tsx
+msgid "Moving resume..."
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Multilingual"
 msgstr "பல்மொழி"
@@ -1967,6 +2076,8 @@ msgstr "https:// கொண்டு தொடங்க வேண்டும்"
 
 #. Label for full name input on registration form
 #: src/dialogs/api-key/create.tsx
+#: src/dialogs/resume/groups/create.tsx
+#: src/dialogs/resume/groups/update.tsx
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/interest.tsx
 #: src/dialogs/resume/sections/project.tsx
@@ -2401,6 +2512,11 @@ msgstr "கடவுச்சொல் பாதுகாப்பை நீக�
 msgid "Rename"
 msgstr "மறுபெயரிடு"
 
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/update.tsx
+msgid "Rename group"
+msgstr ""
+
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Reorder"
 msgstr "மறுவரிசைப்படுத்து"
@@ -2451,6 +2567,10 @@ msgstr "விண்ணப்பப் பகுப்பாய்வு"
 msgid "Resume analysis complete."
 msgstr "விண்ணப்பப் பகுப்பாய்வு நிறைவடைந்தது."
 
+#: src/dialogs/resume/groups/move.tsx
+msgid "Resume has been moved successfully."
+msgstr ""
+
 #: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/resumes.tsx
 #: src/routes/_home/-sections/statistics.tsx
@@ -2488,6 +2608,7 @@ msgstr "ரஷ்யன்"
 msgid "Save"
 msgstr "சேமி"
 
+#: src/dialogs/resume/groups/update.tsx
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
@@ -2898,6 +3019,12 @@ msgstr "எழுத்து நிறம்"
 msgid "Thai"
 msgstr "தாய்"
 
+#. placeholder {0}: group.resumeCount
+#. placeholder {1}: group.name
+#: src/dialogs/resume/groups/manage.tsx
+msgid "The {0} resume(s) in \"{1}\" will become ungrouped, but they will not be deleted."
+msgstr ""
+
 #. Error description when AI returns invalid resume analysis format
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "The AI returned an invalid analysis format. Please try again."
@@ -2968,6 +3095,10 @@ msgstr "இந்த செயலைக் களைந்து விட ம�
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires AI Integration to be enabled. Please enable it in the settings."
 msgstr "இந்த அம்சத்திற்கு AI ஒருங்கிணைப்பு இயக்கப்பட்டிருக்க வேண்டும். தயவுசெய்து அமைப்புகளில் அதை இயக்கவும்."
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "This group is empty."
+msgstr ""
 
 #: src/dialogs/resume/index.tsx
 msgid "This is a URL-friendly name for your resume."
@@ -3136,6 +3267,11 @@ msgstr "உக்ரேனியன்"
 msgid "Underline"
 msgstr "அடைமுறை கோடு"
 
+#: src/dialogs/resume/groups/move.tsx
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Ungrouped"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
 msgstr "வரம்பற்ற ரெஸ்யூமிகள்"
@@ -3245,6 +3381,10 @@ msgstr "ரெஸ்யூமியை புதுப்பிக்கவு�
 #: src/dialogs/auth/change-password.tsx
 msgid "Update your password"
 msgstr "உங்கள் கடவுச்சொல்லை புதுப்பிக்கவும்"
+
+#: src/dialogs/resume/groups/update.tsx
+msgid "Updating group..."
+msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Updating your password..."
@@ -3397,6 +3537,11 @@ msgstr "உள்நுழைய நீங்கள் உங்கள் பய
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "உங்கள் ரெஸ்யூமியை தனித்துவமான பொது URL மூலம் பகிரலாம், அதை கடவுச்சொல்லால் பாதுகாக்கலாம், அல்லது நேரடியாக பகிர்வதற்காக PDF ஆக பதிவிறக்கலாம். விருப்பம் உங்களுடையது!"
 
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/move.tsx
+msgid "You don't have any groups yet."
+msgstr ""
+
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."
 msgstr "சேமிக்கப்படாத மாற்றங்கள் இழக்கப்படும்."
@@ -3487,4 +3632,3 @@ msgstr "சிறிதாக்கு"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "ஜூலு"
-

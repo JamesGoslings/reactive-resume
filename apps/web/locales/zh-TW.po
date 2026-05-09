@@ -20,6 +20,16 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/routes/dashboard/resumes/index.tsx
+msgid "All Resumes"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Ungrouped"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/routes/dashboard/resumes/index.tsx
 msgid "Last Updated"
 msgstr "最後更新日期"
 
@@ -47,6 +57,11 @@ msgstr "{0, plural, other {# 個項目}}"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/experience.tsx
 msgid "{0, plural, one {# role} other {# roles}}"
 msgstr "{0, plural, other {# 個職位}}"
+
+#. placeholder {0}: group.resumeCount
+#: src/dialogs/resume/groups/manage.tsx
+msgid "{0} resume(s)"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
@@ -237,6 +252,10 @@ msgstr "AI"
 msgid "Albanian"
 msgstr "阿爾巴尼亞語"
 
+#: src/routes/dashboard/resumes/index.tsx
+msgid "All Resumes"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Allow Public Access"
 msgstr "允許公開存取"
@@ -329,6 +348,10 @@ msgstr "確定要刪除此 API Key 嗎？"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 msgid "Are you sure you want to delete this custom section?"
 msgstr "您確定要刪除這個自訂區塊嗎？"
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Are you sure you want to delete this group?"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx
 msgid "Are you sure you want to delete this item?"
@@ -474,6 +497,7 @@ msgstr "我可以把履歷匯出成 PDF 嗎？"
 #. Profile settings form action to discard unsaved edits
 #. Secondary action button to close two-factor setup dialog
 #: src/dialogs/auth/enable-two-factor.tsx
+#: src/dialogs/resume/groups/move.tsx
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/cover-letter.tsx
@@ -554,6 +578,10 @@ msgstr "中文（簡體）"
 msgid "Chinese (Traditional)"
 msgstr "中文（繁體）"
 
+#: src/dialogs/resume/groups/move.tsx
+msgid "Choose a group to move this resume to, or remove it from any group."
+msgstr ""
+
 #. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
@@ -571,6 +599,10 @@ msgstr "清除"
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "按這裡選擇要匯入的檔案"
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Close"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Code Block"
@@ -685,6 +717,7 @@ msgstr "求職信"
 
 #. Create API key dialog submit action
 #: src/dialogs/api-key/create.tsx
+#: src/dialogs/resume/groups/create.tsx
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
@@ -736,6 +769,12 @@ msgstr "建立新的學歷"
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Create a new experience"
 msgstr "建立新的經歷"
+
+#: src/dialogs/resume/groups/create.tsx
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/move.tsx
+msgid "Create a new group"
+msgstr ""
 
 #: src/dialogs/resume/sections/interest.tsx
 msgid "Create a new interest"
@@ -798,6 +837,14 @@ msgstr "立即建立"
 msgid "Create resume with options"
 msgstr "使用選項建立履歷表"
 
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Create, rename, or delete groups. Deleting a group does not delete its resumes."
+msgstr ""
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "Creating group..."
+msgstr ""
+
 #: src/dialogs/api-key/create.tsx
 msgid "Creating your API key..."
 msgstr "正在建立您的 API Key…"
@@ -805,6 +852,10 @@ msgstr "正在建立您的 API Key…"
 #: src/dialogs/resume/index.tsx
 msgid "Creating your resume..."
 msgstr "正在建立您的履歷…"
+
+#: src/dialogs/resume/groups/move.tsx
+msgid "Current"
+msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
@@ -885,6 +936,10 @@ msgstr "刪除帳號"
 msgid "Delete Column"
 msgstr "刪除欄"
 
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Delete group"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Delete Page"
 msgstr "刪除頁面"
@@ -900,6 +955,10 @@ msgstr "刪除列"
 #: src/components/input/rich-input.tsx
 msgid "Delete Table"
 msgstr "刪除表格"
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Deleting group..."
+msgstr ""
 
 #: src/routes/dashboard/settings/danger-zone.tsx
 msgid "Deleting your account..."
@@ -1034,6 +1093,10 @@ msgstr "正在複製您的履歷…"
 #: src/libs/locale.ts
 msgid "Dutch"
 msgstr "荷蘭語"
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "e.g. Software Engineer 2026"
+msgstr ""
 
 #. Example model-name placeholder in AI settings
 #: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
@@ -1443,6 +1506,10 @@ msgstr "開始使用"
 msgid "GitHub"
 msgstr "GitHub"
 
+#: src/dialogs/resume/groups/update.tsx
+msgid "Give this group a more descriptive name."
+msgstr ""
+
 #. Secondary navigation button on backup-code verification screen
 #: src/components/layout/not-found-screen.tsx
 #: src/routes/auth/verify-2fa-backup.tsx
@@ -1485,6 +1552,26 @@ msgstr "希臘語"
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Grid"
 msgstr "網格"
+
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Group"
+msgstr ""
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "Group has been created successfully."
+msgstr ""
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Group has been deleted successfully."
+msgstr ""
+
+#: src/dialogs/resume/groups/update.tsx
+msgid "Group has been updated successfully."
+msgstr ""
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "Groups help you organise resume versions for different jobs, audiences, or campaigns."
+msgstr ""
 
 #: src/routes/_home/-sections/donate.tsx
 msgid "Grow the Team"
@@ -1872,6 +1959,8 @@ msgid "Loading resumes..."
 msgstr "正在載入履歷…"
 
 #: src/components/layout/loading-screen.tsx
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/move.tsx
 msgid "Loading..."
 msgstr "載入中…"
 
@@ -1926,6 +2015,11 @@ msgstr "馬來語"
 msgid "Malayalam"
 msgstr "馬拉雅拉姆語"
 
+#: src/dialogs/resume/groups/manage.tsx
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Manage groups"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Marathi"
 msgstr "馬拉提語"
@@ -1956,6 +2050,21 @@ msgstr "模型"
 msgid "Move to"
 msgstr "移動到"
 
+#: src/dialogs/resume/groups/move.tsx
+msgid "Move to group"
+msgstr ""
+
+#. Resume card context menu action to move the resume to a different group
+#. Resume card dropdown action to move the resume to a different group
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+msgid "Move to group..."
+msgstr ""
+
+#: src/dialogs/resume/groups/move.tsx
+msgid "Moving resume..."
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Multilingual"
 msgstr "多語系"
@@ -1967,6 +2076,8 @@ msgstr "必須從 https:// 開始"
 
 #. Label for full name input on registration form
 #: src/dialogs/api-key/create.tsx
+#: src/dialogs/resume/groups/create.tsx
+#: src/dialogs/resume/groups/update.tsx
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/interest.tsx
 #: src/dialogs/resume/sections/project.tsx
@@ -2401,6 +2512,11 @@ msgstr "正在移除密碼保護…"
 msgid "Rename"
 msgstr "重新命名"
 
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/update.tsx
+msgid "Rename group"
+msgstr ""
+
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Reorder"
 msgstr "重新排序"
@@ -2451,6 +2567,10 @@ msgstr "履歷分析"
 msgid "Resume analysis complete."
 msgstr "履歷分析完成。"
 
+#: src/dialogs/resume/groups/move.tsx
+msgid "Resume has been moved successfully."
+msgstr ""
+
 #: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/resumes.tsx
 #: src/routes/_home/-sections/statistics.tsx
@@ -2488,6 +2608,7 @@ msgstr "俄文"
 msgid "Save"
 msgstr "節省"
 
+#: src/dialogs/resume/groups/update.tsx
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
@@ -2898,6 +3019,12 @@ msgstr "字型色彩"
 msgid "Thai"
 msgstr "泰文"
 
+#. placeholder {0}: group.resumeCount
+#. placeholder {1}: group.name
+#: src/dialogs/resume/groups/manage.tsx
+msgid "The {0} resume(s) in \"{1}\" will become ungrouped, but they will not be deleted."
+msgstr ""
+
 #. Error description when AI returns invalid resume analysis format
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "The AI returned an invalid analysis format. Please try again."
@@ -2968,6 +3095,10 @@ msgstr "此動作無法復原。您的所有資料都將被永久刪除。"
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires AI Integration to be enabled. Please enable it in the settings."
 msgstr "此功能需要啟用 AI 整合。請先在設定中啟用。"
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "This group is empty."
+msgstr ""
 
 #: src/dialogs/resume/index.tsx
 msgid "This is a URL-friendly name for your resume."
@@ -3136,6 +3267,11 @@ msgstr "烏克蘭語"
 msgid "Underline"
 msgstr "底線"
 
+#: src/dialogs/resume/groups/move.tsx
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Ungrouped"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
 msgstr "無限履歷"
@@ -3245,6 +3381,10 @@ msgstr "更新履歷"
 #: src/dialogs/auth/change-password.tsx
 msgid "Update your password"
 msgstr "更新您的密碼"
+
+#: src/dialogs/resume/groups/update.tsx
+msgid "Updating group..."
+msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Updating your password..."
@@ -3397,6 +3537,11 @@ msgstr "您也可以使用使用者名稱登入。"
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "您可以透過唯一的公開 URL 分享履歷、以密碼加以保護，或下載成 PDF 直接分享，一切由您決定！"
 
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/move.tsx
+msgid "You don't have any groups yet."
+msgstr ""
+
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."
 msgstr "您有未儲存的變更，這些變更將會遺失。"
@@ -3487,4 +3632,3 @@ msgstr "縮小"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "祖魯語"
-

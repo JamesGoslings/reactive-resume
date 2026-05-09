@@ -20,6 +20,16 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/routes/dashboard/resumes/index.tsx
+msgid "All Resumes"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Ungrouped"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/routes/dashboard/resumes/index.tsx
 msgid "Last Updated"
 msgstr "Ultima actualizare"
 
@@ -47,6 +57,11 @@ msgstr "{0, plural, one {# element} few {# elemente} other {# de elemente}}"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/experience.tsx
 msgid "{0, plural, one {# role} other {# roles}}"
 msgstr "{0, plural, one {# rol} few {# roluri} other {# de roluri}}"
+
+#. placeholder {0}: group.resumeCount
+#: src/dialogs/resume/groups/manage.tsx
+msgid "{0} resume(s)"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
@@ -237,6 +252,10 @@ msgstr "AI"
 msgid "Albanian"
 msgstr "Albaneză"
 
+#: src/routes/dashboard/resumes/index.tsx
+msgid "All Resumes"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Allow Public Access"
 msgstr "Permite acces public"
@@ -329,6 +348,10 @@ msgstr "Sigur doriți să ștergeți această cheie API?"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 msgid "Are you sure you want to delete this custom section?"
 msgstr "Sunteți sigur că doriți să ștergeți această secțiune personalizată?"
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Are you sure you want to delete this group?"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx
 msgid "Are you sure you want to delete this item?"
@@ -474,6 +497,7 @@ msgstr "Pot să-mi export CV-ul în PDF?"
 #. Profile settings form action to discard unsaved edits
 #. Secondary action button to close two-factor setup dialog
 #: src/dialogs/auth/enable-two-factor.tsx
+#: src/dialogs/resume/groups/move.tsx
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/cover-letter.tsx
@@ -554,6 +578,10 @@ msgstr "Chineză (simplificată)"
 msgid "Chinese (Traditional)"
 msgstr "Chineză (tradițională)"
 
+#: src/dialogs/resume/groups/move.tsx
+msgid "Choose a group to move this resume to, or remove it from any group."
+msgstr ""
+
 #. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
@@ -571,6 +599,10 @@ msgstr "Clar"
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Faceți clic aici pentru a selecta un fișier de importat"
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Close"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Code Block"
@@ -685,6 +717,7 @@ msgstr "Scrisoare de intenție"
 
 #. Create API key dialog submit action
 #: src/dialogs/api-key/create.tsx
+#: src/dialogs/resume/groups/create.tsx
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
@@ -736,6 +769,12 @@ msgstr "Creați o nouă educație"
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Create a new experience"
 msgstr "Creați o nouă experiență"
+
+#: src/dialogs/resume/groups/create.tsx
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/move.tsx
+msgid "Create a new group"
+msgstr ""
 
 #: src/dialogs/resume/sections/interest.tsx
 msgid "Create a new interest"
@@ -798,6 +837,14 @@ msgstr "Creați unul acum"
 msgid "Create resume with options"
 msgstr "Creați un CV cu opțiuni"
 
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Create, rename, or delete groups. Deleting a group does not delete its resumes."
+msgstr ""
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "Creating group..."
+msgstr ""
+
 #: src/dialogs/api-key/create.tsx
 msgid "Creating your API key..."
 msgstr "Se creează cheia API..."
@@ -805,6 +852,10 @@ msgstr "Se creează cheia API..."
 #: src/dialogs/resume/index.tsx
 msgid "Creating your resume..."
 msgstr "Se creează CV-ul..."
+
+#: src/dialogs/resume/groups/move.tsx
+msgid "Current"
+msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
@@ -885,6 +936,10 @@ msgstr "Șterge contul"
 msgid "Delete Column"
 msgstr "Șterge coloană"
 
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Delete group"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Delete Page"
 msgstr "Șterge pagina"
@@ -900,6 +955,10 @@ msgstr "Șterge rând"
 #: src/components/input/rich-input.tsx
 msgid "Delete Table"
 msgstr "Șterge tabel"
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Deleting group..."
+msgstr ""
 
 #: src/routes/dashboard/settings/danger-zone.tsx
 msgid "Deleting your account..."
@@ -1034,6 +1093,10 @@ msgstr "Se duplică CV-ul..."
 #: src/libs/locale.ts
 msgid "Dutch"
 msgstr "Olandeză"
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "e.g. Software Engineer 2026"
+msgstr ""
 
 #. Example model-name placeholder in AI settings
 #: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
@@ -1443,6 +1506,10 @@ msgstr "Începeți"
 msgid "GitHub"
 msgstr "GitHub"
 
+#: src/dialogs/resume/groups/update.tsx
+msgid "Give this group a more descriptive name."
+msgstr ""
+
 #. Secondary navigation button on backup-code verification screen
 #: src/components/layout/not-found-screen.tsx
 #: src/routes/auth/verify-2fa-backup.tsx
@@ -1485,6 +1552,26 @@ msgstr "Greacă"
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Grid"
 msgstr "Grilă"
+
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Group"
+msgstr ""
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "Group has been created successfully."
+msgstr ""
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Group has been deleted successfully."
+msgstr ""
+
+#: src/dialogs/resume/groups/update.tsx
+msgid "Group has been updated successfully."
+msgstr ""
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "Groups help you organise resume versions for different jobs, audiences, or campaigns."
+msgstr ""
 
 #: src/routes/_home/-sections/donate.tsx
 msgid "Grow the Team"
@@ -1872,6 +1959,8 @@ msgid "Loading resumes..."
 msgstr "Se încarcă CV-urile..."
 
 #: src/components/layout/loading-screen.tsx
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/move.tsx
 msgid "Loading..."
 msgstr "Se încarcă..."
 
@@ -1926,6 +2015,11 @@ msgstr "Malay"
 msgid "Malayalam"
 msgstr "Malayalam"
 
+#: src/dialogs/resume/groups/manage.tsx
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Manage groups"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Marathi"
 msgstr "Marathi"
@@ -1956,6 +2050,21 @@ msgstr "Model"
 msgid "Move to"
 msgstr "Mută în"
 
+#: src/dialogs/resume/groups/move.tsx
+msgid "Move to group"
+msgstr ""
+
+#. Resume card context menu action to move the resume to a different group
+#. Resume card dropdown action to move the resume to a different group
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+msgid "Move to group..."
+msgstr ""
+
+#: src/dialogs/resume/groups/move.tsx
+msgid "Moving resume..."
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Multilingual"
 msgstr "Multilingv"
@@ -1967,6 +2076,8 @@ msgstr "Trebuie să înceapă cu https://"
 
 #. Label for full name input on registration form
 #: src/dialogs/api-key/create.tsx
+#: src/dialogs/resume/groups/create.tsx
+#: src/dialogs/resume/groups/update.tsx
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/interest.tsx
 #: src/dialogs/resume/sections/project.tsx
@@ -2401,6 +2512,11 @@ msgstr "Se elimină protecția prin parolă..."
 msgid "Rename"
 msgstr "Redenumește"
 
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/update.tsx
+msgid "Rename group"
+msgstr ""
+
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Reorder"
 msgstr "Reordonează"
@@ -2451,6 +2567,10 @@ msgstr "Analiza CV-ului"
 msgid "Resume analysis complete."
 msgstr "Analiza CV-ului este completă."
 
+#: src/dialogs/resume/groups/move.tsx
+msgid "Resume has been moved successfully."
+msgstr ""
+
 #: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/resumes.tsx
 #: src/routes/_home/-sections/statistics.tsx
@@ -2488,6 +2608,7 @@ msgstr "Rusă"
 msgid "Save"
 msgstr "Salvați"
 
+#: src/dialogs/resume/groups/update.tsx
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
@@ -2898,6 +3019,12 @@ msgstr "Culoare text"
 msgid "Thai"
 msgstr "Thailandeză"
 
+#. placeholder {0}: group.resumeCount
+#. placeholder {1}: group.name
+#: src/dialogs/resume/groups/manage.tsx
+msgid "The {0} resume(s) in \"{1}\" will become ungrouped, but they will not be deleted."
+msgstr ""
+
 #. Error description when AI returns invalid resume analysis format
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "The AI returned an invalid analysis format. Please try again."
@@ -2968,6 +3095,10 @@ msgstr "Această acțiune nu poate fi anulată. Toate datele dvs. vor fi șterse
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires AI Integration to be enabled. Please enable it in the settings."
 msgstr "Această funcționalitate necesită ca integrarea AI să fie activată. Vă rugăm să o activați în setări."
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "This group is empty."
+msgstr ""
 
 #: src/dialogs/resume/index.tsx
 msgid "This is a URL-friendly name for your resume."
@@ -3136,6 +3267,11 @@ msgstr "Ucraineană"
 msgid "Underline"
 msgstr "Subliniat"
 
+#: src/dialogs/resume/groups/move.tsx
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Ungrouped"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
 msgstr "CV-uri nelimitate"
@@ -3245,6 +3381,10 @@ msgstr "Actualizați CV-ul"
 #: src/dialogs/auth/change-password.tsx
 msgid "Update your password"
 msgstr "Actualizați-vă parola"
+
+#: src/dialogs/resume/groups/update.tsx
+msgid "Updating group..."
+msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Updating your password..."
@@ -3397,6 +3537,11 @@ msgstr "Puteți folosi și numele de utilizator pentru a vă autentifica."
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "Puteți partaja CV-ul printr-un URL public unic, îl puteți proteja cu o parolă sau îl puteți descărca ca PDF pentru a-l partaja direct. Alegerea vă aparține!"
 
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/move.tsx
+msgid "You don't have any groups yet."
+msgstr ""
+
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."
 msgstr "Aveți modificări nesalvate care vor fi pierdute."
@@ -3487,4 +3632,3 @@ msgstr "Micșorează"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

@@ -20,6 +20,16 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/routes/dashboard/resumes/index.tsx
+msgid "All Resumes"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Ungrouped"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/routes/dashboard/resumes/index.tsx
 msgid "Last Updated"
 msgstr "Оновлено востаннє"
 
@@ -47,6 +57,11 @@ msgstr "{0, plural, one {# елемент} few {# елементи} many {# ел
 #: src/routes/builder/$resumeId/-sidebar/left/sections/experience.tsx
 msgid "{0, plural, one {# role} other {# roles}}"
 msgstr "{0, plural, one {# посада} few {# посади} many {# посад} other {# посади}}"
+
+#. placeholder {0}: group.resumeCount
+#: src/dialogs/resume/groups/manage.tsx
+msgid "{0} resume(s)"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
@@ -237,6 +252,10 @@ msgstr "ШІ"
 msgid "Albanian"
 msgstr "Албанська"
 
+#: src/routes/dashboard/resumes/index.tsx
+msgid "All Resumes"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Allow Public Access"
 msgstr "Дозволити Загальний Доступ"
@@ -329,6 +348,10 @@ msgstr "Ви впевнені, що хочете видалити цей API к�
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 msgid "Are you sure you want to delete this custom section?"
 msgstr "Ви впевнені, що хочете видалити цей користувацький розділ?"
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Are you sure you want to delete this group?"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx
 msgid "Are you sure you want to delete this item?"
@@ -474,6 +497,7 @@ msgstr "Чи можу я експортувати своє резюме у PDF?"
 #. Profile settings form action to discard unsaved edits
 #. Secondary action button to close two-factor setup dialog
 #: src/dialogs/auth/enable-two-factor.tsx
+#: src/dialogs/resume/groups/move.tsx
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/cover-letter.tsx
@@ -554,6 +578,10 @@ msgstr "Китайська (спрощена)"
 msgid "Chinese (Traditional)"
 msgstr "Китайська (традиційна)"
 
+#: src/dialogs/resume/groups/move.tsx
+msgid "Choose a group to move this resume to, or remove it from any group."
+msgstr ""
+
 #. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
@@ -571,6 +599,10 @@ msgstr "Чисто"
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Натисніть тут, щоб вибрати файл для імпорту"
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Close"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Code Block"
@@ -685,6 +717,7 @@ msgstr "Супровідний лист"
 
 #. Create API key dialog submit action
 #: src/dialogs/api-key/create.tsx
+#: src/dialogs/resume/groups/create.tsx
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
@@ -736,6 +769,12 @@ msgstr "Створити нову освіту"
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Create a new experience"
 msgstr "Створити новий досвід"
+
+#: src/dialogs/resume/groups/create.tsx
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/move.tsx
+msgid "Create a new group"
+msgstr ""
 
 #: src/dialogs/resume/sections/interest.tsx
 msgid "Create a new interest"
@@ -798,6 +837,14 @@ msgstr "Створіть його зараз"
 msgid "Create resume with options"
 msgstr "Створити резюме з опціями"
 
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Create, rename, or delete groups. Deleting a group does not delete its resumes."
+msgstr ""
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "Creating group..."
+msgstr ""
+
 #: src/dialogs/api-key/create.tsx
 msgid "Creating your API key..."
 msgstr "Створення вашого API ключа..."
@@ -805,6 +852,10 @@ msgstr "Створення вашого API ключа..."
 #: src/dialogs/resume/index.tsx
 msgid "Creating your resume..."
 msgstr "Створення вашого резюме..."
+
+#: src/dialogs/resume/groups/move.tsx
+msgid "Current"
+msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
@@ -885,6 +936,10 @@ msgstr "Видалити обліковий запис"
 msgid "Delete Column"
 msgstr "Видалити стовпчик"
 
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Delete group"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Delete Page"
 msgstr "Видалити сторінку"
@@ -900,6 +955,10 @@ msgstr "Видалити рядок"
 #: src/components/input/rich-input.tsx
 msgid "Delete Table"
 msgstr "Видалити таблицю"
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Deleting group..."
+msgstr ""
 
 #: src/routes/dashboard/settings/danger-zone.tsx
 msgid "Deleting your account..."
@@ -1034,6 +1093,10 @@ msgstr "Дублювання резюме..."
 #: src/libs/locale.ts
 msgid "Dutch"
 msgstr "Голландська"
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "e.g. Software Engineer 2026"
+msgstr ""
 
 #. Example model-name placeholder in AI settings
 #: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
@@ -1443,6 +1506,10 @@ msgstr "Почати роботу"
 msgid "GitHub"
 msgstr "GitHub"
 
+#: src/dialogs/resume/groups/update.tsx
+msgid "Give this group a more descriptive name."
+msgstr ""
+
 #. Secondary navigation button on backup-code verification screen
 #: src/components/layout/not-found-screen.tsx
 #: src/routes/auth/verify-2fa-backup.tsx
@@ -1485,6 +1552,26 @@ msgstr "Грецька"
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Grid"
 msgstr "Сітка"
+
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Group"
+msgstr ""
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "Group has been created successfully."
+msgstr ""
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "Group has been deleted successfully."
+msgstr ""
+
+#: src/dialogs/resume/groups/update.tsx
+msgid "Group has been updated successfully."
+msgstr ""
+
+#: src/dialogs/resume/groups/create.tsx
+msgid "Groups help you organise resume versions for different jobs, audiences, or campaigns."
+msgstr ""
 
 #: src/routes/_home/-sections/donate.tsx
 msgid "Grow the Team"
@@ -1872,6 +1959,8 @@ msgid "Loading resumes..."
 msgstr "Завантаження резюме..."
 
 #: src/components/layout/loading-screen.tsx
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/move.tsx
 msgid "Loading..."
 msgstr "Завантаження..."
 
@@ -1926,6 +2015,11 @@ msgstr "Малайська"
 msgid "Malayalam"
 msgstr "Малаялам"
 
+#: src/dialogs/resume/groups/manage.tsx
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Manage groups"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Marathi"
 msgstr "Маратхі"
@@ -1956,6 +2050,21 @@ msgstr "Модель"
 msgid "Move to"
 msgstr "Перемістити до"
 
+#: src/dialogs/resume/groups/move.tsx
+msgid "Move to group"
+msgstr ""
+
+#. Resume card context menu action to move the resume to a different group
+#. Resume card dropdown action to move the resume to a different group
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+msgid "Move to group..."
+msgstr ""
+
+#: src/dialogs/resume/groups/move.tsx
+msgid "Moving resume..."
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Multilingual"
 msgstr "Багатомовний"
@@ -1967,6 +2076,8 @@ msgstr "Почніть з https://"
 
 #. Label for full name input on registration form
 #: src/dialogs/api-key/create.tsx
+#: src/dialogs/resume/groups/create.tsx
+#: src/dialogs/resume/groups/update.tsx
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/interest.tsx
 #: src/dialogs/resume/sections/project.tsx
@@ -2401,6 +2512,11 @@ msgstr "Видалення захисту паролем..."
 msgid "Rename"
 msgstr "Перейменувати"
 
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/update.tsx
+msgid "Rename group"
+msgstr ""
+
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Reorder"
 msgstr "Змінити порядок"
@@ -2451,6 +2567,10 @@ msgstr "Аналіз резюме"
 msgid "Resume analysis complete."
 msgstr "Аналіз резюме завершено."
 
+#: src/dialogs/resume/groups/move.tsx
+msgid "Resume has been moved successfully."
+msgstr ""
+
 #: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/resumes.tsx
 #: src/routes/_home/-sections/statistics.tsx
@@ -2488,6 +2608,7 @@ msgstr "Російська"
 msgid "Save"
 msgstr "Зберегти"
 
+#: src/dialogs/resume/groups/update.tsx
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
@@ -2898,6 +3019,12 @@ msgstr "Колір тексту"
 msgid "Thai"
 msgstr "Тайська"
 
+#. placeholder {0}: group.resumeCount
+#. placeholder {1}: group.name
+#: src/dialogs/resume/groups/manage.tsx
+msgid "The {0} resume(s) in \"{1}\" will become ungrouped, but they will not be deleted."
+msgstr ""
+
 #. Error description when AI returns invalid resume analysis format
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "The AI returned an invalid analysis format. Please try again."
@@ -2968,6 +3095,10 @@ msgstr "Цю дію неможливо скасувати. Усі ваші да�
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires AI Integration to be enabled. Please enable it in the settings."
 msgstr "Ця функція вимагає активації інтеграції з AI. Будь ласка, увімкніть її в налаштуваннях."
+
+#: src/dialogs/resume/groups/manage.tsx
+msgid "This group is empty."
+msgstr ""
 
 #: src/dialogs/resume/index.tsx
 msgid "This is a URL-friendly name for your resume."
@@ -3136,6 +3267,11 @@ msgstr "Українська"
 msgid "Underline"
 msgstr "Підкреслення"
 
+#: src/dialogs/resume/groups/move.tsx
+#: src/routes/dashboard/resumes/index.tsx
+msgid "Ungrouped"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
 msgstr "Необмежена кількість резюме"
@@ -3245,6 +3381,10 @@ msgstr "Оновити резюме"
 #: src/dialogs/auth/change-password.tsx
 msgid "Update your password"
 msgstr "Оновіть свій пароль"
+
+#: src/dialogs/resume/groups/update.tsx
+msgid "Updating group..."
+msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Updating your password..."
@@ -3397,6 +3537,11 @@ msgstr "Також ви можете використати своє ім'я к�
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "Ви можете поділитися резюме за унікальним публічним посиланням, захистити його паролем або завантажити у форматі PDF для прямого поширення. Вибір за вами!"
 
+#: src/dialogs/resume/groups/manage.tsx
+#: src/dialogs/resume/groups/move.tsx
+msgid "You don't have any groups yet."
+msgstr ""
+
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."
 msgstr "У вас є незбережені зміни, які буде втрачено."
@@ -3487,4 +3632,3 @@ msgstr "Зменшити"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Зулу"
-
