@@ -1,5 +1,4 @@
 import type { Style } from "@react-pdf/types";
-import type { IconName } from "phosphor-icons-react-pdf/dynamic";
 import type { TemplatePageProps } from "../../document";
 import type {
 	TemplateColorRoles,
@@ -12,6 +11,7 @@ import { Image, Page, StyleSheet, View } from "@react-pdf/renderer";
 import { Fragment, useMemo } from "react";
 import { rgbaStringToHex } from "@reactive-resume/utils/color";
 import { useRender } from "../../context";
+import { CustomFieldContactItem, WebsiteContactItem } from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
 import { filterSections } from "../shared/filtering";
 import { getTemplateMetrics } from "../shared/metrics";
@@ -121,17 +121,9 @@ const Header = ({ styles }: { styles: AzurillStyles }) => {
 						<Text>{basics.location}</Text>
 					</View>
 				)}
-				{basics.website.url && (
-					<Link src={basics.website.url} style={styles.headerContactItem}>
-						<Icon name="globe" />
-						<Text>{basics.website.label}</Text>
-					</Link>
-				)}
+				<WebsiteContactItem website={basics.website} style={styles.headerContactItem} />
 				{basics.customFields.map((field) => (
-					<Link key={field.id} src={field.link} style={styles.headerContactItem}>
-						<Icon name={field.icon as IconName} />
-						<Text>{field.text}</Text>
-					</Link>
+					<CustomFieldContactItem key={field.id} field={field} style={styles.headerContactItem} />
 				))}
 			</View>
 		</View>

@@ -48,6 +48,7 @@ function InputGroupAddon({
 			data-slot="input-group-addon"
 			className={cn(inputGroupAddonVariants({ align }), className)}
 			onKeyDown={(e) => {
+				if (!(e.target instanceof Element) || !e.currentTarget.contains(e.target)) return;
 				// Only respond to Space or Enter
 				if (e.key !== " " && e.key !== "Enter") return;
 				if (!(e.target as HTMLElement).closest("button")) {
@@ -56,6 +57,7 @@ function InputGroupAddon({
 				}
 			}}
 			onClick={(e) => {
+				if (!(e.target instanceof Element) || !e.currentTarget.contains(e.target)) return;
 				if (!(e.target as HTMLElement).closest("button")) {
 					e.preventDefault();
 					e.currentTarget.parentElement?.querySelector("input")?.focus();

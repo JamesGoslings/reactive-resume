@@ -1,11 +1,11 @@
 import type { Style } from "@react-pdf/types";
-import type { IconName } from "phosphor-icons-react-pdf/dynamic";
 import type { TemplatePageProps } from "../../document";
 import type { TemplateColorRoles, TemplateStyleContext, TemplateStyleSlots } from "../shared/types";
 import { Image, Page, StyleSheet, View } from "@react-pdf/renderer";
 import { useMemo } from "react";
 import { rgbaStringToHex } from "@reactive-resume/utils/color";
 import { useRender } from "../../context";
+import { CustomFieldContactItem, WebsiteContactItem } from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
 import { filterSections } from "../shared/filtering";
 import { getTemplateMetrics } from "../shared/metrics";
@@ -91,16 +91,10 @@ const Header = ({ styles }: { styles: RhyhornStyles }) => {
 			</View>
 		),
 		basics.website.url && (
-			<Link src={basics.website.url} style={styles.contactItemContent}>
-				<Icon name="globe" />
-				<Text>{basics.website.label}</Text>
-			</Link>
+			<WebsiteContactItem key="website" website={basics.website} style={styles.contactItemContent} />
 		),
 		...basics.customFields.map((field) => (
-			<Link key={field.id} src={field.link} style={styles.contactItemContent}>
-				<Icon name={field.icon as IconName} />
-				<Text>{field.text}</Text>
-			</Link>
+			<CustomFieldContactItem key={field.id} field={field} style={styles.contactItemContent} />
 		)),
 	].filter(Boolean);
 

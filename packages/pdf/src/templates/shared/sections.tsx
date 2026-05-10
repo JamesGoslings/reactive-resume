@@ -25,6 +25,7 @@ import { match } from "ts-pattern";
 import { useRender } from "../../context";
 import { getResumeSectionTitle } from "../../section-title";
 import { getSectionItemRows, getSectionItemsLayout, shouldUseSectionTimeline } from "./columns";
+import { getWebsiteDisplayText } from "./contact";
 import {
 	TemplatePlacementProvider,
 	useTemplateFeature,
@@ -225,7 +226,7 @@ const ItemTitle = ({ children, website }: { children: ReactNode; website: ItemWe
 const ItemWebsiteLink = ({ website }: { website: ItemWebsite }) => {
 	if (!shouldRenderSeparateItemWebsite(website)) return null;
 
-	return <Link src={website.url}>{website.label || website.url}</Link>;
+	return <Link src={website.url}>{getWebsiteDisplayText(website)}</Link>;
 };
 
 const SummarySection = ({ showHeading = true }: { showHeading?: boolean } = {}) => {
