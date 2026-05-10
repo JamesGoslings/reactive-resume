@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/ibm-plex-sans";
@@ -6,8 +6,8 @@
 
 @plugin "@tailwindcss/typography";
 
-@source "../../../apps/**/*.{ts,tsx}";
 @source "../**/*.{ts,tsx}";
+@source "../../../apps/**/*.{ts,tsx}";
 
 @custom-variant dark (&:is(.dark *));
 

@@ -25,7 +25,7 @@ RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store,sharing=locked \
     pnpm install --frozen-lockfile
 
 COPY --from=pruner /app/out/full/ ./
-RUN pnpm turbo run build --filter=web
+RUN rm -rf apps/web/.output && pnpm turbo run build --filter=web --force
 
 FROM base AS runtime-pruner
 COPY . .

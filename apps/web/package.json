@@ -4,7 +4,7 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"build": "vite build",
+		"build": "rm -rf .output && vite build",
 		"dev": "vite dev",
 		"serve": "vite preview",
 		"start": "node .output/server/index.mjs",
