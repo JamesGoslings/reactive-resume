@@ -1,6 +1,7 @@
 import type { FontWeight } from "@reactive-resume/fonts";
 import type { Typography } from "@reactive-resume/schema/resume/data";
 import { Font } from "@react-pdf/renderer";
+import { all as cjk } from "cjk-regex";
 import {
 	getFont,
 	getPdfCjkFallbackFontFamily,
@@ -66,7 +67,7 @@ const resolvePdfTypography = (typography: Typography): Typography => {
 
 export const registerFonts = (typography: Typography): PdfTypography => {
 	Font.registerHyphenationCallback((word) => {
-		if (word.match(/\p{Script=Han}/u)) return word.split("").flatMap((l) => [l, ""]);
+		if (cjk().toRegExp().test(word)) return word.split("").flatMap((l) => [l, ""]);
 		return [word];
 	});
 

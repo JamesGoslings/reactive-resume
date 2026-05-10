@@ -180,7 +180,7 @@ services:
       postgres:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health').then((r) => { if (!r.ok) process.exit(1); }).catch(() => process.exit(1));"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -404,7 +404,7 @@ The Docker Compose configuration includes a health check that periodically calls
 
 ```yaml
 healthcheck:
-  test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+  test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health').then((r) => { if (!r.ok) process.exit(1); }).catch(() => process.exit(1));"]
   interval: 30s
   timeout: 10s
   retries: 3
@@ -467,7 +467,7 @@ A healthy response returns HTTP 200. Any other response (or a connection failure
 
 <Accordion title="/api/health returns 503 even though Postgres is up">
   - **Common cause**: storage health failed (not only database). - **Fix**: inspect the endpoint response payload and
-  check the `storage` field: ```bash curl -s http://localhost:3000/api/health ```
+  check the `storage` field: http://127.0.0.1:3000/api/health
 </Accordion>
 
 <Accordion title="Uploads disappear after restart">
