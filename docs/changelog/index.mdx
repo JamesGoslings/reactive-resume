@@ -4,6 +4,42 @@ description: "List of all notable changes and updates to Reactive Resume"
 rss: true
 ---
 
+<Update label="v5.1.2" description="10th May 2026">
+<Note>
+  **Self-hosters using local storage:** the official Docker image now sets `LOCAL_STORAGE_PATH=/app/data` and validates that the directory is writable at startup. If you override the container environment, keep `LOCAL_STORAGE_PATH` pointed at an absolute writable path.
+</Note>
+
+## Highlights
+
+- **AI Resume Assistant.** Added a chat window inside the resume builder for targeted resume edits. The assistant can draft JSON Patch proposals, show before/after previews, and lets you accept or reject each change before anything is applied. [#3022](https://github.com/amruthpillai/reactive-resume/pull/3022)
+- **Better CJK PDF output.** Added automatic CJK fallback font registration so Chinese, Japanese, and Korean text renders correctly in both the live PDF preview and exported PDFs. [#3016](https://github.com/amruthpillai/reactive-resume/pull/3016)
+
+## Resume Builder & Exports
+
+- Added a builder dock shortcut for the AI assistant, with a draggable and resizable desktop window plus a mobile sheet layout. [#3022](https://github.com/amruthpillai/reactive-resume/pull/3022)
+- Added review controls for AI-generated proposals, including proposal queues, raw JSON Patch inspection, accept/reject actions, and stale-proposal handling when the resume changes. [#3022](https://github.com/amruthpillai/reactive-resume/pull/3022)
+- Fixed rich text PDF rendering when text blocks contain top-level inline content around lists or paragraphs. [42e83cc6](https://github.com/amruthpillai/reactive-resume/commit/42e83cc6)
+- Kept Latin-only PDF output unchanged while applying fallback fonts only when CJK glyphs are needed. [#3016](https://github.com/amruthpillai/reactive-resume/pull/3016)
+
+## Sharing & Imports
+
+- Fixed public resume URLs returning a server error when the owner-only dashboard title was redacted to an empty string for viewers. [#3012](https://github.com/amruthpillai/reactive-resume/pull/3012)
+- Improved v4 JSON imports so custom section content, hidden items, and skill/language levels migrate correctly into v5 resumes. [#3013](https://github.com/amruthpillai/reactive-resume/pull/3013)
+
+## Self-Hosting
+
+- Fixed Docker local-storage health checks by resolving the data directory through `LOCAL_STORAGE_PATH` instead of relying on the runtime working directory. [#3004](https://github.com/amruthpillai/reactive-resume/pull/3004)
+- Added startup validation for the local storage directory so misconfigured volume permissions fail early with a clearer error. [#3004](https://github.com/amruthpillai/reactive-resume/pull/3004)
+- Updated `.env.example`, the Dockerfile, Compose configuration, and Docker self-hosting docs for the new local storage path behavior. [#3004](https://github.com/amruthpillai/reactive-resume/pull/3004)
+
+## Maintenance & Localization
+
+- Synced translation catalogs from Crowdin. [#3005](https://github.com/amruthpillai/reactive-resume/pull/3005)
+- Updated dependencies and lockfile entries needed for the AI assistant, PDF rich text normalization, and related test coverage.
+
+**Full Changelog**: [v5.1.1...v5.1.2](https://github.com/amruthpillai/reactive-resume/compare/v5.1.1...v5.1.2)
+</Update>
+
 <Update label="v5.1.1" description="8th May 2026">
 ## Highlights
 
