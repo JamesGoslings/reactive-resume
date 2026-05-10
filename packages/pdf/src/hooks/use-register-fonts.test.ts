@@ -85,4 +85,18 @@ describe("registerFonts", () => {
 			}),
 		);
 	});
+
+	it("returns typography with font weights sorted ascending", async () => {
+		vi.spyOn(Font, "register").mockImplementation(() => {});
+		const { registerFonts } = await import("./use-register-fonts");
+
+		const pdfTypography = registerFonts({
+			...typography,
+			body: { ...typography.body, fontFamily: "Source Sans 3", fontWeights: ["800", "600", "400"] },
+			heading: { ...typography.heading, fontFamily: "Source Sans 3", fontWeights: ["900", "500"] },
+		});
+
+		expect(pdfTypography.body.fontWeights).toEqual(["400", "600", "800"]);
+		expect(pdfTypography.heading.fontWeights).toEqual(["500", "900"]);
+	});
 });

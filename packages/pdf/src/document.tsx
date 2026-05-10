@@ -3,6 +3,7 @@ import type { Template } from "@reactive-resume/schema/templates";
 import type { ComponentType } from "react";
 import type { SectionTitleResolver } from "./section-title";
 import { Document } from "@react-pdf/renderer";
+import { useMemo } from "react";
 import { RenderProvider } from "./context";
 import { registerFonts } from "./hooks/use-register-fonts";
 import { getTemplatePage } from "./templates";
@@ -22,14 +23,12 @@ export type ResumeDocumentProps = {
 
 export const ResumeDocument = ({ data, template, resolveSectionTitle }: ResumeDocumentProps) => {
 	const TemplatePageComponent = getTemplatePage(template);
-	const typography = registerFonts(data.metadata.typography);
+	const typography = registerFonts(data.metadata.typography) as Typography;
+
 	// `registerFonts` widens `fontFamily` to `string | string[]` for CJK
 	// fallback (#2986); the cast carries that wider runtime value through
 	// `ResumeData` without changing the public schema.
-	const resumeData =
-		typography === data.metadata.typography
-			? data
-			: { ...data, metadata: { ...data.metadata, typography: typography as unknown as Typography } };
+	const resumeData = useMemo(() => ({ ...data, metadata: { ...data.metadata, typography } }), [data, typography]);
 
 	return (
 		<RenderProvider data={resumeData} resolveSectionTitle={resolveSectionTitle}>

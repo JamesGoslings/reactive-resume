@@ -171,6 +171,10 @@ export function getWebFontSource(family: string, weight: FontWeight = "400", ita
 	return webFont.files[key] ?? (italic ? webFont.files[weight] : undefined) ?? webFont.preview;
 }
 
+export function sortFontWeights<T extends string>(fontWeights: T[]): T[] {
+	return [...fontWeights].sort((a, b) => Number(a) - Number(b));
+}
+
 export function getFallbackWebFontFamilies(family: string) {
 	if (isStandardPdfFontFamily(family)) return [];
 

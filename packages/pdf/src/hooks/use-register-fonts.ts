@@ -6,6 +6,7 @@ import {
 	getPdfCjkFallbackFontFamily,
 	getWebFontSource,
 	isStandardPdfFontFamily,
+	sortFontWeights,
 } from "@reactive-resume/fonts";
 
 type FontWeightRange = {
@@ -53,15 +54,13 @@ const resolvePdfFontFamily = (family: string) => {
 const resolvePdfTypography = (typography: Typography): Typography => {
 	const bodyFontFamily = resolvePdfFontFamily(typography.body.fontFamily);
 	const headingFontFamily = resolvePdfFontFamily(typography.heading.fontFamily);
-
-	if (bodyFontFamily === typography.body.fontFamily && headingFontFamily === typography.heading.fontFamily) {
-		return typography;
-	}
+	const bodyFontWeights = sortFontWeights(typography.body.fontWeights);
+	const headingFontWeights = sortFontWeights(typography.heading.fontWeights);
 
 	return {
 		...typography,
-		body: { ...typography.body, fontFamily: bodyFontFamily },
-		heading: { ...typography.heading, fontFamily: headingFontFamily },
+		body: { ...typography.body, fontFamily: bodyFontFamily, fontWeights: bodyFontWeights },
+		heading: { ...typography.heading, fontFamily: headingFontFamily, fontWeights: headingFontWeights },
 	};
 };
 
