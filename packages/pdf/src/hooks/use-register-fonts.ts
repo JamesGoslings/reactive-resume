@@ -66,8 +66,6 @@ const resolvePdfTypography = (typography: Typography): Typography => {
 };
 
 export const registerFonts = (typography: Typography): PdfTypography => {
-	Font.registerHyphenationCallback((word) => [word]);
-
 	const pdfTypography = resolvePdfTypography(typography);
 	const bodyFontFamily = pdfTypography.body.fontFamily;
 	const headingFontFamily = pdfTypography.heading.fontFamily;

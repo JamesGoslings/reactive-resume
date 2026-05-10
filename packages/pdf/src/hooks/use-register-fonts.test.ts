@@ -44,7 +44,6 @@ describe("registerFonts", () => {
 
 	it("registers CJK PDF fallbacks for normal and italic text styles", async () => {
 		const registerSpy = vi.spyOn(Font, "register").mockImplementation(() => {});
-		vi.spyOn(Font, "registerHyphenationCallback").mockImplementation(() => {});
 		const cjkFallbackSource = getWebFontSource("Noto Serif SC", "400", false);
 		const { registerFonts } = await import("./use-register-fonts");
 
@@ -72,7 +71,6 @@ describe("registerFonts", () => {
 
 	it("uses the full CJK font source for synthetic italic variants when the CJK font is primary", async () => {
 		const registerSpy = vi.spyOn(Font, "register").mockImplementation(() => {});
-		vi.spyOn(Font, "registerHyphenationCallback").mockImplementation(() => {});
 		const cjkFallbackSource = getWebFontSource("Noto Serif SC", "400", false);
 		const { registerFonts } = await import("./use-register-fonts");
 
