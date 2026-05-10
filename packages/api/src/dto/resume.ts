@@ -6,12 +6,12 @@ import { jsonPatchOperationSchema } from "@reactive-resume/utils/resume/patch";
 
 const resumeSchema = createSelectSchema(schema.resume, {
 	id: z.string().describe("The ID of the resume."),
-	name: z.string().min(1).describe("The name of the resume."),
-	slug: z.string().min(1).describe("The slug of the resume."),
+	name: z.string().trim().min(1).describe("The name of the resume."),
+	slug: z.string().trim().min(1).describe("The slug of the resume."),
 	tags: z.array(z.string()).describe("The tags of the resume."),
 	isPublic: z.boolean().describe("Whether the resume is public."),
 	isLocked: z.boolean().describe("Whether the resume is locked."),
-	password: z.string().min(6).nullable().describe("The password of the resume, if any."),
+	password: z.string().trim().min(6).max(64).nullable().describe("The password of the resume, if any."),
 	data: resumeDataSchema,
 	userId: z.string().describe("The ID of the user who owns the resume."),
 	createdAt: z.date().describe("The date and time the resume was created."),

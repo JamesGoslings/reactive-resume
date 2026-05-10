@@ -50,6 +50,10 @@ describe("slugify", () => {
 	it("handles unicode emojis by stripping them", () => {
 		expect(slugify("Hello 🌍 World")).toBe("hello-world");
 	});
+
+	it("falls back to a non-empty slug for CJK input", () => {
+		expect(slugify("中文简历")).not.toBe("");
+	});
 });
 
 describe("getInitials", () => {

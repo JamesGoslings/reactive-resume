@@ -16,7 +16,9 @@ export function generateId() {
  * @returns The slugified value.
  */
 export function slugify(value: string) {
-	return _slugify(value, { decamelize: false });
+	const slug = _slugify(value, { decamelize: false });
+	if (slug || !value.trim()) return slug;
+	return slugify(generateRandomName());
 }
 
 /**
