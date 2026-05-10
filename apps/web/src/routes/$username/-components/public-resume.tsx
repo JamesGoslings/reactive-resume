@@ -45,6 +45,7 @@ export function PublicResumeRoute() {
 		<>
 			<div className="mx-auto my-12 flex flex-col items-center gap-12 print:m-0 print:block print:max-w-full print:px-0">
 				<ResumePreview
+					data={resume.data}
 					pageGap="1rem"
 					pageScale={1.25}
 					pageLayout="vertical"

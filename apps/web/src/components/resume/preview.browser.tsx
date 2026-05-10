@@ -6,7 +6,7 @@ import { cn } from "@reactive-resume/utils/style";
 import { useLocalizedResumeDocument } from "@/libs/resume/pdf-document";
 import { useResumeData } from "./builder-resume-draft";
 import { PdfCanvasDocument, PdfCanvasPage } from "./pdf-canvas";
-import { ResumePreviewLoader } from "./preview.shared";
+import { getResumePreviewPageCount, ResumePreviewLoader } from "./preview.shared";
 
 type PreviewPdf = {
 	file: Blob;
@@ -83,13 +83,15 @@ const removePreviewLayer = (layers: PreviewPdf[], layerId: number) => layers.fil
 
 export function ResumePreviewClient({
 	className,
+	data,
 	pageGap,
 	pageLayout,
 	pageScale,
 	pageClassName,
 	showPageNumbers,
 }: ResolvedResumePreviewProps) {
-	const resumeData = useResumeData();
+	const builderResumeData = useResumeData();
+	const resumeData = data ?? builderResumeData;
 	const resumeDocument = useLocalizedResumeDocument(resumeData);
 
 	const [previewLayers, setPreviewLayers] = useState<PreviewPdf[]>([]);
@@ -132,7 +134,18 @@ export function ResumePreviewClient({
 
 	const visiblePdf = getActivePreviewLayer(previewLayers);
 
-	if (!visiblePdf) return <ResumePreviewLoader />;
+	if (!visiblePdf) {
+		return (
+			<ResumePreviewLoader
+				pageCount={getResumePreviewPageCount(resumeData)}
+				pageClassName={pageClassName}
+				pageGap={pageGap}
+				pageLayout={pageLayout}
+				pageScale={pageScale}
+				showPageNumbers={showPageNumbers}
+			/>
+		);
+	}
 
 	return (
 		<div className={cn("grid", className)}>
