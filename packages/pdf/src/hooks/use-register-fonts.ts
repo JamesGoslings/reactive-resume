@@ -97,16 +97,19 @@ export const registerFonts = (typography: Typography): PdfTypography => {
 	}
 
 	// Register a CJK fallback so textkit can substitute per-codepoint for
-	// characters the primary font lacks (#2986). One weight is enough —
-	// substitution is per-codepoint, not per-weight.
+	// characters the primary font lacks (#2986). One weight per style is
+	// enough — substitution is per-codepoint, not per-weight.
 	const bodyCjkFallback = getPdfCjkFallbackFontFamily(bodyFontFamily);
 	const headingCjkFallback = getPdfCjkFallbackFontFamily(headingFontFamily);
 
 	if (bodyCjkFallback) {
 		registerFont(bodyCjkFallback, 400, false);
+		registerFont(bodyCjkFallback, 400, true);
 	}
+
 	if (headingCjkFallback && headingCjkFallback !== bodyCjkFallback) {
 		registerFont(headingCjkFallback, 400, false);
+		registerFont(headingCjkFallback, 400, true);
 	}
 
 	// Latin-only path: no fallback registered, return as-is.

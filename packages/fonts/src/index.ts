@@ -111,12 +111,6 @@ function unique<T>(items: T[]) {
 
 function orderFonts(fonts: FontRecord[]) {
 	return [...fonts].sort((a, b) => {
-		const aLabel = getFontDisplayName(a.family);
-		const bLabel = getFontDisplayName(b.family);
-		const labelComparison = aLabel.localeCompare(bLabel, undefined, { sensitivity: "base" });
-
-		if (labelComparison !== 0) return labelComparison;
-
 		return a.family.localeCompare(b.family, undefined, { sensitivity: "base" });
 	});
 }
@@ -174,7 +168,7 @@ export function getWebFontSource(family: string, weight: FontWeight = "400", ita
 	if (!webFont) return null;
 
 	const key = `${weight}${italic ? "italic" : ""}` as FontFileWeight;
-	return webFont.files[key] ?? webFont.preview;
+	return webFont.files[key] ?? (italic ? webFont.files[weight] : undefined) ?? webFont.preview;
 }
 
 export function getFallbackWebFontFamilies(family: string) {
@@ -187,15 +181,13 @@ export function getFallbackWebFontFamilies(family: string) {
 /**
  * Returns a CJK web font (Noto Sans/Serif SC) to register as a glyph-level
  * fallback for PDF rendering, or `null` when no fallback is needed
- * (standard PDF font, or primary already is the fallback).
+ * (primary already is the fallback).
  *
  * Source Han Sans/Serif SC covers all CJK-Unified ideographs, so a single
  * font handles Simplified/Traditional Chinese, Japanese kanji and Korean
  * hanja — the locales reporting #2986 / #3006.
  */
 export function getPdfCjkFallbackFontFamily(family: string): string | null {
-	if (isStandardPdfFontFamily(family)) return null;
-
 	const fallback = getPrimaryCjkWebFont(family);
 	if (fallback === family) return null;
 	if (!getWebFont(fallback)) return null;
