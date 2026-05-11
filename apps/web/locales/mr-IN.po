@@ -1034,6 +1034,10 @@ msgstr "डिस्कनेक्ट"
 msgid "Discord"
 msgstr "डिस्कॉर्ड"
 
+#: src/components/ui/donation-toast.tsx
+msgid "Dismiss"
+msgstr ""
+
 #: src/routes/_home/-sections/footer.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Documentation"
@@ -1042,6 +1046,10 @@ msgstr "दस्तऐवजीकरण"
 #: src/routes/auth/login.tsx
 msgid "Don't have an account? <0/>"
 msgstr "खाते नाही? <0/>"
+
+#: src/components/ui/donation-toast.tsx
+msgid "Donate"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
@@ -2320,6 +2328,10 @@ msgstr "कृपया पुढे जाण्यासाठी रेझ्
 msgid "Please enter the URL you want to link to:"
 msgstr "कृपया तुम्हाला ज्या URL ला लिंक करायचे आहे ती URL टाका:"
 
+#: src/components/ui/donation-toast.tsx
+msgid "Please support the project"
+msgstr ""
+
 #: src/routes/$username/-components/public-resume.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
@@ -2457,6 +2469,10 @@ msgstr "Reactive Resume हा मोफत आणि मुक्त-स्र�
 #: src/routes/_home/-sections/hero.tsx
 msgid "Reactive Resume is a free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume."
 msgstr "Reactive Resume हा मोफत आणि मुक्त-स्रोत रेझ्युमे बिल्डर आहे, जो तुमचा रेझ्युमे तयार करणे, अपडेट करणे आणि शेअर करणे हा प्रोसेस सोपा करतो."
+
+#: src/components/ui/donation-toast.tsx
+msgid "Reactive Resume is free and open source. If it has helped you, please consider donating."
+msgstr ""
 
 #: src/routes/_home/-sections/faq.tsx
 msgid "Reactive Resume is open-source, privacy-focused, and completely free. Unlike other resume builders, it doesn't show ads, track your data, or limit your features behind a paywall."
@@ -3666,4 +3682,3 @@ msgstr "बाहेर झूम करा"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "झुलू"
-

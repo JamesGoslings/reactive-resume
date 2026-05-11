@@ -1034,6 +1034,10 @@ msgstr "Від'єднати"
 msgid "Discord"
 msgstr "Discord"
 
+#: src/components/ui/donation-toast.tsx
+msgid "Dismiss"
+msgstr ""
+
 #: src/routes/_home/-sections/footer.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Documentation"
@@ -1042,6 +1046,10 @@ msgstr "Документація"
 #: src/routes/auth/login.tsx
 msgid "Don't have an account? <0/>"
 msgstr "Немає облікового запису? <0/>"
+
+#: src/components/ui/donation-toast.tsx
+msgid "Donate"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
@@ -2320,6 +2328,10 @@ msgstr "Будь ласка, введіть пароль, яким з вами �
 msgid "Please enter the URL you want to link to:"
 msgstr "Будь ласка, введіть URL-адресу, на яку хочете зробити посилання:"
 
+#: src/components/ui/donation-toast.tsx
+msgid "Please support the project"
+msgstr ""
+
 #: src/routes/$username/-components/public-resume.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
@@ -2457,6 +2469,10 @@ msgstr "Reactive Resume — це безкоштовний проєкт з від
 #: src/routes/_home/-sections/hero.tsx
 msgid "Reactive Resume is a free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume."
 msgstr "Reactive Resume — це безкоштовний та відкритий конструктор резюме, що спрощує процес створення, оновлення й поширення вашого резюме."
+
+#: src/components/ui/donation-toast.tsx
+msgid "Reactive Resume is free and open source. If it has helped you, please consider donating."
+msgstr ""
 
 #: src/routes/_home/-sections/faq.tsx
 msgid "Reactive Resume is open-source, privacy-focused, and completely free. Unlike other resume builders, it doesn't show ads, track your data, or limit your features behind a paywall."
@@ -3666,4 +3682,3 @@ msgstr "Зменшити"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Зулу"
-
