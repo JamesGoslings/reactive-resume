@@ -106,5 +106,3 @@ export function useCookie(
 
 	return [value, updateCookie, deleteCookie] as const;
 }
-
-export default useCookie;
