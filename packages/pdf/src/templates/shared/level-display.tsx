@@ -10,7 +10,7 @@ import { composeStyles } from "./styles";
 export const LevelDisplay = ({ level }: { level: number }) => {
 	const data = useRender();
 	const levelDesign = data.metadata.design.level;
-	const iconSize = data.metadata.typography.body.fontSize - 4;
+	const iconSize = data.metadata.typography.body.fontSize - 2;
 	const metrics = getTemplateMetrics(data.metadata.page);
 	const iconProps = useTemplateIconSlot("icon");
 	const levelContainerStyle = useTemplateStyle("levelContainer");

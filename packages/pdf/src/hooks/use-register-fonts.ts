@@ -1,7 +1,8 @@
 import type { FontWeight } from "@reactive-resume/fonts";
-import type { Typography } from "@reactive-resume/schema/resume/data";
+import type { ResumeData, Typography } from "@reactive-resume/schema/resume/data";
+import type { Locale } from "@reactive-resume/utils/locale";
 import { Font } from "@react-pdf/renderer";
-import { all as cjk } from "cjk-regex";
+import { letters as cjkLetters } from "cjk-regex";
 import {
 	getFont,
 	getPdfCjkFallbackFontFamily,
@@ -9,6 +10,7 @@ import {
 	isStandardPdfFontFamily,
 	sortFontWeights,
 } from "@reactive-resume/fonts";
+import { isCJKLocale } from "@reactive-resume/utils/locale";
 
 type FontWeightRange = {
 	lowest: number;
@@ -17,6 +19,7 @@ type FontWeightRange = {
 
 const registeredFontVariants = new Set<string>();
 const fallbackFontFamily = "IBM Plex Serif";
+const cjkLetterRegex = cjkLetters().toRegExp();
 
 // `fontFamily` is widened to `string | string[]` so react-pdf can do
 // glyph-level font fallback for CJK characters (#2986).
@@ -65,9 +68,32 @@ const resolvePdfTypography = (typography: Typography): Typography => {
 	};
 };
 
-export const registerFonts = (typography: Typography): PdfTypography => {
+const containsCjkLetters = (value: unknown): boolean => {
+	if (typeof value === "string") return cjkLetterRegex.test(value);
+	if (!value || typeof value !== "object") return false;
+	if (Array.isArray(value)) return value.some(containsCjkLetters);
+
+	return Object.values(value as Record<string, unknown>).some(containsCjkLetters);
+};
+
+export const resumeContentContainsCJK = (data: ResumeData): boolean => {
+	return containsCjkLetters({
+		basics: data.basics,
+		summary: data.summary,
+		sections: data.sections,
+		customSections: data.customSections,
+	});
+};
+
+export const registerFonts = (typography: Typography, locale: Locale, hasCjkContent = false): PdfTypography => {
+	const needsCjkTextSupport = isCJKLocale(locale) || hasCjkContent;
+
 	Font.registerHyphenationCallback((word) => {
-		if (cjk().toRegExp().test(word)) return word.split("").flatMap((l) => [l, ""]);
+		if (needsCjkTextSupport) {
+			if (word === " ") return ["\u200C "];
+			return [...word].flatMap((l) => [l, ""]);
+		}
+
 		return [word];
 	});
 
@@ -102,8 +128,8 @@ export const registerFonts = (typography: Typography): PdfTypography => {
 	// Register a CJK fallback so textkit can substitute per-codepoint for
 	// characters the primary font lacks (#2986). One weight per style is
 	// enough — substitution is per-codepoint, not per-weight.
-	const bodyCjkFallback = getPdfCjkFallbackFontFamily(bodyFontFamily);
-	const headingCjkFallback = getPdfCjkFallbackFontFamily(headingFontFamily);
+	const bodyCjkFallback = needsCjkTextSupport ? getPdfCjkFallbackFontFamily(bodyFontFamily) : null;
+	const headingCjkFallback = needsCjkTextSupport ? getPdfCjkFallbackFontFamily(headingFontFamily) : null;
 
 	if (bodyCjkFallback) {
 		registerFont(bodyCjkFallback, 400, false);
@@ -126,7 +152,6 @@ export const registerFonts = (typography: Typography): PdfTypography => {
 		: headingFontFamily;
 
 	return {
-		...pdfTypography,
 		body: { ...pdfTypography.body, fontFamily: bodyStack },
 		heading: { ...pdfTypography.heading, fontFamily: headingStack },
 	};

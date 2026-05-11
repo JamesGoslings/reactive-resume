@@ -1,3 +1,4 @@
+import { unique } from "@reactive-resume/utils/field";
 import webFontListJSON from "./webfontlist.json";
 
 export type FontCategory = "display" | "handwriting" | "monospace" | "serif" | "sans-serif";
@@ -104,10 +105,6 @@ export const standardFontList = standardPdfFontList.filter((font) => !webFontMap
 
 const fontMap = new Map<string, FontRecord>();
 const chinesePrioritySet = new Set<string>(preferredChineseFontFamilies);
-
-function unique<T>(items: T[]) {
-	return items.filter((item, index) => items.indexOf(item) === index);
-}
 
 function orderFonts(fonts: FontRecord[]) {
 	return [...fonts].sort((a, b) => {

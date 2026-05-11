@@ -12,8 +12,8 @@ describe("isLocale", () => {
 		expect(isLocale("en-US")).toBe(true);
 	});
 
-	it("returns true for any non-empty string (no validation of locale shape)", () => {
-		expect(isLocale("xyz")).toBe(true);
+	it("returns false for unsupported locale string", () => {
+		expect(isLocale("xyz")).toBe(false);
 	});
 
 	it("returns false for empty string", () => {

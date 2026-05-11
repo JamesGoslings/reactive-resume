@@ -1,5 +1,5 @@
+import type { Locale } from "@reactive-resume/utils/locale";
 import type { SingleComboboxProps } from "@/components/ui/combobox";
-import type { Locale } from "@/libs/locale";
 import { i18n } from "@lingui/core";
 import { useLingui } from "@lingui/react";
 import { Combobox } from "@/components/ui/combobox";

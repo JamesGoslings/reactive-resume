@@ -32,7 +32,7 @@
 		"@reactive-resume/env": "workspace:*",
 		"@reactive-resume/schema": "workspace:*",
 		"@reactive-resume/utils": "workspace:*",
-		"@tanstack/react-start": "^1.167.65",
+		"@tanstack/react-start": "^1.167.71",
 		"ai": "^6.0.177",
 		"bcrypt": "^6.0.0",
 		"better-auth": "1.6.10",
@@ -48,7 +48,7 @@
 	"devDependencies": {
 		"@reactive-resume/config": "workspace:*",
 		"@types/bcrypt": "^6.0.0",
-		"@typescript/native-preview": "7.0.0-dev.20260510.1",
+		"@typescript/native-preview": "7.0.0-dev.20260511.1",
 		"typescript": "^6.0.3"
 	}
 }

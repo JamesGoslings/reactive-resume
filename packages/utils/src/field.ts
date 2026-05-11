@@ -22,3 +22,7 @@ export function filterFieldValues<TKey extends string, TField extends KeyedField
 	const filteredFields = fields.filter((field) => Boolean(values[field.key]?.trim()));
 	return new Map(filteredFields.map((field) => [field.key, field] as const));
 }
+
+export function unique<T>(items: T[]) {
+	return items.filter((item, index) => items.indexOf(item) === index);
+}

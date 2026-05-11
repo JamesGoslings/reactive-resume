@@ -1,8 +1,8 @@
 import type { IconProps } from "@phosphor-icons/react";
 import type { FeatureFlags } from "@reactive-resume/api/services/flags";
 import type { AuthSession } from "@reactive-resume/auth/types";
+import type { Locale } from "@reactive-resume/utils/locale";
 import type { QueryClient } from "@tanstack/react-query";
-import type { Locale } from "@/libs/locale";
 import type { orpc } from "@/libs/orpc/client";
 import type { Theme } from "@/libs/theme";
 import { i18n } from "@lingui/core";

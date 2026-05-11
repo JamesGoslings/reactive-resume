@@ -1,11 +1,12 @@
 import type { LayoutPage, ResumeData, Typography } from "@reactive-resume/schema/resume/data";
 import type { Template } from "@reactive-resume/schema/templates";
+import type { Locale } from "@reactive-resume/utils/locale";
 import type { ComponentType } from "react";
 import type { SectionTitleResolver } from "./section-title";
 import { Document } from "@react-pdf/renderer";
 import { useMemo } from "react";
 import { RenderProvider } from "./context";
-import { registerFonts } from "./hooks/use-register-fonts";
+import { registerFonts, resumeContentContainsCJK } from "./hooks/use-register-fonts";
 import { getTemplatePage } from "./templates";
 
 export type TemplatePageProps = {
@@ -23,7 +24,12 @@ export type ResumeDocumentProps = {
 
 export const ResumeDocument = ({ data, template, resolveSectionTitle }: ResumeDocumentProps) => {
 	const TemplatePageComponent = getTemplatePage(template);
-	const typography = registerFonts(data.metadata.typography) as Typography;
+	const hasCjkContent = useMemo(() => resumeContentContainsCJK(data), [data]);
+	const typography = registerFonts(
+		data.metadata.typography,
+		data.metadata.page.locale as Locale,
+		hasCjkContent,
+	) as Typography;
 
 	// `registerFonts` widens `fontFamily` to `string | string[]` for CJK
 	// fallback (#2986); the cast carries that wider runtime value through
@@ -33,9 +39,14 @@ export const ResumeDocument = ({ data, template, resolveSectionTitle }: ResumeDo
 	return (
 		<RenderProvider data={resumeData} resolveSectionTitle={resolveSectionTitle}>
 			<Document
-				title={`${resumeData.basics.name} Resume`}
+				pageMode="useNone"
+				creationDate={new Date()}
+				producer="Reactive Resume"
+				title={resumeData.basics.name}
 				author={resumeData.basics.name}
+				creator={resumeData.basics.name}
 				subject={resumeData.basics.headline}
+				language={resumeData.metadata.page.locale}
 			>
 				{resumeData.metadata.layout.pages.map((page, index) => (
 					<TemplatePageComponent key={index} page={page} pageIndex={index} />
