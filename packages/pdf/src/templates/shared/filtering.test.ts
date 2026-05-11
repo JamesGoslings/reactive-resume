@@ -27,6 +27,38 @@ describe("filterItems", () => {
 		const items = [{ hidden: false, name: "Alice", level: 4 }];
 		expect(filterItems(items)).toEqual([{ hidden: false, name: "Alice", level: 4 }]);
 	});
+
+	it("filters items with invalid primary titles when a section type is provided", () => {
+		const items = [
+			{ hidden: false, company: "   ", position: "Engineer" },
+			{ hidden: false, company: "Acme", position: "Engineer" },
+			{ hidden: false, company: "\n\t", position: "Manager" },
+		];
+
+		expect(filterItems(items, "experience")).toEqual([{ hidden: false, company: "Acme", position: "Engineer" }]);
+	});
+
+	it("filters invalid experience roles by position", () => {
+		const items = [
+			{
+				hidden: false,
+				company: "Acme",
+				roles: [
+					{ id: "role-1", position: "   ", period: "2020", description: "" },
+					{ id: "role-2", position: "Lead Engineer", period: "2021", description: "" },
+					{ id: "role-3", position: "\n", period: "2022", description: "" },
+				],
+			},
+		];
+
+		expect(filterItems(items, "experience")).toEqual([
+			{
+				hidden: false,
+				company: "Acme",
+				roles: [{ id: "role-2", position: "Lead Engineer", period: "2021", description: "" }],
+			},
+		]);
+	});
 });
 
 describe("hasVisibleItems", () => {
@@ -44,6 +76,10 @@ describe("hasVisibleItems", () => {
 
 	it("returns false for empty items", () => {
 		expect(hasVisibleItems({ hidden: false, items: [] })).toBe(false);
+	});
+
+	it("returns false when all items have invalid primary titles", () => {
+		expect(hasVisibleItems({ hidden: false, items: [{ hidden: false, school: " " }] }, "education")).toBe(false);
 	});
 });
 
@@ -69,7 +105,7 @@ describe("isSectionVisible", () => {
 	const data = {
 		summary: { hidden: false, content: "<p>Hi</p>" },
 		sections: {
-			experience: { hidden: false, items: [{ hidden: false }] },
+			experience: { hidden: false, items: [{ hidden: false, company: "Acme" }] },
 			skills: { hidden: false, items: [] },
 			education: { hidden: true, items: [{ hidden: false }] },
 		},
@@ -88,6 +124,15 @@ describe("isSectionVisible", () => {
 		expect(isSectionVisible("experience", data)).toBe(true);
 	});
 
+	it("returns false for built-in section when all items have invalid primary titles", () => {
+		expect(
+			isSectionVisible("experience", {
+				...data,
+				sections: { experience: { hidden: false, items: [{ hidden: false, company: "  " }] } },
+			}),
+		).toBe(false);
+	});
+
 	it("returns false for built-in section with no items", () => {
 		expect(isSectionVisible("skills", data)).toBe(false);
 	});
@@ -100,6 +145,17 @@ describe("isSectionVisible", () => {
 		expect(isSectionVisible("ext-1", data)).toBe(true);
 	});
 
+	it("uses custom section type to validate item primary titles", () => {
+		expect(
+			isSectionVisible("ext-education", {
+				...data,
+				customSections: [
+					{ id: "ext-education", type: "education", hidden: false, items: [{ hidden: false, school: "" }] },
+				],
+			}),
+		).toBe(false);
+	});
+
 	it("returns false for unknown section id", () => {
 		expect(isSectionVisible("does-not-exist", data)).toBe(false);
 	});
@@ -109,7 +165,7 @@ describe("filterSections", () => {
 	const data = {
 		summary: { hidden: false, content: "<p>Hi</p>" },
 		sections: {
-			experience: { hidden: false, items: [{ hidden: false }] },
+			experience: { hidden: false, items: [{ hidden: false, company: "Acme" }] },
 			skills: { hidden: false, items: [] },
 		},
 		customSections: [],

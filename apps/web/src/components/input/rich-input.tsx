@@ -104,8 +104,6 @@ export function RichInput({ value, onChange, style, className, editorClassName, 
 	const textDirection = isRTL(i18n.locale) ? "rtl" : undefined;
 	const [isFullscreen, setIsFullscreen] = useState(false);
 
-	console.log(value);
-
 	const editor = useEditor({
 		...options,
 		extensions,

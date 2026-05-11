@@ -51,10 +51,10 @@ const SectionItemsContext = createContext<SectionItemsContextValue>({ itemStyle:
 
 const useSectionItemsContext = () => useContext(SectionItemsContext);
 
-const getVisibleItems = <T extends { hidden: boolean }>(section: ItemSection<T>): T[] => {
-	if (!hasVisibleItems(section)) return [];
+const getVisibleItems = <T extends { hidden: boolean }>(section: ItemSection<T>, sectionType?: string): T[] => {
+	if (!hasVisibleItems(section, sectionType)) return [];
 
-	return filterItems(section.items);
+	return filterItems(section.items, sectionType);
 };
 
 const SectionShell = ({
@@ -285,7 +285,7 @@ const ProfileSection = ({
 } = {}) => {
 	const data = useRender();
 	const profiles = sectionData ?? data.sections.profiles;
-	const items = getVisibleItems(profiles);
+	const items = getVisibleItems(profiles, "profiles");
 	const inlineStyle = useTemplateStyle("inline");
 
 	if (items.length === 0) return null;
@@ -318,7 +318,7 @@ const ExperienceSection = ({
 } = {}) => {
 	const data = useRender();
 	const experience = sectionData ?? data.sections.experience;
-	const items = getVisibleItems(experience);
+	const items = getVisibleItems(experience, "experience");
 	const splitRowStyle = useSectionSplitRowStyle();
 	const alignRightStyle = useTemplateStyle("alignRight");
 	const inlineItemHeader = useTemplateFeature("inlineItemHeader");
@@ -400,7 +400,7 @@ const EducationSection = ({
 } = {}) => {
 	const data = useRender();
 	const education = sectionData ?? data.sections.education;
-	const items = getVisibleItems(education);
+	const items = getVisibleItems(education, "education");
 	const splitRowStyle = useSectionSplitRowStyle();
 	const alignRightStyle = useTemplateStyle("alignRight");
 	const inlineItemHeader = useTemplateFeature("inlineItemHeader");
@@ -474,7 +474,7 @@ const ProjectsSection = ({
 } = {}) => {
 	const data = useRender();
 	const projects = sectionData ?? data.sections.projects;
-	const items = getVisibleItems(projects);
+	const items = getVisibleItems(projects, "projects");
 	const splitRowStyle = useSectionSplitRowStyle();
 	const alignRightStyle = useTemplateStyle("alignRight");
 
@@ -511,7 +511,7 @@ const SkillsSection = ({
 } = {}) => {
 	const data = useRender();
 	const skills = sectionData ?? data.sections.skills;
-	const items = getVisibleItems(skills);
+	const items = getVisibleItems(skills, "skills");
 	const inlineStyle = useTemplateStyle("inline");
 	const metrics = getTemplateMetrics(data.metadata.page);
 
@@ -551,7 +551,7 @@ const LanguagesSection = ({
 } = {}) => {
 	const data = useRender();
 	const languages = sectionData ?? data.sections.languages;
-	const items = getVisibleItems(languages);
+	const items = getVisibleItems(languages, "languages");
 
 	if (items.length === 0) return null;
 
@@ -581,7 +581,7 @@ const InterestsSection = ({
 } = {}) => {
 	const data = useRender();
 	const interests = sectionData ?? data.sections.interests;
-	const items = getVisibleItems(interests);
+	const items = getVisibleItems(interests, "interests");
 	const inlineStyle = useTemplateStyle("inline");
 
 	if (items.length === 0) return null;
@@ -615,7 +615,7 @@ const AwardsSection = ({
 } = {}) => {
 	const data = useRender();
 	const awards = sectionData ?? data.sections.awards;
-	const items = getVisibleItems(awards);
+	const items = getVisibleItems(awards, "awards");
 	const splitRowStyle = useTemplateStyle("splitRow");
 	const alignRightStyle = useTemplateStyle("alignRight");
 
@@ -652,7 +652,7 @@ const CertificationsSection = ({
 } = {}) => {
 	const data = useRender();
 	const certifications = sectionData ?? data.sections.certifications;
-	const items = getVisibleItems(certifications);
+	const items = getVisibleItems(certifications, "certifications");
 
 	if (items.length === 0) return null;
 
@@ -685,7 +685,7 @@ const PublicationsSection = ({
 } = {}) => {
 	const data = useRender();
 	const publications = sectionData ?? data.sections.publications;
-	const items = getVisibleItems(publications);
+	const items = getVisibleItems(publications, "publications");
 
 	if (items.length === 0) return null;
 
@@ -718,7 +718,7 @@ const VolunteerSection = ({
 } = {}) => {
 	const data = useRender();
 	const volunteer = sectionData ?? data.sections.volunteer;
-	const items = getVisibleItems(volunteer);
+	const items = getVisibleItems(volunteer, "volunteer");
 	const splitRowStyle = useSectionSplitRowStyle();
 	const alignRightStyle = useTemplateStyle("alignRight");
 	const inlineItemHeader = useTemplateFeature("inlineItemHeader");
@@ -767,7 +767,7 @@ const ReferencesSection = ({
 } = {}) => {
 	const data = useRender();
 	const references = sectionData ?? data.sections.references;
-	const items = getVisibleItems(references);
+	const items = getVisibleItems(references, "references");
 
 	if (items.length === 0) return null;
 
