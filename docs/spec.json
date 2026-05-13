@@ -1533,7 +1533,8 @@
 									"meowth",
 									"onyx",
 									"pikachu",
-									"rhyhorn"
+									"rhyhorn",
+									"scizor"
 								],
 								"type": "string",
 								"description": "The template to use for the resume. Determines the overall design and appearance of the resume."

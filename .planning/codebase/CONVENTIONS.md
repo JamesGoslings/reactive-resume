@@ -147,7 +147,7 @@ When changing resume data shape, propagate in this order (per `AGENTS.md`):
 1. **`packages/schema/src/resume/*.ts`** — Zod schemas and types (entry point).
 2. **`packages/api/src/dto/*.ts`** — API DTOs that re-use those schemas.
 3. **`packages/import/src/*.tsx`** — importers (`json-resume`, `reactive-resume-json`, `reactive-resume-v4-json`).
-4. **`packages/pdf/src/templates/**`** — PDF rendering for every template (`azurill`, `bronzor`, `chikorita`, `ditgar`, `ditto`, `gengar`, `glalie`, `kakuna`, `lapras`, `leafish`, `meowth`, `onyx`, `pikachu`, `rhyhorn`). Shared filtering: `packages/pdf/src/templates/shared/filtering.ts`.
+4. **`packages/pdf/src/templates/**`** — PDF rendering for every template (`azurill`, `bronzor`, `chikorita`, `ditgar`, `ditto`, `gengar`, `glalie`, `kakuna`, `lapras`, `leafish`, `meowth`, `onyx`, `pikachu`, `rhyhorn`, `scizor`). Shared filtering: `packages/pdf/src/templates/shared/filtering.ts`.
 5. **`apps/web/src/`** — builder forms and any consumer hooks.
 
 Adding/renaming a template requires changes in `packages/schema/src/templates.ts`, `packages/pdf/src/templates/index.ts`, the template directory `packages/pdf/src/templates/<name>/`, and static previews under `apps/web/public/templates/{jpg,pdf}/`.

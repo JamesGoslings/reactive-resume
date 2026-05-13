@@ -53,6 +53,7 @@ body:
         - Onyx
         - Pikachu
         - Rhyhorn
+        - Scizor
     validations:
       required: false
 

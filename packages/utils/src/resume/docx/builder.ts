@@ -1,4 +1,5 @@
 import type { ResumeData, SectionType } from "@reactive-resume/schema/resume/data";
+import type { Template } from "@reactive-resume/schema/templates";
 import {
 	BorderStyle,
 	convertMillimetersToTwip,
@@ -76,14 +77,14 @@ const NO_BORDERS = {
 
 interface TemplateConfig {
 	/** Which side the sidebar appears on */
-	sidebarSide: "left" | "right";
+	sidebarSide: "left" | "right" | "none";
 	/** Sidebar background: "solid" = full primary color, "tint" = 20% opacity, "none" = no background */
 	sidebarBackground: "solid" | "tint" | "none";
 	/** Where the header is rendered */
 	headerPosition: "full-width" | "main-only" | "sidebar-only";
 }
 
-const TEMPLATE_CONFIGS: Record<string, TemplateConfig> = {
+const TEMPLATE_CONFIGS: Record<Template, TemplateConfig> = {
 	azurill: { sidebarSide: "left", sidebarBackground: "none", headerPosition: "full-width" },
 	bronzor: { sidebarSide: "right", sidebarBackground: "none", headerPosition: "full-width" },
 	chikorita: { sidebarSide: "right", sidebarBackground: "solid", headerPosition: "main-only" },
@@ -94,9 +95,11 @@ const TEMPLATE_CONFIGS: Record<string, TemplateConfig> = {
 	kakuna: { sidebarSide: "right", sidebarBackground: "none", headerPosition: "full-width" },
 	lapras: { sidebarSide: "right", sidebarBackground: "none", headerPosition: "full-width" },
 	leafish: { sidebarSide: "right", sidebarBackground: "none", headerPosition: "full-width" },
+	meowth: { sidebarSide: "left", sidebarBackground: "none", headerPosition: "full-width" },
 	onyx: { sidebarSide: "right", sidebarBackground: "none", headerPosition: "full-width" },
 	pikachu: { sidebarSide: "left", sidebarBackground: "none", headerPosition: "main-only" },
 	rhyhorn: { sidebarSide: "right", sidebarBackground: "none", headerPosition: "full-width" },
+	scizor: { sidebarSide: "left", sidebarBackground: "none", headerPosition: "full-width" },
 };
 
 const DEFAULT_TEMPLATE_CONFIG: TemplateConfig = {
@@ -301,7 +304,7 @@ function buildTwoColumnTable(
 	sidebarParagraphs: Paragraph[],
 	sidebarWidthPct: number,
 	gapXTwips: number,
-	sidebarSide: "left" | "right",
+	sidebarSide: "left" | "right" | "none",
 	sidebarShadingHex?: string,
 ): Table {
 	const mainWidthPct = 100 - sidebarWidthPct;
@@ -314,10 +317,18 @@ function buildTwoColumnTable(
 		? { fill: sidebarShadingHex, type: ShadingType.CLEAR, color: "auto" }
 		: undefined;
 
+	const margins: { right?: number; left?: number } = {};
+
+	if (sidebarSide === "left") {
+		margins.right = gapXTwips;
+	} else if (sidebarSide === "right") {
+		margins.left = gapXTwips;
+	}
+
 	const sidebarCell = new TableCell({
 		width: { size: sidebarWidthPct, type: WidthType.PERCENTAGE },
 		borders: NO_BORDERS,
-		margins: sidebarSide === "left" ? { right: gapXTwips } : { left: gapXTwips },
+		margins,
 		children: sidebarChildren,
 		...(sidebarShading ? { shading: sidebarShading } : {}),
 	});
@@ -325,7 +336,7 @@ function buildTwoColumnTable(
 	const mainCell = new TableCell({
 		width: { size: mainWidthPct, type: WidthType.PERCENTAGE },
 		borders: NO_BORDERS,
-		margins: sidebarSide === "left" ? { left: gapXTwips } : { right: gapXTwips },
+		margins,
 		children: mainChildren,
 	});
 

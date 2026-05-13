@@ -130,6 +130,10 @@ Built with privacy as a core principle, Reactive Resume gives you complete owner
       <img src="apps/web/public/templates/jpg/meowth.jpg" alt="Meowth" width="150" />
       <br /><sub><b>Meowth</b></sub>
     </td>
+    <td align="center">
+      <img src="apps/web/public/templates/jpg/scizor.jpg" alt="Scizor" width="150" />
+      <br /><sub><b>Scizor</b></sub>
+    </td>
   </tr>
 </table>
 
