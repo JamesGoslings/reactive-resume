@@ -25,14 +25,14 @@
 		"@reactive-resume/env": "workspace:*",
 		"@reactive-resume/schema": "workspace:*",
 		"@reactive-resume/utils": "workspace:*",
-		"drizzle-orm": "1.0.0-beta.22",
+		"drizzle-orm": "1.0.0-rc.2",
 		"pg": "^8.20.0"
 	},
 	"devDependencies": {
 		"@reactive-resume/config": "workspace:*",
 		"@types/pg": "^8.20.0",
-		"@typescript/native-preview": "7.0.0-dev.20260512.1",
-		"drizzle-kit": "1.0.0-beta.22",
+		"@typescript/native-preview": "7.0.0-dev.20260513.1",
+		"drizzle-kit": "1.0.0-rc.2",
 		"typescript": "^6.0.3"
 	}
 }

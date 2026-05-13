@@ -58,9 +58,10 @@ services:
         condition: service_healthy
 
   reactive_resume:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/amruthpillai/reactive-resume:latest
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
     networks:
       - data_network
       - storage_network
@@ -79,6 +80,8 @@ services:
       - ./data:/app/data
     depends_on:
       postgres:
+        condition: service_healthy
+      seaweedfs:
         condition: service_healthy
       seaweedfs_create_bucket:
         condition: service_completed_successfully

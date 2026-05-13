@@ -3,11 +3,10 @@ import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 import { env } from "@reactive-resume/env/server";
 import { relations } from "./relations";
-import * as schema from "./schema";
 
 declare global {
 	var __pool: Pool | undefined;
-	var __drizzle: NodePgDatabase<typeof schema> | undefined;
+	var __drizzle: NodePgDatabase<typeof relations> | undefined;
 }
 
 export function getPool() {
@@ -18,8 +17,7 @@ export function getPool() {
 }
 
 function makeDrizzleClient() {
-	const pool = getPool();
-	return drizzle({ client: pool, schema, relations });
+	return drizzle({ client: getPool(), relations });
 }
 
 export function createDatabase() {

@@ -110,7 +110,6 @@ const useScizorTemplate = (): ScizorTemplate => {
 		const background = rgbaStringToHex(metadata.design.colors.background);
 		const primary = rgbaStringToHex(metadata.design.colors.primary);
 		const divider = "#D8DCE2";
-		const muted = "#536174";
 		const colors: TemplateColorRoles = { foreground, background, primary };
 		const metrics = getTemplateMetrics(metadata.page);
 		const bodyText = {
@@ -118,7 +117,7 @@ const useScizorTemplate = (): ScizorTemplate => {
 			fontSize: metadata.typography.body.fontSize,
 			fontWeight: metadata.typography.body.fontWeights[0] ?? "400",
 			lineHeight: metadata.typography.body.lineHeight,
-			color: muted,
+			color: foreground,
 		} satisfies Style;
 
 		const baseStyles = StyleSheet.create({
@@ -144,7 +143,7 @@ const useScizorTemplate = (): ScizorTemplate => {
 			},
 			div: { rowGap: metrics.gapY(0.125), columnGap: metrics.gapX(1 / 3) },
 			inline: { flexDirection: "row", alignItems: "center", columnGap: metrics.gapX(1 / 3) },
-			link: { textDecoration: "none", color: muted },
+			link: { textDecoration: "none", color: foreground },
 			small: { fontSize: metadata.typography.body.fontSize * 0.875 },
 			bold: { fontWeight: metadata.typography.body.fontWeights.at(-1) ?? "700", color: foreground },
 			richParagraph: { margin: 0, ...bodyText },
@@ -194,7 +193,7 @@ const useScizorTemplate = (): ScizorTemplate => {
 				borderBottomWidth: 2,
 				borderBottomColor: divider,
 			},
-			headerHeadline: { color: muted },
+			headerHeadline: { color: foreground },
 			headerContactRow: {
 				flexDirection: "row",
 				flexWrap: "wrap",
@@ -205,7 +204,7 @@ const useScizorTemplate = (): ScizorTemplate => {
 				flexDirection: "row",
 				alignItems: "center",
 				columnGap: metrics.gapX(1 / 6),
-				color: muted,
+				color: foreground,
 			},
 			picture: {
 				width: picture.size,
