@@ -264,7 +264,7 @@ describe("legacy font compatibility (#2989)", () => {
 		["Times New Roman", "Tinos"],
 		["Arial", "Arimo"],
 		["Garamond", "EB Garamond"],
-		["Calibri", "Source Sans 3"],
+		["Calibri", "Carlito"],
 		["Cambria", "Tinos"],
 	])("aliases %s → %s", (legacy, target) => {
 		expect(resolveLegacyFontAlias(legacy)).toBe(target);
@@ -277,7 +277,7 @@ describe("legacy font compatibility (#2989)", () => {
 	});
 
 	it("every alias target is actually registered as a known font", () => {
-		const aliasTargets = ["Tinos", "Arimo", "EB Garamond", "Source Sans 3"];
+		const aliasTargets = ["Tinos", "Arimo", "EB Garamond", "Carlito"];
 		for (const target of aliasTargets) {
 			expect(getFont(target), `alias target ${target} must be a known font`).toBeDefined();
 		}

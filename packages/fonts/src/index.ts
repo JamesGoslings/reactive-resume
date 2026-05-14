@@ -130,7 +130,7 @@ for (const font of fontList) {
 const legacyFontAliases: Record<string, string> = {
 	Arial: "Arimo",
 	Cambria: "Tinos",
-	Calibri: "Source Sans 3",
+	Calibri: "Carlito",
 	Garamond: "EB Garamond",
 	"Times New Roman": "Tinos",
 };
