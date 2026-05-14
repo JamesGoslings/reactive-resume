@@ -1,6 +1,6 @@
 import { lookup } from "node:dns/promises";
 import { Readability } from "@mozilla/readability";
-import { JSDOM } from "jsdom";
+import { parseHTML } from "linkedom";
 import { Agent, fetch as undiciFetch } from "undici";
 import { env } from "@reactive-resume/env/server";
 import { isPrivateOrLoopbackHost } from "@reactive-resume/utils/url-security.node";
@@ -41,21 +41,22 @@ function compactText(value: string) {
 }
 
 function extractReadableHtml(html: string, url: string) {
-	const dom = new JSDOM(html, { url });
+	const { document } = parseHTML(html);
 
-	try {
-		const article = new Readability(dom.window.document).parse();
-		const content = compactText(article?.textContent ?? "");
+	Object.defineProperties(document, {
+		baseURI: { value: url },
+		documentURI: { value: url },
+	});
 
-		if (content.length < 160) throw new Error("URL_READABILITY_FAILED");
+	const article = new Readability(document).parse();
+	const content = compactText(article?.textContent ?? "");
 
-		return {
-			title: article?.title ? compactText(article.title) : null,
-			content,
-		};
-	} finally {
-		dom.window.close();
-	}
+	if (content.length < 160) throw new Error("URL_READABILITY_FAILED");
+
+	return {
+		title: article?.title ? compactText(article.title) : null,
+		content,
+	};
 }
 
 async function readLimitedText(response: FetchResponse) {
