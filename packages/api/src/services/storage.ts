@@ -15,6 +15,7 @@ interface StorageWriteInput {
 	key: string;
 	data: Uint8Array;
 	contentType: string;
+	private?: boolean;
 }
 
 interface StorageReadResult {
@@ -135,7 +136,13 @@ class LocalStorageService implements StorageService {
 		}
 	}
 
-	async write({ key, data }: StorageWriteInput): Promise<void> {
+	async write({ key, data, private: isPrivate }: StorageWriteInput): Promise<void> {
+		if (isPrivate) {
+			throw new Error(
+				"Private storage writes are not supported by the local filesystem backend. Configure S3 to store private attachments.",
+			);
+		}
+
 		const fullPath = this.resolvePath(key);
 
 		await fs.mkdir(dirname(fullPath), { recursive: true });
@@ -258,13 +265,13 @@ class S3StorageService implements StorageService {
 		return response.Contents.map((object) => object.Key ?? "");
 	}
 
-	async write({ key, data, contentType }: StorageWriteInput): Promise<void> {
+	async write({ key, data, contentType, private: isPrivate }: StorageWriteInput): Promise<void> {
 		const client = await this.getClient();
 		const command = new PutObjectCommand({
 			Bucket: this.bucket,
 			Key: key,
 			Body: data,
-			ACL: "public-read",
+			ACL: isPrivate ? "private" : "public-read",
 			ContentType: contentType,
 		});
 

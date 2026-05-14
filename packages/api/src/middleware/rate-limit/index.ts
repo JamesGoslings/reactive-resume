@@ -44,9 +44,15 @@ function getInputKeyPart(input: unknown): string {
 	if (!input || typeof input !== "object") return "no-input";
 
 	const inputRecord = input as Record<string, unknown>;
-	const id = inputRecord.id;
 
-	if (typeof id === "string" && id.trim()) return id;
+	const fields = ["resumeId", "threadId", "conversationId", "messageId", "fileId", "id"] as const;
+	for (const field of fields) {
+		const value = inputRecord[field];
+		if (typeof value !== "string") continue;
+
+		const trimmedValue = value.trim();
+		if (trimmedValue) return `${field}:${trimmedValue}`;
+	}
 
 	const username = inputRecord.username;
 	const slug = inputRecord.slug;
@@ -87,9 +93,9 @@ export const pdfExportRateLimit = createRatelimitMiddleware<ContextWithHeaders, 
 	key: ({ context }, input) => `pdf-export:${getUserKey(context)}:${input.id}`,
 });
 
-export const aiRequestRateLimit = createRatelimitMiddleware<ContextWithHeaders, { provider: string }>({
+export const aiRequestRateLimit = createRatelimitMiddleware<ContextWithHeaders, unknown>({
 	limiter: productionLimiter(aiLimiter),
-	key: ({ context }, input) => `ai-request:${getUserKey(context)}:${input.provider}`,
+	key: ({ context }, input) => `ai-request:${getUserKey(context)}:${getInputKeyPart(input)}`,
 });
 
 export const jobsSearchRateLimit = createRatelimitMiddleware<ContextWithHeaders, { params: { query: string } }>({
