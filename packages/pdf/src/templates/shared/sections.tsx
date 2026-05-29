@@ -23,6 +23,7 @@ import { Children, createContext, isValidElement, use } from "react";
 import { match } from "ts-pattern";
 import { useRender } from "../../context";
 import { View } from "../../renderer";
+import { getResumeSectionIcon } from "../../section-icon";
 import { getResumeSectionTitle } from "../../section-title";
 import { getSectionItemRows, getSectionItemsLayout, shouldUseSectionTimeline } from "./columns";
 import { getWebsiteDisplayText } from "./contact";
@@ -36,7 +37,7 @@ import {
 import { filterItems, hasVisibleItems, isSectionVisible, isVisibleSummary } from "./filtering";
 import { LevelDisplay } from "./level-display";
 import { getTemplateMetrics } from "./metrics";
-import { Bold, Div, Heading, Icon, Link, Small, Text } from "./primitives";
+import { Bold, Div, Heading, Icon, Link, SectionHeadingIcon, Small, Text } from "./primitives";
 import { RichText } from "./rich-text";
 import { createRtlStyleHelpers } from "./rtl";
 import { getInlineItemWebsiteUrl, shouldRenderSeparateItemWebsite } from "./section-links";
@@ -57,6 +58,22 @@ const SECTION_ITEM_PLACEHOLDER_KEYS = [
 	"placeholder-5",
 	"placeholder-6",
 ] as const;
+
+const defaultSectionHeadingContainerStyle = {
+	flexDirection: "row",
+	alignItems: "center",
+	columnGap: 4,
+} satisfies Style;
+
+const noBorderStyle = {
+	borderWidth: 0,
+	borderTopWidth: 0,
+	borderBottomWidth: 0,
+	borderLeftWidth: 0,
+	borderRightWidth: 0,
+	paddingTop: 0,
+	paddingBottom: 0,
+} satisfies Style;
 
 const useSectionItemsContext = () => use(SectionItemsContext);
 
@@ -90,10 +107,28 @@ const SectionShell = ({
 	const sectionStyle = useTemplateStyle("section");
 	const sectionHeadingStyle = useTemplateStyle("sectionHeading");
 	const sectionTitle = getResumeSectionTitle(data, sectionId, title);
+	const sectionIcon = getResumeSectionIcon(data, sectionId);
+	const showIcon = Boolean(sectionIcon) && !data.metadata.page.hideSectionIcons;
 
+	if (!showIcon) {
+		// No icon: render heading exactly as before (no structural change)
+		return (
+			<View style={composeStyles(sectionStyle)}>
+				{showHeading && <Heading style={composeStyles(sectionHeadingStyle)}>{sectionTitle}</Heading>}
+				{children}
+			</View>
+		);
+	}
+
+	// With icon: wrap in a flex row container that inherits the heading's border/decoration
 	return (
 		<View style={composeStyles(sectionStyle)}>
-			{showHeading && <Heading style={composeStyles(sectionHeadingStyle)}>{sectionTitle}</Heading>}
+			{showHeading && (
+				<View style={composeStyles(sectionHeadingStyle, defaultSectionHeadingContainerStyle)}>
+					<SectionHeadingIcon name={sectionIcon as IconName} />
+					<Heading style={composeStyles(sectionHeadingStyle, noBorderStyle)}>{sectionTitle}</Heading>
+				</View>
+			)}
 			{children}
 		</View>
 	);
